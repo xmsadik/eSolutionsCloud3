@@ -1,0 +1,14 @@
+{
+  "name": "xmsadik-esolutionscloud3",
+  "version": "1.0.0",
+  "description": "xmsadik-eSolutionsCloud3",
+  "repositoryLayout": {
+    "formatVersion": 5,
+    "format": "json",
+    "objectStorage": "plain",
+    "metaInformation": ".gctsmetadata/",
+    "tableContent": "true",
+    "readableSource": "false",
+    "keepClient": "false"
+  }
+}

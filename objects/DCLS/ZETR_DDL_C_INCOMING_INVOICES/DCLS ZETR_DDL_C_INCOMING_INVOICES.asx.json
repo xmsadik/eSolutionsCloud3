@@ -1,0 +1,60 @@
+[
+ {
+  "table":"ACMDCLSRC",
+  "data":
+  [
+   {
+    "DCLNAME":"ZETR_DDL_C_INCOMING_INVOICES",
+    "AS4LOCAL":"A",
+    "AS4USER":"SAP_CUSTOMER",
+    "AS4DATE":"2024-05-05",
+    "AS4TIME":"10:40:42",
+    "SOURCE":"@EndUserText.label: 'Incoming Invoices'\r\n@MappingRole: true\r\ndefine role ZETR_DDL_C_INCOMING_INVOICES {\r\n    grant \r\n        select\r\n            on\r\n                zetr_ddl_i_incoming_invoices\r\n                    where\r\n                        (PurchasingGroup) = aspect pfcg_auth(M_BEST_EKG, EKGRP, actvt = '03');\r\n                        \r\n}",
+    "PARENTNAME":"",
+    "ABAP_LANGUAGE_VERSION":"5"
+   }
+  ]
+ },
+ {
+  "table":"ACMDCLSRCT",
+  "data":
+  [
+   {
+    "DCLNAME":"ZETR_DDL_C_INCOMING_INVOICES",
+    "DCLLANGUAGE":"E",
+    "AS4LOCAL":"A",
+    "DDTEXT":"Incoming Invoices"
+   }
+  ]
+ },
+ {
+  "table":"TADIR",
+  "data":
+  [
+   {
+    "PGMID":"R3TR",
+    "OBJECT":"DCLS",
+    "OBJ_NAME":"ZETR_DDL_C_INCOMING_INVOICES",
+    "KORRNUM":"",
+    "SRCSYSTEM":"...",
+    "AUTHOR":"SAP_CUSTOMER",
+    "SRCDEP":"",
+    "DEVCLASS":"ZETR0",
+    "GENFLAG":"",
+    "EDTFLAG":"",
+    "CPROJECT":" L",
+    "MASTERLANG":"E",
+    "VERSID":"",
+    "PAKNOCHECK":"",
+    "OBJSTABLTY":"",
+    "COMPONENT":"",
+    "CRELEASE":"",
+    "DELFLAG":"",
+    "TRANSLTTXT":"",
+    "CREATED_ON":"2024-05-05",
+    "CHECK_DATE":"2024-05-05",
+    "CHECK_CFG":""
+   }
+  ]
+ }
+]

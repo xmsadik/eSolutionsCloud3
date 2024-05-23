@@ -27,8 +27,8 @@
 
     CHECK rs_document IS NOT INITIAL.
     INSERT zetr_t_ogdlv FROM @rs_document.
-    DATA(ls_transport) = CORRESPONDING zetr_t_odth( rs_document ).
-    INSERT zetr_t_odth FROM @ls_transport.
+*    DATA(ls_transport) = CORRESPONDING zetr_t_odth( rs_document ).
+*    INSERT zetr_t_odth FROM @ls_transport.
     zcl_etr_regulative_log=>create_single_log( iv_log_code    = zcl_etr_regulative_log=>mc_log_codes-created
                                                iv_document_id = rs_document-docui ).
     COMMIT WORK AND WAIT.

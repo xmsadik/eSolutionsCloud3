@@ -40,7 +40,11 @@ authorization master ( instance )
   DeliveryAddressEMail,
   DeliveryAddressWebsite,
   PrintedDocumentDate,
-  PrintedDocumentNumber;
+  PrintedDocumentNumber,
+  StatusCode,
+  StatusDetail,
+  Response,
+  TRAStatusCode;
 
   mapping for zetr_t_ogdlv
     {
@@ -187,7 +191,7 @@ authorization dependent by _outgoingDeliveries
 //etag master <field_name>
 {
   update;
-//  delete;
+  //  delete;
 
   field ( readonly ) DocumentUUID;
 

@@ -2,8 +2,8 @@ managed implementation in class zbp_etr_ddl_i_outgoing_invoice unique;
 strict ( 1 );
 
 define behavior for zetr_ddl_i_outgoing_invoices alias OutgoingInvoices
-persistent table zetr_t_oginv
-//with unmanaged save
+//persistent table zetr_t_oginv
+with unmanaged save
 lock master
 authorization master ( global, instance )
 //etag master <field_name>

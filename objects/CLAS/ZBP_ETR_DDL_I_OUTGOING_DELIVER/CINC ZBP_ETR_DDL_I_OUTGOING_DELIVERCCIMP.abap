@@ -31,6 +31,11 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
         RESULT DATA(lt_deliveries)
         FAILED failed.
     CHECK lt_deliveries IS NOT INITIAL.
+    SELECT *
+      FROM zetr_t_usaut
+      FOR ALL ENTRIES IN @lt_deliveries
+      WHERE bukrs = @lt_deliveries-CompanyCode
+      INTO TABLE @DATA(lt_authorizations).
     result = VALUE #( FOR ls_delivery IN lt_deliveries
                       ( %tky = ls_delivery-%tky
                         %action-sendDeliveries = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
@@ -41,10 +46,10 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
                                                    THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
                         %action-statusUpdate = COND #( WHEN ls_delivery-statuscode = '' OR ls_delivery-statuscode = '2'
                                                    THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
-*                        %features-%update = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
-*                                                   THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
-*                        %features-%delete = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
-*                                                   THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
+                        %features-%update = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
+                                                   THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
+                        %features-%delete = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
+                                                   THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
                         %field-ProfileID = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
                                                      THEN if_abap_behv=>fc-f-read_only
                                                    ELSE if_abap_behv=>fc-f-mandatory  )
@@ -123,6 +128,18 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
                         %field-PrintedDocumentNumber = COND #( WHEN ls_delivery-statuscode <> '' AND ls_delivery-statuscode <> '2'
                                                      THEN if_abap_behv=>fc-f-read_only
                                                    ELSE if_abap_behv=>fc-f-unrestricted  )
+                        %field-StatusCode = COND #( WHEN line_exists( lt_authorizations[ bukrs = ls_delivery-CompanyCode ogdsc = abap_true ] )
+                                                     THEN if_abap_behv=>fc-f-unrestricted
+                                                   ELSE if_abap_behv=>fc-f-read_only  )
+                        %field-StatusDetail = COND #( WHEN line_exists( lt_authorizations[ bukrs = ls_delivery-CompanyCode ogdsc = abap_true ] )
+                                                     THEN if_abap_behv=>fc-f-unrestricted
+                                                   ELSE if_abap_behv=>fc-f-read_only  )
+                        %field-TRAStatusCode = COND #( WHEN line_exists( lt_authorizations[ bukrs = ls_delivery-CompanyCode ogdsc = abap_true ] )
+                                                     THEN if_abap_behv=>fc-f-unrestricted
+                                                   ELSE if_abap_behv=>fc-f-read_only  )
+                        %field-Response = COND #( WHEN line_exists( lt_authorizations[ bukrs = ls_delivery-CompanyCode ogdsc = abap_true ] )
+                                                     THEN if_abap_behv=>fc-f-unrestricted
+                                                   ELSE if_abap_behv=>fc-f-read_only  )
                       ) ).
   ENDMETHOD.
 

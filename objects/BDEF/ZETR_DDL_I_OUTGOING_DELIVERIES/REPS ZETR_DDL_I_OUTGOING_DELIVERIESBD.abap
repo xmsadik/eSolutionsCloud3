@@ -2,8 +2,8 @@ managed implementation in class zbp_etr_ddl_i_outgoing_deliver unique;
 strict ( 1 );
 
 define behavior for zetr_ddl_i_outgoing_deliveries alias OutgoingDeliveries
-persistent table zetr_t_ogdlv
-//with unmanaged save
+//persistent table zetr_t_ogdlv
+with unmanaged save
 lock master
 authorization master ( instance )
 //etag master <field_name>
@@ -97,7 +97,7 @@ authorization master ( instance )
   association _deliveryContents { create; }
   association _deliveryLogs { create; }
   association _deliveryTransporters { create; }
-  association _deliveryTransportHeader { create; }
+  association _deliveryTransportHeader { }
 
   action ( features : instance ) sendDeliveries result [1] $self;
   action ( features : instance ) archiveDeliveries result [1] $self;
@@ -187,7 +187,7 @@ authorization dependent by _outgoingDeliveries
 //etag master <field_name>
 {
   update;
-  delete;
+//  delete;
 
   field ( readonly ) DocumentUUID;
 

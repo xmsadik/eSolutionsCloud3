@@ -15,7 +15,7 @@ define behavior for zetr_ddl_p_outgoing_deliveries alias OutgoingDeliveries
   use association _deliveryContents { create; }
   use association _deliveryLogs { create; }
   use association _deliveryTransporters { create; }
-  use association _deliveryTransportHeader { create; }
+  use association _deliveryTransportHeader { }
 }
 
 define behavior for zetr_ddl_p_outgoing_delcont alias DeliveryContents
@@ -43,7 +43,7 @@ define behavior for zetr_ddl_p_outgoing_deltrns alias Transporters
 define behavior for zetr_ddl_p_outgoing_deltdat alias TransportHeader
 {
   use update;
-  use delete;
+//  use delete;
 
   use association _outgoingDeliveries;
 }

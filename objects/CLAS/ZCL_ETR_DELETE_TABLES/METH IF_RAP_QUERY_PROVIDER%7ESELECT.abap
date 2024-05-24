@@ -21,13 +21,16 @@
               lt_table_range = CORRESPONDING #( ls_filter-range ).
             WHEN 'TAXID'.
               lt_taxid_range = CORRESPONDING #( ls_filter-range ).
+            WHEN 'DOCUI'.
+              lt_docui_range = CORRESPONDING #( ls_filter-range ).
           ENDCASE.
         ENDLOOP.
 
         IF 'OGINV' IN lt_table_range.
           SELECT docui, bukrs, belnr, gjahr, 'OGINV' AS tabnm
             FROM zetr_t_oginv
-            WHERE bukrs IN @lt_bukrs_range
+            WHERE docui IN @lt_docui_range
+              AND bukrs IN @lt_bukrs_range
               AND belnr IN @lt_belnr_range
               AND gjahr IN @lt_gjahr_range
               AND taxid IN @lt_taxid_range
@@ -49,7 +52,7 @@
               AND belnr IN @lt_belnr_range
               AND gjahr IN @lt_gjahr_range
               AND taxid IN @lt_taxid_range
-            INTO TABLE @lt_output.
+            APPENDING TABLE @lt_output.
           IF sy-subrc = 0.
             lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_ogdlv
@@ -65,7 +68,7 @@
             WHERE docui IN @lt_docui_range
               AND bukrs IN @lt_bukrs_range
               AND taxid IN @lt_taxid_range
-            INTO CORRESPONDING FIELDS OF TABLE @lt_output.
+            APPENDING CORRESPONDING FIELDS OF TABLE @lt_output.
           IF sy-subrc = 0.
             lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_icinv
@@ -81,7 +84,7 @@
             WHERE docui IN @lt_docui_range
               AND bukrs IN @lt_bukrs_range
               AND taxid IN @lt_taxid_range
-            INTO CORRESPONDING FIELDS OF TABLE @lt_output.
+            APPENDING CORRESPONDING FIELDS OF TABLE @lt_output.
           IF sy-subrc = 0.
             lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_icdlv

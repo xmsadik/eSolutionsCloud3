@@ -35,15 +35,24 @@
         rs_status-dlvui = ls_document-dlvui.
       ENDIF.
 
-*      IF rs_status-resst = '1' AND ls_document_status-itmrs IS INITIAL.
-*        ls_document_numbers-ruuid = rs_status-ruuid.
-*        lv_response_ubl = lo_edelivery_service->outgoing_delivery_respdown( is_document_numbers = ls_document_numbers
-*                                                                            iv_content_type     = 'UBL' ).
-*        lv_delivery_ubl = lo_edelivery_service->outgoing_delivery_download( is_document_numbers = ls_document_numbers
-*                                                                            iv_content_type     = 'UBL' ).
-*        ls_document_status-itmrs = get_incoming_item_status_ubl( iv_response_ubl = lv_response_ubl
-*                                                                 iv_delivery_ubl = lv_delivery_ubl ).
-*      ENDIF.
+      IF rs_status-resst = '1' AND rs_status-itmrs IS INITIAL.
+        DATA(lv_response_ubl) = lo_edelivery_service->outgoing_delivery_respdown( is_document_numbers = VALUE #( docui = iv_document_uid
+                                                                                                                 docii = ls_document-dlvii
+                                                                                                                 duich = ls_document-dlvui
+                                                                                                                 docno = ls_document-dlvno
+                                                                                                                 envui = ls_document-envui
+                                                                                                                 ruuid = rs_status-ruuid )
+                                                                                  iv_content_type     = 'UBL' ).
+        DATA(lv_delivery_ubl) = lo_edelivery_service->outgoing_delivery_download( is_document_numbers = VALUE #( docui = iv_document_uid
+                                                                                                                 docii = ls_document-dlvii
+                                                                                                                 duich = ls_document-dlvui
+                                                                                                                 docno = ls_document-dlvno
+                                                                                                                 envui = ls_document-envui
+                                                                                                                 ruuid = rs_status-ruuid )
+                                                                                  iv_content_type     = 'UBL' ).
+        rs_status-itmrs = get_incoming_item_status_ubl( iv_response_ubl = lv_response_ubl
+                                                        iv_delivery_ubl = lv_delivery_ubl ).
+      ENDIF.
 
       IF rs_status-radsc IS NOT INITIAL AND rs_status-rsend IS INITIAL.
         SELECT SINGLE rsend
@@ -63,8 +72,8 @@
             dlvui = @rs_status-dlvui,
             dlvno = @rs_status-dlvno,
             dlvqi = @rs_status-dlvqi,
-            ruuid = @rs_status-ruuid
-*            itmrs = @rs_status-itmrs
+            ruuid = @rs_status-ruuid,
+            itmrs = @rs_status-itmrs
         WHERE docui = @iv_document_uid.
 
 

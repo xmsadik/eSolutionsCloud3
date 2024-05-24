@@ -3,6 +3,11 @@ CLASS zcl_etr_delivery_operations DEFINITION
   CREATE PROTECTED .
 
   PUBLIC SECTION.
+    CONSTANTS mc_itmres_status_approved TYPE zetr_E_ITMRS VALUE 'A'.
+    CONSTANTS mc_itmres_status_partial TYPE zetr_E_ITMRS VALUE 'P'.
+    CONSTANTS mc_itmres_status_rejected TYPE zetr_E_ITMRS VALUE 'R'.
+    CONSTANTS mc_itmres_status_unclear TYPE zetr_E_ITMRS VALUE ''.
+    CONSTANTS mc_itmres_status_mixed TYPE zetr_E_ITMRS VALUE 'M'.
     TYPES:
       mty_incoming_list  TYPE STANDARD TABLE OF zetr_t_icdlv WITH DEFAULT KEY,
       mty_incoming_items TYPE STANDARD TABLE OF zetr_t_icdli WITH DEFAULT KEY,
@@ -29,6 +34,7 @@ CLASS zcl_etr_delivery_operations DEFINITION
         dlvno TYPE zetr_t_ogdlv-dlvno,
         dlvqi TYPE zetr_t_ogdlv-dlvqi,
         ruuid TYPE zetr_t_ogdlv-ruuid,
+        itmrs TYPE zetr_t_ogdlv-itmrs,
       END OF mty_outgoing_document_status.
 
     CLASS-METHODS factory

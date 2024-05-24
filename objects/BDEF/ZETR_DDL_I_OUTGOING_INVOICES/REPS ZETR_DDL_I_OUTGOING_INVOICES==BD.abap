@@ -128,15 +128,15 @@ authorization dependent by _outgoingInvoices
 {
   mapping for zetr_t_arcd
     {
-      ArchiveUUID  = arcid;
       DocumentUUID = docui;
       ContentType  = conty;
+      DocumentType = docty;
       Content      = contn;
     }
 
   update;
   //  delete;
   field ( readonly ) DocumentUUID;
-  field ( readonly : update ) ContentType;
+  field ( readonly : update ) ContentType, DocumentType;
   association _outgoingInvoices;
 }

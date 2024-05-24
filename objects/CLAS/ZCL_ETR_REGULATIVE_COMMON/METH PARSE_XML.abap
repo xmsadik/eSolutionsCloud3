@@ -1,6 +1,10 @@
   METHOD parse_xml.
-    DATA(lv_xml_raw) = cl_abap_conv_codepage=>create_out( )->convert(
-            replace( val = iv_xml_string sub = |\n| with = `` occ = 0  ) ).
+    IF iv_xml_xstring IS INITIAL.
+      DATA(lv_xml_raw) = cl_abap_conv_codepage=>create_out( )->convert(
+              replace( val = iv_xml_string sub = |\n| with = `` occ = 0  ) ).
+    ELSE.
+      lv_xml_raw = iv_xml_xstring.
+    ENDIF.
     DATA(lo_reader) = cl_sxml_string_reader=>create( lv_xml_raw ).
     TRY.
         DO.

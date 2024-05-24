@@ -263,20 +263,17 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
 
                 ENTITY Outgoingdeliveries
                     CREATE BY \_deliveryContents
-                    FIELDS ( ArchiveUUID DocumentUUID ContentType )
+                    FIELDS ( DocumentUUID ContentType DocumentType )
                     AUTO FILL CID
                     WITH VALUE #( FOR delivery IN deliveryList WHERE ( StatusCode = '1' OR StatusCode = '5' )
                                      ( DocumentUUID = delivery-DocumentUUID
-                                       %target = VALUE #( ( ArchiveUUID = cl_system_uuid=>create_uuid_c22_static( )
-                                                            DocumentUUID = delivery-DocumentUUID
+                                       %target = VALUE #( ( DocumentUUID = delivery-DocumentUUID
                                                             DocumentType = 'OUTDLVDOC'
                                                             ContentType = 'PDF' )
-                                                          ( ArchiveUUID = cl_system_uuid=>create_uuid_c22_static( )
-                                                            DocumentUUID = delivery-DocumentUUID
+                                                          ( DocumentUUID = delivery-DocumentUUID
                                                             DocumentType = 'OUTDLVDOC'
                                                             ContentType = 'HTML' )
-                                                          ( ArchiveUUID = cl_system_uuid=>create_uuid_c22_static( )
-                                                            DocumentUUID = delivery-DocumentUUID
+                                                          ( DocumentUUID = delivery-DocumentUUID
                                                             DocumentType = 'OUTDLVDOC'
                                                             ContentType = 'UBL' ) ) ) )
 
@@ -357,8 +354,10 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
     LOOP AT DeliveryList ASSIGNING FIELD-SYMBOL(<DeliveryLine>).
       TRY.
           DATA(lo_delivery_operations) = zcl_etr_delivery_operations=>factory( <deliveryline>-companycode ).
-*          lo_delivery_operations->ou
-
+          DATA(ls_status) = lo_delivery_operations->outgoing_delivery_status(
+            EXPORTING
+              iv_document_uid = <DeliveryLine>-DocumentUUID
+              iv_db_write     = abap_false ).
         CATCH zcx_etr_regulative_exception INTO DATA(lx_exception).
           DATA(lv_error) = CONV bapi_msg( lx_exception->get_text( ) ).
           APPEND VALUE #( DocumentUUID = <DeliveryLine>-DocumentUUID

@@ -51,8 +51,14 @@
 
     METHODS get_partner_register_data
       IMPORTING
-        !iv_customer   TYPE zetr_e_partner OPTIONAL
-        !iv_supplier   TYPE zetr_e_partner OPTIONAL
-        !iv_partner    TYPE zetr_e_partner OPTIONAL
+        iv_customer    TYPE zetr_e_partner OPTIONAL
+        iv_supplier    TYPE zetr_e_partner OPTIONAL
+        iv_partner     TYPE zetr_e_partner OPTIONAL
       RETURNING
         VALUE(rs_data) TYPE mty_partner_register_data.
+    METHODS get_incoming_item_status_ubl
+      IMPORTING
+        iv_response_ubl  TYPE zetr_e_dcont
+        iv_delivery_ubl  TYPE zetr_e_dcont
+      RETURNING
+        VALUE(rv_result) TYPE zetr_e_itmrs.

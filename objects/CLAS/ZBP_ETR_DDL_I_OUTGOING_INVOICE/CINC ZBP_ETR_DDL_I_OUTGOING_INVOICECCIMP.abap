@@ -129,7 +129,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
     RESULT DATA(invoices).
 
     DATA lt_archive TYPE STANDARD TABLE OF zetr_t_arcd.
-    SELECT arcid, docui, conty
+    SELECT docui, conty, docty
       FROM zetr_t_arcd
       FOR ALL ENTRIES IN @invoices
       WHERE docui = @invoices-DocumentUUID
@@ -187,9 +187,9 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                                                      archived = abap_true
                                                      %control-archived = if_abap_behv=>mk-on ) )
               ENTITY InvoiceContents
-                UPDATE FIELDS ( ArchiveUUID Content )
-                WITH VALUE #( FOR ls_archive IN lt_archive ( ArchiveUUID = ls_archive-arcid
-                                                             DocumentUUID = ls_archive-docui
+                UPDATE FIELDS ( Content )
+                WITH VALUE #( FOR ls_archive IN lt_archive ( DocumentUUID = ls_archive-docui
+                                                             DocumentType = ls_archive-docty
                                                              Content = ls_archive-contn
                                                              ContentType = ls_archive-conty
                                                              %control-Content = if_abap_behv=>mk-on ) )
@@ -395,17 +395,17 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
 
                 ENTITY OutgoingInvoices
                     CREATE BY \_invoiceContents
-                    FIELDS ( ArchiveUUID DocumentUUID ContentType )
+                    FIELDS ( DocumentUUID ContentType DocumentType )
                     AUTO FILL CID
                     WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode = '1' OR StatusCode = '5' )
                                      ( DocumentUUID = Invoice-DocumentUUID
-                                       %target = VALUE #( ( ArchiveUUID = cl_system_uuid=>create_uuid_c22_static( )
+                                       %target = VALUE #( ( DocumentType = Invoice-DocumentType
                                                             DocumentUUID = Invoice-DocumentUUID
                                                             ContentType = 'PDF' )
-                                                          ( ArchiveUUID = cl_system_uuid=>create_uuid_c22_static( )
+                                                          ( DocumentType = Invoice-DocumentType
                                                             DocumentUUID = Invoice-DocumentUUID
                                                             ContentType = 'HTML' )
-                                                          ( ArchiveUUID = cl_system_uuid=>create_uuid_c22_static( )
+                                                          ( DocumentType = Invoice-DocumentType
                                                             DocumentUUID = Invoice-DocumentUUID
                                                             ContentType = 'UBL' ) ) ) )
 

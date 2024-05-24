@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_INCOMING_INVCONT",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2023-12-18",
-    "CHANGED_AT":"16:40:27",
-    "UUID":"5FCF0C80B8B81EDEA7B884BBC90D9EE0",
+    "CHANGED_ON":"2024-05-23",
+    "CHANGED_AT":"17:14:10",
+    "UUID":"370E609375501EEF86A4FBC4D383406D",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_INCOMING_INVCONT",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer: #CORE\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Invoice Contents',\r\n                typeName: 'Invoice Content',\r\n                title:{ type: #STANDARD, label: 'Invoice Contents', value: 'Filename' }\r\n           }\r\n}\r\nannotate entity zetr_ddl_p_incoming_invcont with\r\n{\r\n  @UI.hidden: true\r\n  DocumentUUID;\r\n  @UI.lineItem: [{ position: 1 }]\r\n  ContentType;\r\n  @UI.hidden: true\r\n  CompanyCode;\r\n  @UI.lineItem: [{ position: 2 }]\r\n  Content;\r\n  @UI.hidden: true\r\n  MimeType;\r\n  @UI.hidden: true\r\n  Filename;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer: #CORE\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Invoice Contents',\r\n                typeName: 'Invoice Content',\r\n                title:{ type: #STANDARD, label: 'Invoice Contents', value: 'Filename' }\r\n           }\r\n}\r\nannotate entity zetr_ddl_p_incoming_invcont with\r\n{\r\n  @UI.hidden: true\r\n  DocumentUUID;\r\n  @UI.lineItem: [{ position: 1 }]\r\n  ContentType;\r\n  @UI.lineItem: [{ position: 2 }]\r\n  DocumentType;\r\n  @UI.hidden: true\r\n  DocumentTypeText;  \r\n  @UI.hidden: true\r\n  CompanyCode;\r\n  @UI.lineItem: [{ position: 3 }]\r\n  Content;\r\n  @UI.hidden: true\r\n  MimeType;\r\n  @UI.hidden: true\r\n  Filename;\r\n\r\n}"
    }
   ]
  },
@@ -89,7 +89,7 @@
     "ELEMENT":"CONTENT",
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"2"
+    "VALUE":"3"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_INCOMING_INVCONT",
@@ -97,6 +97,20 @@
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"1"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_INCOMING_INVCONT",
+    "ELEMENT":"DOCUMENTTYPE",
+    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"2"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_INCOMING_INVCONT",
+    "ELEMENT":"DOCUMENTTYPETEXT",
+    "NAME":"UI.HIDDEN",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"true"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_INCOMING_INVCONT",
@@ -178,8 +192,8 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_INCOMING_INVCONT",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"5FCF0C80B8B81EDEA7B884BBC90D9EE0",
-    "RT_HASH":"A7CCB48E09BE41B66328B0BCD5EE3A4EA9CC5462",
+    "DT_UUID":"370E609375501EEF86A4FBC4D383406D",
+    "RT_HASH":"319302D4E66C1AEE159444D914CB95C02EFCD14E",
     "GEN_VERSION":"0"
    }
   ]

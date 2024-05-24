@@ -125,7 +125,6 @@ authorization dependent by _outgoingDeliveries
 
   mapping for zetr_t_arcd
     {
-      ArchiveUUID  = arcid;
       DocumentUUID = docui;
       ContentType  = conty;
       DocumentType = docty;

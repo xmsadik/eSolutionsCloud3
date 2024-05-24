@@ -16,6 +16,7 @@ CLASS zcl_etr_regulative_common DEFINITION
     CLASS-METHODS parse_xml
       IMPORTING
         iv_xml_string  TYPE string
+        iv_xml_xstring TYPE xstring OPTIONAL
       RETURNING
         VALUE(rt_data) TYPE mty_xml_nodes.
     CLASS-METHODS get_node_type

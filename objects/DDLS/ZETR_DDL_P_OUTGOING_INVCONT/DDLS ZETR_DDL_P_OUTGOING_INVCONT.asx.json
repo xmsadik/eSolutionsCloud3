@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@EndUserText.label: 'Outgoing Invoice Contents'\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine view entity zetr_ddl_p_outgoing_invcont\r\n  as projection on zetr_ddl_i_outgoing_invcont\r\n{\r\n  key     DocumentUUID,\r\n  key     ContentType,\r\n          CompanyCode,\r\n          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_ETR_OUTINV_CONT_VIREL'\r\n          @Semantics.largeObject: { mimeType      : 'MimeType',\r\n                                    fileName      : 'Filename',\r\n                                    contentDispositionPreference: #INLINE }\r\n  virtual Content : zetr_e_dcont,\r\n          @Semantics.mimeType: true\r\n          MimeType,\r\n          Filename,\r\n          ArchiveUUID,\r\n          _outgoingInvoices : redirected to parent zetr_ddl_p_outgoing_invoices\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_DDL_I_OUTGOING_INVCONT\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_OUTGOING_INVOICES\",\n\"ZETR_DDL_P_OUTGOING_INVOICES\"\n],\n\"BASE\":\n[\n\"ZETR_DDL_I_OUTGOING_INVCONT\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@EndUserText.label: 'Outgoing Invoice Contents'\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine view entity zetr_ddl_p_outgoing_invcont\r\n  as projection on zetr_ddl_i_outgoing_invcont\r\n{\r\n  key     DocumentUUID,\r\n  key     ContentType,\r\n          @ObjectModel.text.element: ['DocumentTypeText']\r\n  key     DocumentType,\r\n          DocumentTypeText,  \r\n          CompanyCode,\r\n          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_ETR_OUTINV_CONT_VIREL'\r\n          @Semantics.largeObject: { mimeType      : 'MimeType',\r\n                                    fileName      : 'Filename',\r\n                                    contentDispositionPreference: #INLINE }\r\n  virtual Content : zetr_e_dcont,\r\n          @Semantics.mimeType: true\r\n          MimeType,\r\n          Filename,\r\n//          ArchiveUUID,\r\n          _outgoingInvoices : redirected to parent zetr_ddl_p_outgoing_invoices\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_DDL_I_OUTGOING_INVCONT\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_OUTGOING_INVOICES\",\n\"ZETR_DDL_P_OUTGOING_INVOICES\"\n],\n\"BASE\":\n[\n\"ZETR_DDL_I_OUTGOING_INVCONT\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"5T42",
     "SOURCE_TYPE":"P",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -52,43 +52,57 @@
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
     "LFIELDNAME":"CONTENT",
     "NAME":"OBJECTMODEL",
-    "POSITION":3,
-    "VALUE":""
-   },
-   {
-    "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
-    "LFIELDNAME":"CONTENT",
-    "NAME":"OBJECTMODEL.VIRTUALELEMENTCALCULATEDBY",
-    "POSITION":4,
-    "VALUE":"'ABAP:ZCL_ETR_OUTINV_CONT_VIREL'"
-   },
-   {
-    "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
-    "LFIELDNAME":"CONTENT",
-    "NAME":"SEMANTICS.LARGEOBJECT",
     "POSITION":5,
     "VALUE":""
    },
    {
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
     "LFIELDNAME":"CONTENT",
+    "NAME":"OBJECTMODEL.VIRTUALELEMENTCALCULATEDBY",
+    "POSITION":6,
+    "VALUE":"'ABAP:ZCL_ETR_OUTINV_CONT_VIREL'"
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
+    "LFIELDNAME":"CONTENT",
+    "NAME":"SEMANTICS.LARGEOBJECT",
+    "POSITION":7,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
+    "LFIELDNAME":"CONTENT",
     "NAME":"SEMANTICS.LARGEOBJECT.CONTENTDISPOSITIONPREFERENCE",
-    "POSITION":8,
+    "POSITION":10,
     "VALUE":"#INLINE"
    },
    {
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
     "LFIELDNAME":"CONTENT",
     "NAME":"SEMANTICS.LARGEOBJECT.FILENAME",
-    "POSITION":7,
+    "POSITION":9,
     "VALUE":"'Filename'"
    },
    {
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
     "LFIELDNAME":"CONTENT",
     "NAME":"SEMANTICS.LARGEOBJECT.MIMETYPE",
-    "POSITION":6,
+    "POSITION":8,
     "VALUE":"'MimeType'"
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
+    "LFIELDNAME":"DOCUMENTTYPE",
+    "NAME":"OBJECTMODEL",
+    "POSITION":3,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
+    "LFIELDNAME":"DOCUMENTTYPE",
+    "NAME":"OBJECTMODEL.TEXT.ELEMENT$1$",
+    "POSITION":4,
+    "VALUE":"'DocumentTypeText'"
    },
    {
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
@@ -108,14 +122,14 @@
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
     "LFIELDNAME":"MIMETYPE",
     "NAME":"SEMANTICS",
-    "POSITION":9,
+    "POSITION":11,
     "VALUE":""
    },
    {
     "STRUCOBJN":"ZETR_DDL_P_OUTGOING_INVCONT",
     "LFIELDNAME":"MIMETYPE",
     "NAME":"SEMANTICS.MIMETYPE",
-    "POSITION":10,
+    "POSITION":12,
     "VALUE":"true"
    }
   ]

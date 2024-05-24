@@ -229,9 +229,9 @@
         WHERE kalsm = @ls_company_parameters-taxcalculationprocedure
           AND mwskz = @ls_bseg_tax-mwskz
         INTO @ls_tax_data.
-*      IF sy-subrc EQ 0 AND ls_tax_data-taxrt EQ '0'.
-*        ls_document-texex = abap_true.
-*      ENDIF.
+      IF sy-subrc EQ 0 AND ls_tax_data-taxrt EQ '0'.
+        ls_document-texex = abap_true.
+      ENDIF.
 
       READ TABLE lt_tax_acc WITH KEY saknr = lv_hkont BINARY SEARCH TRANSPORTING NO FIELDS.
       CHECK sy-subrc = 0.

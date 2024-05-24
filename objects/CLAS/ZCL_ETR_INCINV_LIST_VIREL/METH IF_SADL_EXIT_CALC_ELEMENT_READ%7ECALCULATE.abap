@@ -82,7 +82,7 @@
 *          <ls_output>-PDFContentUrl = 'javascript:window.open("https://' && cl_abap_context_info=>get_system_url( ) &&
           <ls_output>-PDFContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
                                       '/sap/opu/odata/sap/ZETR_DDL_D_INCOMING_INV/InvoiceContents(DocumentUUID=guid''' &&
-                                      lv_uuid && ''',ContentType=''PDF'')/$value'.
+                                      lv_uuid && ''',ContentType=''PDF'',DocumentType=''INCINVDOC'')/$value'.
 *                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
 
 *      <ls_output>-MimeType = 'application/pdf'.

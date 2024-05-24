@@ -26,13 +26,13 @@
               EXPORTING
                 uuid = <ls_output>-documentuuid
               IMPORTING
-                uuid_c36 = data(lv_uuid) ).
+                uuid_c36 = DATA(lv_uuid) ).
           CATCH cx_uuid_error.
             "handle exception
         ENDTRY.
         <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
                                     '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_INVOICES/Contents(DocumentUUID=guid''' &&
-                                    lv_uuid && ''',ContentType=''PDF'')/$value'.
+                                    lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTINVDOC'')/$value'.
 *                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
       ENDIF.
     ENDLOOP.

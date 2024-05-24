@@ -1,5 +1,5 @@
   METHOD if_sadl_exit_calc_element_read~calculate.
-    DATA lt_output TYPE STANDARD TABLE OF zetr_ddl_p_outgoing_invoices.
+    DATA lt_output TYPE STANDARD TABLE OF zetr_ddl_p_outgoing_deliveries.
     lt_output = CORRESPONDING #( it_original_data ).
     CHECK lt_output IS NOT INITIAL.
 
@@ -26,14 +26,19 @@
               EXPORTING
                 uuid = <ls_output>-documentuuid
               IMPORTING
-                uuid_c36 = data(lv_uuid) ).
+                uuid_c36 = DATA(lv_uuid) ).
           CATCH cx_uuid_error.
             "handle exception
         ENDTRY.
         <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
                                     '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_INVOICES/Contents(DocumentUUID=guid''' &&
-                                    lv_uuid && ''',ContentType=''PDF'')/$value'.
+                                    lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTDLVDOC'')/$value'.
 *                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
+        IF <ls_output>-ResponseUUID IS NOT INITIAL.
+          <ls_output>-ResponseContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
+                                      '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_INVOICES/Contents(DocumentUUID=guid''' &&
+                                      lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTDLVRES'')/$value'.
+        ENDIF.
       ENDIF.
     ENDLOOP.
     ct_calculated_data = CORRESPONDING #( lt_output ).

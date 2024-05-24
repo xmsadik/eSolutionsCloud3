@@ -399,13 +399,13 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                     AUTO FILL CID
                     WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode = '1' OR StatusCode = '5' )
                                      ( DocumentUUID = Invoice-DocumentUUID
-                                       %target = VALUE #( ( DocumentType = Invoice-DocumentType
+                                       %target = VALUE #( ( DocumentType = 'OUTINVDOC'
                                                             DocumentUUID = Invoice-DocumentUUID
                                                             ContentType = 'PDF' )
-                                                          ( DocumentType = Invoice-DocumentType
+                                                          ( DocumentType = 'OUTINVDOC'
                                                             DocumentUUID = Invoice-DocumentUUID
                                                             ContentType = 'HTML' )
-                                                          ( DocumentType = Invoice-DocumentType
+                                                          ( DocumentType = 'OUTINVDOC'
                                                             DocumentUUID = Invoice-DocumentUUID
                                                             ContentType = 'UBL' ) ) ) )
 

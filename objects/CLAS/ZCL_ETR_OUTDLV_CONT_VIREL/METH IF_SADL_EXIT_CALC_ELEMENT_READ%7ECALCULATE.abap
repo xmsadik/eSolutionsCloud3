@@ -17,11 +17,11 @@
               DATA(lo_delivery_operations) = zcl_etr_delivery_operations=>factory( <ls_output>-companycode ).
               CASE <ls_output>-DocumentType.
                 WHEN 'OUTDLVRES'.
-*                  <ls_output>-Content = lo_delivery_operations->outgoing_edelivery_respdown( iv_document_uid = <ls_output>-DocumentUUID
-*                                                                                             iv_content_type = <ls_output>-ContentType ).
+                  <ls_output>-Content = lo_delivery_operations->outgoing_delivery_respdown( iv_document_uid = <ls_output>-DocumentUUID
+                                                                                            iv_content_type = <ls_output>-ContentType ).
                 WHEN OTHERS.
-*                  <ls_output>-Content = lo_delivery_operations->outgoing_edelivery_download( iv_document_uid = <ls_output>-DocumentUUID
-*                                                                                             iv_content_type = <ls_output>-ContentType ).
+                  <ls_output>-Content = lo_delivery_operations->outgoing_delivery_download( iv_document_uid = <ls_output>-DocumentUUID
+                                                                                            iv_content_type = <ls_output>-ContentType ).
               ENDCASE.
             CATCH zcx_etr_regulative_exception.
           ENDTRY.

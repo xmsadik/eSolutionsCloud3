@@ -7,6 +7,7 @@
               lt_taxid_range TYPE RANGE OF zetr_e_taxid,
               lt_table_range TYPE RANGE OF zetr_e_table,
               lt_docui_range TYPE RANGE OF sysuuid_c22,
+              lt_docui_rtemp TYPE RANGE OF sysuuid_c22,
               lt_output      TYPE TABLE OF zetr_ddl_i_delete_tables.
         DATA(lt_paging) = io_request->get_paging( ).
         LOOP AT lt_filter INTO DATA(ls_filter).
@@ -36,11 +37,11 @@
               AND taxid IN @lt_taxid_range
             INTO TABLE @lt_output.
           IF sy-subrc = 0.
-            lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
+            lt_docui_rtemp = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_oginv
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
             DELETE FROM zetr_t_arcd
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
           ENDIF.
         ENDIF.
 
@@ -54,11 +55,11 @@
               AND taxid IN @lt_taxid_range
             APPENDING TABLE @lt_output.
           IF sy-subrc = 0.
-            lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
+            lt_docui_rtemp = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_ogdlv
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
             DELETE FROM zetr_t_arcd
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
           ENDIF.
         ENDIF.
 
@@ -70,11 +71,11 @@
               AND taxid IN @lt_taxid_range
             APPENDING CORRESPONDING FIELDS OF TABLE @lt_output.
           IF sy-subrc = 0.
-            lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
+            lt_docui_rtemp = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_icinv
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
             DELETE FROM zetr_t_arcd
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
           ENDIF.
         ENDIF.
 
@@ -86,11 +87,11 @@
               AND taxid IN @lt_taxid_range
             APPENDING CORRESPONDING FIELDS OF TABLE @lt_output.
           IF sy-subrc = 0.
-            lt_docui_range = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
+            lt_docui_rtemp = VALUE #( FOR ls_output IN lt_output ( sign = 'I' option = 'EQ' low = ls_output-docui ) ).
             DELETE FROM zetr_t_icdlv
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
             DELETE FROM zetr_t_arcd
-              WHERE docui IN @lt_docui_range.
+              WHERE docui IN @lt_docui_rtemp.
           ENDIF.
         ENDIF.
 

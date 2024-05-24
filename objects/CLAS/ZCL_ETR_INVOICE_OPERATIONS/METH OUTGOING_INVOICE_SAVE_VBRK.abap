@@ -252,7 +252,6 @@
     ls_document-bukrs = iv_bukrs.
     ls_document-belnr = iv_belnr.
     ls_document-gjahr = iv_gjahr.
-    ls_document-awtyp = iv_awtyp.
     ls_document-erzet = ls_vbrk-erzet.
     ls_document-kursf = ls_vbrk-kurrf.
     ls_document-waers = ls_vbrk-waerk.

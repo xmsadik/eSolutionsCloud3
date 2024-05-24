@@ -181,7 +181,6 @@
     ls_document-bukrs = iv_bukrs.
     ls_document-belnr = iv_belnr.
     ls_document-gjahr = iv_gjahr.
-    ls_document-awtyp = iv_awtyp.
     ls_document-partner = ls_partner_data-businesspartner.
     ls_document-wrbtr = ls_rbkp-rmwwr.
     ls_document-fwste = ls_rbkp-wmwst.

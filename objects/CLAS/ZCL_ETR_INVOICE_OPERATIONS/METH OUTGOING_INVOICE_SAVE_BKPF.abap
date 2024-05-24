@@ -252,9 +252,9 @@
       IF ls_document-taxex IS INITIAL AND ls_bseg_tax-mwskz IS NOT INITIAL AND ls_tax_data IS NOT INITIAL.
         ls_document-taxex = ls_tax_data-taxex.
       ENDIF.
-      IF ls_document-taxty IS INITIAL.
-        ls_document-taxty = ls_tax_data-taxty. " AS 30.12.2021
-      ENDIF.
+*      IF ls_document-taxty IS INITIAL.
+*        ls_document-taxty = ls_tax_data-taxty. " AS 30.12.2021
+*      ENDIF.
     ENDLOOP.
     IF ls_document-fwste IS INITIAL.
       ls_document-texex = abap_true.
@@ -283,7 +283,6 @@
     ls_document-bukrs = iv_bukrs.
     ls_document-belnr = iv_belnr.
     ls_document-gjahr = iv_gjahr.
-    ls_document-awtyp = iv_awtyp.
     ls_document-ernam = ls_bkpf-usnam.
     ls_document-erzet = ls_bkpf-erzet.
     ls_document-erdat = ls_bkpf-erdat.

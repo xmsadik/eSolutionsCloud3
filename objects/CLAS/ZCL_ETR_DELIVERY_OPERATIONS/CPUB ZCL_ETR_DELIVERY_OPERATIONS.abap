@@ -120,3 +120,23 @@ CLASS zcl_etr_delivery_operations DEFINITION
         VALUE(rs_status) TYPE mty_outgoing_document_status
       RAISING
         zcx_etr_regulative_exception .
+
+    METHODS outgoing_delivery_download
+      IMPORTING
+        !iv_document_uid        TYPE sysuuid_c22
+        !iv_content_type        TYPE zetr_e_dctyp
+        !iv_db_write            TYPE abap_boolean DEFAULT abap_true
+      RETURNING
+        VALUE(rv_delivery_data) TYPE zetr_e_dcont
+      RAISING
+        zcx_etr_regulative_exception .
+
+    METHODS outgoing_delivery_respdown
+      IMPORTING
+        !iv_document_uid        TYPE sysuuid_c22
+        !iv_content_type        TYPE zetr_e_dctyp
+        !iv_db_write            TYPE abap_boolean DEFAULT abap_true
+      RETURNING
+        VALUE(rv_response_data) TYPE zetr_e_dcont
+      RAISING
+        zcx_etr_regulative_exception .

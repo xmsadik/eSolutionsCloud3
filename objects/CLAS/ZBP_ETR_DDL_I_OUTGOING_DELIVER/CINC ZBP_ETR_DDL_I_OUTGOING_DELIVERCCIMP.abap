@@ -147,6 +147,119 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD archiveDeliveries.
+    READ ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+  ENTITY outgoingdeliveries
+  ALL FIELDS WITH
+  CORRESPONDING #( keys )
+  RESULT DATA(deliveries).
+
+    DATA lt_archive TYPE STANDARD TABLE OF zetr_t_arcd.
+    SELECT docui, conty, docty
+      FROM zetr_t_arcd
+      FOR ALL ENTRIES IN @deliveries
+      WHERE docui = @deliveries-DocumentUUID
+      INTO CORRESPONDING FIELDS OF TABLE @lt_archive.
+
+    LOOP AT deliveries ASSIGNING FIELD-SYMBOL(<ls_delivery>).
+      TRY.
+          IF <ls_delivery>-Response = '0'.
+            APPEND VALUE #( documentuuid = <ls_delivery>-DocumentUUID
+                            %msg = new_message( id = 'ZETR_COMMON'
+                                                number = '008'
+                                                severity = if_abap_behv_message=>severity-error ) ) TO reported-outgoingdeliveries.
+          ELSEIF <ls_delivery>-Archived = abap_true.
+            APPEND VALUE #( documentuuid = <ls_delivery>-DocumentUUID
+                            %msg = new_message( id = 'ZETR_COMMON'
+                                                number = '042'
+                                                severity = if_abap_behv_message=>severity-error ) ) TO reported-outgoingdeliveries.
+          ELSEIF <ls_delivery>-StatusCode = '' OR
+                 <ls_delivery>-StatusCode = '2'.
+            APPEND VALUE #( documentuuid = <ls_delivery>-DocumentUUID
+                            %msg = new_message( id = 'ZETR_COMMON'
+                                                number = '032'
+                                                severity = if_abap_behv_message=>severity-error ) ) TO reported-outgoingdeliveries.
+          ELSE.
+            DATA(lo_edelivery_operations) = zcl_etr_delivery_operations=>factory( <ls_delivery>-companycode ).
+            LOOP AT lt_archive ASSIGNING FIELD-SYMBOL(<ls_archive>).
+              CASE <ls_archive>-docty.
+                WHEN 'INCDLVRES'.
+                  <ls_archive>-contn = lo_edelivery_operations->outgoing_delivery_respdown(
+                     EXPORTING
+                       iv_document_uid = <ls_delivery>-DocumentUUID
+                       iv_content_type = <ls_archive>-conty
+                       iv_db_write     = abap_false ).
+                WHEN OTHERS.
+                  <ls_archive>-contn = lo_edelivery_operations->outgoing_delivery_download(
+                     EXPORTING
+                       iv_document_uid = <ls_delivery>-DocumentUUID
+                       iv_content_type = <ls_archive>-conty
+                       iv_db_write     = abap_false ).
+              ENDCASE.
+            ENDLOOP.
+            <ls_delivery>-Archived = abap_true.
+          ENDIF.
+        CATCH zcx_etr_regulative_exception INTO DATA(lx_exception).
+          DATA(lv_error) = CONV bapi_msg( lx_exception->get_text( ) ).
+          APPEND VALUE #( documentuuid = <ls_delivery>-DocumentUUID
+                          %msg = new_message( id       = 'ZETR_COMMON'
+                                              number   = '000'
+                                              severity = if_abap_behv_message=>severity-error
+                                              v1 = lv_error(50)
+                                              v2 = lv_error+50(50)
+                                              v3 = lv_error+100(50)
+                                              v4 = lv_error+150(*) ) ) TO reported-outgoingdeliveries.
+        CATCH cx_uuid_error.
+      ENDTRY.
+    ENDLOOP.
+    DELETE lt_archive WHERE contn IS INITIAL.
+    CHECK lt_archive IS NOT INITIAL.
+    TRY.
+        MODIFY ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+          ENTITY outgoingdeliveries
+             UPDATE FIELDS ( archived )
+             WITH VALUE #( FOR delivery IN deliveries ( documentuuid = delivery-DocumentUUID
+                                                     archived = abap_true
+                                                     %control-archived = if_abap_behv=>mk-on ) )
+              ENTITY DeliveryContents
+                UPDATE FIELDS ( Content )
+                WITH VALUE #( FOR ls_archive IN lt_archive ( DocumentUUID = ls_archive-docui
+                                                             DocumentType = ls_archive-docty
+                                                             Content = ls_archive-contn
+                                                             ContentType = ls_archive-conty
+                                                             %control-Content = if_abap_behv=>mk-on ) )
+             ENTITY outgoingdeliveries
+                CREATE BY \_deliverylogs
+                FIELDS ( loguuid documentuuid createdby creationdate creationtime logcode lognote )
+                AUTO FILL CID
+                WITH VALUE #( FOR delivery IN deliveries
+                                 ( DocumentUUID = delivery-DocumentUUID
+                                   %target = VALUE #( ( LogUUID = cl_system_uuid=>create_uuid_c22_static( )
+                                                        DocumentUUID = delivery-DocumentUUID
+                                                        CreatedBy = sy-uname
+                                                        CreationDate = cl_abap_context_info=>get_system_date( )
+                                                        CreationTime = cl_abap_context_info=>get_system_time( )
+                                                        LogCode = zcl_etr_regulative_log=>mc_log_codes-archived ) ) )  )
+             FAILED failed
+             REPORTED reported.
+
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+
+    READ ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+      ENTITY outgoingdeliveries
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT deliveries.
+
+    result = VALUE #( FOR delivery IN deliveries
+             ( %tky   = delivery-%tky
+               %param = delivery ) ).
+
+    APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
+                                        number   = '082'
+                                        severity = if_abap_behv_message=>severity-success ) ) TO reported-outgoingdeliveries.
+
   ENDMETHOD.
 
   METHOD sendDeliveries.
@@ -295,6 +408,11 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
         "handle exception
     ENDTRY.
 
+    READ ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+      ENTITY outgoingdeliveries
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT deliverylist.
     result = VALUE #( FOR delivery IN deliveryList ( %tky   = delivery-%tky
                                                      %param = delivery ) ).
   ENDMETHOD.
@@ -334,6 +452,11 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
         "handle exception
     ENDTRY.
 
+    READ ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+      ENTITY outgoingdeliveries
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT deliveries.
     result = VALUE #( FOR delivery IN deliveries
                  ( %tky   = delivery-%tky
                    %param = delivery ) ).
@@ -352,12 +475,26 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
       RESULT DATA(DeliveryList).
 
     LOOP AT DeliveryList ASSIGNING FIELD-SYMBOL(<DeliveryLine>).
+      CLEAR <DeliveryLine>-ToBeSent.
       TRY.
           DATA(lo_delivery_operations) = zcl_etr_delivery_operations=>factory( <deliveryline>-companycode ).
-          DATA(ls_status) = lo_delivery_operations->outgoing_delivery_status(
-            EXPORTING
-              iv_document_uid = <DeliveryLine>-DocumentUUID
-              iv_db_write     = abap_false ).
+          DATA(ls_status) = lo_delivery_operations->outgoing_delivery_status( iv_document_uid = <DeliveryLine>-DocumentUUID
+                                                                              iv_db_write     = abap_false ).
+          IF ls_status-ruuid IS NOT INITIAL AND <DeliveryLine>-ResponseUUID IS INITIAL.
+            <DeliveryLine>-ToBeSent = abap_true.
+          ENDIF.
+          <deliveryline>-StatusCode = ls_status-stacd.
+          <deliveryline>-StatusDetail = ls_status-staex.
+          <deliveryline>-Response = ls_status-resst.
+          <deliveryline>-TRAStatusCode = ls_status-radsc.
+          <deliveryline>-Resendable = ls_status-rsend.
+          <deliveryline>-EnvelopeUUID = ls_status-envui.
+          <deliveryline>-DeliveryUUID = ls_status-dlvui.
+          <deliveryline>-DeliveryID = ls_status-dlvno.
+          <deliveryline>-IntegratorDocumentID = ls_status-dlvii.
+          <deliveryline>-ResponseUUID = ls_status-ruuid.
+          <deliveryline>-ItemResponse = ls_status-itmrs.
+
         CATCH zcx_etr_regulative_exception INTO DATA(lx_exception).
           DATA(lv_error) = CONV bapi_msg( lx_exception->get_text( ) ).
           APPEND VALUE #( DocumentUUID = <DeliveryLine>-DocumentUUID
@@ -371,6 +508,85 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
           DELETE DeliveryList.
       ENDTRY.
     ENDLOOP.
+    CHECK DeliveryList IS NOT INITIAL.
+
+    TRY.
+        MODIFY ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+          ENTITY OutgoingDeliveries
+             UPDATE FIELDS ( StatusCode StatusDetail Response TRAStatusCode
+                             Resendable EnvelopeUUID DeliveryUUID
+                             DeliveryID IntegratorDocumentID ResponseUUID ItemResponse )
+             WITH VALUE #( FOR delivery IN deliverylist ( documentuuid = delivery-documentuuid
+                                                     StatusCode = delivery-StatusCode
+                                                     StatusDetail = delivery-StatusDetail
+                                                     Response = delivery-Response
+                                                     TRAStatusCode = delivery-TRAStatusCode
+                                                     Resendable = delivery-Resendable
+                                                     EnvelopeUUID = delivery-EnvelopeUUID
+                                                     deliveryUUID = delivery-deliveryUUID
+                                                     deliveryID = delivery-deliveryID
+                                                     IntegratorDocumentID = delivery-IntegratorDocumentID
+                                                     ResponseUUID = delivery-ResponseUUID
+                                                     ItemResponse = delivery-ItemResponse
+
+                                                     %control-StatusCode = if_abap_behv=>mk-on
+                                                     %control-StatusDetail = if_abap_behv=>mk-on
+                                                     %control-Response = if_abap_behv=>mk-on
+                                                     %control-TRAStatusCode = if_abap_behv=>mk-on
+                                                     %control-Resendable = if_abap_behv=>mk-on
+                                                     %control-EnvelopeUUID = if_abap_behv=>mk-on
+                                                     %control-deliveryUUID = if_abap_behv=>mk-on
+                                                     %control-deliveryID = if_abap_behv=>mk-on
+                                                     %control-IntegratorDocumentID = if_abap_behv=>mk-on
+                                                     %control-ItemResponse = if_abap_behv=>mk-on
+                                                     %control-ResponseUUID = if_abap_behv=>mk-on ) )
+
+                  ENTITY outgoingdeliveries
+                    CREATE BY \_deliveryContents
+                    FIELDS ( DocumentUUID ContentType DocumentType )
+                    AUTO FILL CID
+                    WITH VALUE #( FOR delivery IN deliverylist WHERE ( ToBeSent = abap_true )
+                                     ( documentuuid = delivery-documentuuid
+                                       %target = VALUE #( ( DocumentUUID = delivery-documentuuid
+                                                            ContentType = 'PDF'
+                                                            DocumentType = 'OUTDLVRES' )
+                                                          ( DocumentUUID = delivery-documentuuid
+                                                            ContentType = 'HTML'
+                                                            DocumentType = 'OUTDLVRES' )
+                                                          ( DocumentUUID = delivery-documentuuid
+                                                            ContentType = 'UBL'
+                                                            DocumentType = 'OUTDLVRES' ) ) ) )
+
+                  ENTITY outgoingdeliveries
+                    CREATE BY \_deliverylogs
+                    FIELDS ( loguuid documentuuid createdby creationdate creationtime logcode lognote )
+                    AUTO FILL CID
+                    WITH VALUE #( FOR delivery IN deliverylist
+                                     ( documentuuid = delivery-documentuuid
+                                       %target = VALUE #( ( loguuid = cl_system_uuid=>create_uuid_c22_static( )
+                                                            documentuuid = delivery-documentuuid
+                                                            createdby = sy-uname
+                                                            creationdate = cl_abap_context_info=>get_system_date( )
+                                                            creationtime = cl_abap_context_info=>get_system_time( )
+                                                            logcode = zcl_etr_regulative_log=>mc_log_codes-status ) ) ) )
+             FAILED failed
+             REPORTED reported.
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+
+    READ ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
+      ENTITY OutgoingDeliveries
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT deliverylist.
+    result = VALUE #( FOR delivery IN deliverylist
+                 ( %tky   = delivery-%tky
+                   %param = delivery ) ).
+
+    APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
+                                        number   = '003'
+                                        severity = if_abap_behv_message=>severity-success ) ) TO reported-outgoingdeliveries.
   ENDMETHOD.
 
 ENDCLASS.

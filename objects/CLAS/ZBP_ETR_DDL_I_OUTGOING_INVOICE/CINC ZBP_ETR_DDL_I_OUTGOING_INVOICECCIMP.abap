@@ -427,6 +427,11 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
         "handle exception
     ENDTRY.
 
+    READ ENTITIES OF zetr_ddl_i_outgoing_invoices IN LOCAL MODE
+      ENTITY OutgoingInvoices
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT InvoiceList.
     result = VALUE #( FOR Invoice IN InvoiceList ( %tky   = invoice-%tky
                                                    %param = Invoice ) ).
   ENDMETHOD.
@@ -476,6 +481,11 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
         "handle exception
     ENDTRY.
 
+    READ ENTITIES OF zetr_ddl_i_outgoing_invoices IN LOCAL MODE
+      ENTITY OutgoingInvoices
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT Invoices.
     result = VALUE #( FOR invoice IN invoices
                  ( %tky   = invoice-%tky
                    %param = invoice ) ).
@@ -581,6 +591,11 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
         "handle exception
     ENDTRY.
 
+    READ ENTITIES OF zetr_ddl_i_outgoing_invoices IN LOCAL MODE
+      ENTITY OutgoingInvoices
+      ALL FIELDS WITH
+      CORRESPONDING #( keys )
+      RESULT Invoices.
     result = VALUE #( FOR invoice IN invoices
                  ( %tky   = invoice-%tky
                    %param = invoice ) ).

@@ -63,7 +63,7 @@ authorization master ( instance )
   Printed,
   ApplicationResponse,
   Processed;
-//  field ( features : instance ) PurchasingGroup, PurchaseOrders;
+  //  field ( features : instance ) PurchasingGroup, PurchaseOrders;
   association _invoiceContents { create; }
   association _invoiceLogs { create; }
 
@@ -88,16 +88,16 @@ authorization dependent by _incomingInvoices
 {
   mapping for zetr_t_arcd
     {
-      ArchiveUUID  = arcid;
       DocumentUUID = docui;
       ContentType  = conty;
+      DocumentType = docty;
       Content      = contn;
     }
 
   update;
   //  delete;
   field ( readonly ) DocumentUUID;
-  field ( readonly : update ) ContentType;
+  field ( readonly : update ) ContentType, DocumentType;
   association _incomingInvoices;
 }
 

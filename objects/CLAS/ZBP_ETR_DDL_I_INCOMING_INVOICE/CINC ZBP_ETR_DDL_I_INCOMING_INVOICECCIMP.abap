@@ -113,7 +113,7 @@ CLASS lhc_InvoiceList IMPLEMENTATION.
       RESULT DATA(invoices).
 
     DATA lt_archive TYPE STANDARD TABLE OF zetr_t_arcd.
-    SELECT arcid, docui, conty
+    SELECT docui, conty, docty
       FROM zetr_t_arcd
       FOR ALL ENTRIES IN @invoices
       WHERE docui = @invoices-DocumentUUID
@@ -157,8 +157,8 @@ CLASS lhc_InvoiceList IMPLEMENTATION.
                                                      archived = abap_true
                                                      %control-archived = if_abap_behv=>mk-on ) )
               ENTITY InvoiceContents
-                UPDATE FIELDS ( ArchiveUUID Content )
-                WITH VALUE #( FOR ls_archive IN lt_archive ( ArchiveUUID = ls_archive-arcid
+                UPDATE FIELDS ( Content )
+                WITH VALUE #( FOR ls_archive IN lt_archive ( DocumentType = ls_archive-docty
                                                              DocumentUUID = ls_archive-docui
                                                              Content = ls_archive-contn
                                                              ContentType = ls_archive-conty

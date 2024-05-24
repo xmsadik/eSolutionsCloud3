@@ -88,7 +88,6 @@ authorization dependent by _incomingDeliveries
 {
   mapping for zetr_t_arcd
     {
-      ArchiveUUID  = arcid;
       DocumentUUID = docui;
       ContentType  = conty;
       DocumentType = docty;

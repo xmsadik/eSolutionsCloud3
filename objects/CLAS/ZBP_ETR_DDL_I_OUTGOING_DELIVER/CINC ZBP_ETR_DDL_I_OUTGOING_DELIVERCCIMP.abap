@@ -304,7 +304,8 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
                 ev_integrator_uuid   = <deliveryLine>-IntegratorDocumentID
                 ev_delivery_uuid     = DATA(lv_delivery_uuid)
                 ev_delivery_no       = DATA(lv_delivery_no)
-                ev_envelope_uuid     = DATA(lv_envelope_uuid) ).
+                ev_envelope_uuid     = DATA(lv_envelope_uuid)
+                es_status            = DATA(ls_status) ).
             IF lv_delivery_uuid IS NOT INITIAL.
               <deliveryLine>-deliveryUUID = lv_delivery_uuid.
             ENDIF.
@@ -315,8 +316,9 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
               <deliveryLine>-EnvelopeUUID = lv_envelope_uuid.
             ENDIF.
 
-            <deliveryLine>-StatusCode = '1'.
-            <deliveryLine>-Response = '0'.
+            <deliveryLine>-StatusCode = ls_status-stacd.
+            <deliveryLine>-Response = ls_status-resst.
+            <deliveryLine>-StatusDetail = ls_status-staex.
             <deliveryLine>-Printed = ''.
             <deliveryLine>-Sender = sy-uname.
             <deliveryLine>-SendDate = cl_abap_context_info=>get_system_date( ).

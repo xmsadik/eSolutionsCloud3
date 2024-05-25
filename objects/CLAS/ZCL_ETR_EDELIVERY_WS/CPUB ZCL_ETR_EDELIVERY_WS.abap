@@ -113,6 +113,7 @@ CLASS zcl_etr_edelivery_ws DEFINITION
         !ev_delivery_uuid   TYPE zetr_e_duich
         !ev_delivery_no     TYPE zetr_e_docno
         !ev_envelope_uuid   TYPE zetr_e_envui
+        !es_status          TYPE mty_outgoing_document_status
       RAISING
         zcx_etr_regulative_exception .
     METHODS outgoing_delivery_get_status

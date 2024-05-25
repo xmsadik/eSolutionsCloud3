@@ -352,7 +352,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
             APPEND VALUE #( DocumentUUID = <InvoiceLine>-DocumentUUID
                             %msg = new_message( id       = 'ZETR_COMMON'
                                                 number   = '000'
-                                                severity = if_abap_behv_message=>severity-warning
+                                                severity = if_abap_behv_message=>severity-information
                                                 v1 = <InvoiceLine>-DocumentNumber && '->' && ErrorMessage(35)
                                                 v2 = ErrorMessage+35(50)
                                                 v3 = ErrorMessage+85(50)

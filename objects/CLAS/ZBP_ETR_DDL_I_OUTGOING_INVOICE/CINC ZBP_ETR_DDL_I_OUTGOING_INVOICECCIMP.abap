@@ -297,7 +297,8 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                     ev_integrator_uuid   = <InvoiceLine>-IntegratorDocumentID
                     ev_invoice_uuid      = DATA(lv_invoice_uuid)
                     ev_invoice_no        = DATA(lv_invoice_no)
-                    ev_envelope_uuid     = DATA(lv_envelope_uuid) ).
+                    ev_envelope_uuid     = DATA(lv_envelope_uuid)
+                    es_status            = DATA(ls_ea_status) ).
               WHEN OTHERS.
                 DATA(eInvoiceServiceInstance) = zcl_etr_einvoice_ws=>factory( <InvoiceLine>-CompanyCode ).
                 eInvoiceServiceInstance->outgoing_invoice_send(
@@ -313,7 +314,8 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                     ev_integrator_uuid   = <InvoiceLine>-IntegratorDocumentID
                     ev_invoice_uuid      = lv_invoice_uuid
                     ev_invoice_no        = lv_invoice_no
-                    ev_envelope_uuid     = lv_envelope_uuid ).
+                    ev_envelope_uuid     = lv_envelope_uuid
+                    es_status            = DATA(ls_ei_status) ).
             ENDCASE.
             IF lv_invoice_uuid IS NOT INITIAL.
               <InvoiceLine>-InvoiceUUID = lv_invoice_uuid.
@@ -327,14 +329,12 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
 
             CASE <InvoiceLine>-ProfileID.
               WHEN 'EARSIV'.
-                <InvoiceLine>-StatusCode = '5'.
-                <InvoiceLine>-Response = 'X'.
-              WHEN 'TEMEL'.
-                <InvoiceLine>-StatusCode = '1'.
+                <InvoiceLine>-StatusCode = ls_ea_status-stacd.
                 <InvoiceLine>-Response = 'X'.
               WHEN OTHERS.
-                <InvoiceLine>-StatusCode = '1'.
-                <InvoiceLine>-Response = '0'.
+                <InvoiceLine>-StatusCode = ls_ei_status-stacd.
+                <InvoiceLine>-StatusDetail = ls_ei_status-staex.
+                <InvoiceLine>-Response = ls_ei_status-resst.
             ENDCASE.
             <InvoiceLine>-Printed = ''.
             <InvoiceLine>-Sender = sy-uname.
@@ -352,7 +352,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
             APPEND VALUE #( DocumentUUID = <InvoiceLine>-DocumentUUID
                             %msg = new_message( id       = 'ZETR_COMMON'
                                                 number   = '000'
-                                                severity = if_abap_behv_message=>severity-error
+                                                severity = if_abap_behv_message=>severity-warning
                                                 v1 = <InvoiceLine>-DocumentNumber && '->' && ErrorMessage(35)
                                                 v2 = ErrorMessage+35(50)
                                                 v3 = ErrorMessage+85(50)
@@ -397,7 +397,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                     CREATE BY \_invoiceContents
                     FIELDS ( DocumentUUID ContentType DocumentType )
                     AUTO FILL CID
-                    WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode = '1' OR StatusCode = '5' )
+                    WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode <> '' AND StatusCode <> '2' )
                                      ( DocumentUUID = Invoice-DocumentUUID
                                        %target = VALUE #( ( DocumentType = 'OUTINVDOC'
                                                             DocumentUUID = Invoice-DocumentUUID
@@ -413,7 +413,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                     CREATE BY \_invoiceLogs
                     FIELDS ( loguuid documentuuid createdby creationdate creationtime logcode lognote )
                     AUTO FILL CID
-                    WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode = '1' OR StatusCode = '5' )
+                    WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode <> '' AND StatusCode <> '2' )
                                      ( DocumentUUID = Invoice-DocumentUUID
                                        %target = VALUE #( ( LogUUID = cl_system_uuid=>create_uuid_c22_static( )
                                                             DocumentUUID = Invoice-DocumentUUID

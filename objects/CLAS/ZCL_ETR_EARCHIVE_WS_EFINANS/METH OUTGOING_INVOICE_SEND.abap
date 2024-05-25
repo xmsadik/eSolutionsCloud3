@@ -64,4 +64,6 @@
                                          lv_message+150(50).
       ENDIF.
     ENDIF.
+
+    es_status-stacd = '5'.
   ENDMETHOD.

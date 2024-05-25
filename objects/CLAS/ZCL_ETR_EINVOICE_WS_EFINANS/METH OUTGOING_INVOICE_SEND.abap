@@ -52,18 +52,18 @@
     READ TABLE lt_xml_table INTO DATA(ls_xml_line) WITH KEY node_type = 'CO_NT_VALUE' name = 'belgeOid'.
     IF sy-subrc = 0.
       DO 5 TIMES.
-        DATA(ls_status) = outgoing_invoice_get_status( VALUE #( docii = ls_xml_line-value ) ).
-        IF ls_status-stacd = 1.
+        CLEAR es_status.
+        es_status = outgoing_invoice_get_status( VALUE #( docii = ls_xml_line-value ) ).
+        IF es_status-stacd = '1'.
           WAIT UP TO 1 SECONDS.
-          CLEAR ls_status.
         ELSE.
           EXIT.
         ENDIF.
       ENDDO.
-      IF ls_status-stacd = '2'.
+      IF es_status-stacd = '2'.
         RAISE EXCEPTION TYPE zcx_etr_regulative_exception
           MESSAGE e004(zetr_common)
-            WITH ls_status-staex(50) ls_status-staex+50(50) ls_status-staex+100(50) ls_status-staex+150(*).
+            WITH es_status-staex(50) es_status-staex+50(50) es_status-staex+100(50) es_status-staex+150(*).
       ELSE.
         ev_integrator_uuid = ls_xml_line-value.
       ENDIF.

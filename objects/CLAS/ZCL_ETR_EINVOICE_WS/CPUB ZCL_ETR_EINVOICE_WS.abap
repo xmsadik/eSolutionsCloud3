@@ -118,6 +118,7 @@ CLASS zcl_etr_einvoice_ws DEFINITION
         !ev_invoice_uuid      TYPE zetr_e_duich
         !ev_invoice_no        TYPE zetr_e_docno
         !ev_envelope_uuid     TYPE zetr_e_envui
+        !es_status            TYPE mty_outgoing_document_status
       RAISING
         zcx_etr_regulative_exception .
 

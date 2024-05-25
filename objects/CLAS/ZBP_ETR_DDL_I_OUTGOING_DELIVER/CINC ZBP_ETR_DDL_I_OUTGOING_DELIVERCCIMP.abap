@@ -334,8 +334,12 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
             DATA(ErrorMessage) = CONV bapi_msg( RegulativeException->get_text( ) ).
             APPEND VALUE #( DocumentUUID = <deliveryLine>-DocumentUUID
                             %msg = new_message( id       = 'ZETR_COMMON'
+                                                number   = '207'
+                                                severity = if_abap_behv_message=>severity-information ) ) TO reported-Outgoingdeliveries.
+            APPEND VALUE #( DocumentUUID = <deliveryLine>-DocumentUUID
+                            %msg = new_message( id       = 'ZETR_COMMON'
                                                 number   = '000'
-                                                severity = if_abap_behv_message=>severity-error
+                                                severity = if_abap_behv_message=>severity-information
                                                 v1 = <deliveryLine>-DocumentNumber && '->' && ErrorMessage(35)
                                                 v2 = ErrorMessage+35(50)
                                                 v3 = ErrorMessage+85(50)

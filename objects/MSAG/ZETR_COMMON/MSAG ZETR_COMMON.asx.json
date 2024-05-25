@@ -1910,6 +1910,24 @@
     "DOKLRELES":"",
     "DOKLDATE":"0000-00-00",
     "DOKLTIME":"00:00:00"
+   },
+   {
+    "ID":"NA",
+    "OBJECT":"ZETR_COMMON207",
+    "LANGU":"D",
+    "TYP":"E",
+    "DOKVERSION":1,
+    "DOKSTATE":"N",
+    "DOKFORM":"S_DOCU_SHOW",
+    "DOKSTYLE":"S_DOCUS1",
+    "DOKFUSER":"SAP_CUSTOMER",
+    "DOKFRELES":"",
+    "DOKFDATE":"0000-00-00",
+    "DOKFTIME":"00:00:00",
+    "DOKLUSER":"SAP_CUSTOMER",
+    "DOKLRELES":"",
+    "DOKLDATE":"0000-00-00",
+    "DOKLTIME":"00:00:00"
    }
   ]
  },
@@ -3082,6 +3100,17 @@
     "TXTLINES":0,
     "DOKSTATE":"N",
     "SELFDEF":"3"
+   },
+   {
+    "ID":"NA",
+    "OBJECT":"ZETR_COMMON207",
+    "LANGU":"D",
+    "TYP":"E",
+    "VERSION":1,
+    "MASTERLANG":"X",
+    "TXTLINES":0,
+    "DOKSTATE":"N",
+    "SELFDEF":"3"
    }
   ]
  },
@@ -3724,6 +3753,12 @@
     "ARBGB":"ZETR_COMMON",
     "MSGNR":"206",
     "TEXT":"GTİP information is missing"
+   },
+   {
+    "SPRSL":"E",
+    "ARBGB":"ZETR_COMMON",
+    "MSGNR":"207",
+    "TEXT":"Document cannot be sent"
    },
    {
     "SPRSL":"T",
@@ -5135,6 +5170,13 @@
     "NAME":"SAP_CUSTOMER",
     "DATUM":"2024-05-25",
     "SELFDEF":"3"
+   },
+   {
+    "ARBGB":"ZETR_COMMON",
+    "MSGNR":"207",
+    "NAME":"SAP_CUSTOMER",
+    "DATUM":"2024-05-25",
+    "SELFDEF":"3"
    }
   ]
  },
@@ -5162,8 +5204,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2023-10-15",
-    "CHECK_DATE":"2023-10-15",
+    "CREATED_ON":"2024-05-25",
+    "CHECK_DATE":"2024-05-25",
     "CHECK_CFG":""
    }
   ]

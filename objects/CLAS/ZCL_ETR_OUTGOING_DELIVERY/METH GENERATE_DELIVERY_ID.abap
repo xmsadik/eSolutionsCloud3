@@ -32,24 +32,24 @@
             INTO @DATA(lv_max_date).
 *          IF sy-subrc IS NOT INITIAL OR lv_max_date IS INITIAL OR lv_max_date LE ms_document-bldat.
           IF sy-subrc IS NOT INITIAL OR lv_max_date IS INITIAL OR lv_max_date LE lv_bldat.
-            TRY.
-                cl_numberrange_runtime=>number_get(
-                  EXPORTING
-                    nr_range_nr       = ls_serial-numrn
-                    object            = lv_number_object
-                    quantity          = 1
-                    subobject         = CONV #( ms_document-bukrs )
-                    toyear            = lv_gjahr
-                  IMPORTING
-                    number            = lv_number ).
-                ms_document-dlvno = lv_number+4(*).
-                ms_document-dlvno(3) = ls_serial-serpr.
-                ms_document-dlvno+3(4) = lv_gjahr.
-              CATCH cx_root INTO DATA(lx_root).
-                DATA(lv_error) = lx_root->get_text( ).
-                RAISE EXCEPTION TYPE zcx_etr_regulative_exception
-                  MESSAGE e000(zetr_common) WITH lv_error(50) lv_error+50(50) lv_error+100(50) lv_error+150(*).
-            ENDTRY.
+*            TRY.
+            cl_numberrange_runtime=>number_get(
+              EXPORTING
+                nr_range_nr       = ls_serial-numrn
+                object            = lv_number_object
+                quantity          = 1
+                subobject         = CONV #( ms_document-bukrs )
+                toyear            = lv_gjahr
+              IMPORTING
+                number            = lv_number ).
+            ms_document-dlvno = lv_number+4(*).
+            ms_document-dlvno(3) = ls_serial-serpr.
+            ms_document-dlvno+3(4) = lv_gjahr.
+*              CATCH cx_root INTO DATA(lx_root).
+*                DATA(lv_error) = lx_root->get_text( ).
+*                RAISE EXCEPTION TYPE zcx_etr_regulative_exception
+*                  MESSAGE e000(zetr_common) WITH lv_error(50) lv_error+50(50) lv_error+100(50) lv_error+150(*).
+*            ENDTRY.
           ELSEIF ls_serial-nxtsp IS INITIAL.
             RAISE EXCEPTION TYPE zcx_etr_regulative_exception
               MESSAGE e031(zetr_common) WITH ms_document-serpr.
@@ -76,23 +76,23 @@
         ENDIF.
         CONCATENATE ls_serial-serpr lv_days_num lv_gjahr INTO lv_invoice_no.
         CONCATENATE ls_serial-numrn lv_days_num INTO ls_serial-numrn.
-        TRY.
-            cl_numberrange_runtime=>number_get(
-              EXPORTING
-                nr_range_nr       = ls_serial-numrn
-                object            = lv_number_object
-                quantity          = 1
-                subobject         = CONV #( ms_document-bukrs )
-                toyear            = lv_gjahr
-              IMPORTING
-                number            = lv_number ).
-            ms_document-dlvno = lv_number+4(*).
-            ms_document-dlvno(7) = lv_invoice_no.
-          CATCH cx_root INTO lx_root.
-            lv_error = lx_root->get_text( ).
-            RAISE EXCEPTION TYPE zcx_etr_regulative_exception
-              MESSAGE e000(zetr_common) WITH lv_error(50) lv_error+50(50) lv_error+100(50) lv_error+150(*).
-        ENDTRY.
+*        TRY.
+        cl_numberrange_runtime=>number_get(
+          EXPORTING
+            nr_range_nr       = ls_serial-numrn
+            object            = lv_number_object
+            quantity          = 1
+            subobject         = CONV #( ms_document-bukrs )
+            toyear            = lv_gjahr
+          IMPORTING
+            number            = lv_number ).
+        ms_document-dlvno = lv_number+4(*).
+        ms_document-dlvno(7) = lv_invoice_no.
+*          CATCH cx_root INTO lx_root.
+*            lv_error = lx_root->get_text( ).
+*            RAISE EXCEPTION TYPE zcx_etr_regulative_exception
+*              MESSAGE e000(zetr_common) WITH lv_error(50) lv_error+50(50) lv_error+100(50) lv_error+150(*).
+*        ENDTRY.
     ENDCASE.
 
     IF ms_document-dlvno IS NOT INITIAL.

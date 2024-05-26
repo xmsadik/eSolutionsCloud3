@@ -330,7 +330,7 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
                                                 severity = if_abap_behv_message=>severity-success ) ) TO reported-Outgoingdeliveries.
 
 
-          CATCH zcx_etr_regulative_exception INTO DATA(RegulativeException).
+          CATCH cx_root INTO DATA(RegulativeException).
             DATA(ErrorMessage) = CONV bapi_msg( RegulativeException->get_text( ) ).
             APPEND VALUE #( DocumentUUID = <deliveryLine>-DocumentUUID
                             %msg = new_message( id       = 'ZETR_COMMON'

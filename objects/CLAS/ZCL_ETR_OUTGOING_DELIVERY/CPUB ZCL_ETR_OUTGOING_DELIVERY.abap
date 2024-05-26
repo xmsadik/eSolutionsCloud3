@@ -246,4 +246,5 @@ CLASS zcl_etr_outgoing_delivery DEFINITION
       RETURNING
         VALUE(rv_invoice_number) TYPE zetr_e_docno
       RAISING
-        zcx_etr_regulative_exception .
+        zcx_etr_regulative_exception
+        cx_number_ranges.

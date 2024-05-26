@@ -41,8 +41,17 @@ CLASS lhc_InvoiceList IMPLEMENTATION.
         FAILED failed.
     CHECK lt_invoices IS NOT INITIAL.
 
+    SELECT *
+      FROM zetr_t_usaut
+      FOR ALL ENTRIES IN @lt_invoices
+      WHERE bukrs = @lt_invoices-CompanyCode
+      INTO TABLE @DATA(lt_authorizations).
+
     result = VALUE #( FOR ls_invoice IN lt_invoices
                       ( %tky = ls_invoice-%tky
+                        %field-PurchasingGroup = COND #( WHEN line_exists( lt_authorizations[ bukrs = ls_invoice-CompanyCode icipc = abap_true ] )
+                                                     THEN if_abap_behv=>fc-f-unrestricted
+                                                   ELSE if_abap_behv=>fc-f-read_only  )
                         %action-sendResponse = COND #( WHEN ls_invoice-ResponseStatus <> '0'
                                                    THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  )
                         %action-setAsRejected = COND #( WHEN ls_invoice-ResponseStatus <> '0' AND ls_invoice-ResponseStatus <> 'X'

@@ -63,7 +63,7 @@ authorization master ( instance )
   Printed,
   ApplicationResponse,
   Processed;
-  //  field ( features : instance ) PurchasingGroup, PurchaseOrders;
+  field ( features : instance ) PurchasingGroup;
   association _invoiceContents { create; }
   association _invoiceLogs { create; }
 

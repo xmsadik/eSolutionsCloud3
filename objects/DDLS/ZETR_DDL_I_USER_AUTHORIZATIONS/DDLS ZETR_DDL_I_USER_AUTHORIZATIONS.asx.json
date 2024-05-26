@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'User Authorizations'\r\ndefine view entity zetr_ddl_i_user_authorizations\r\n  as select from zetr_t_usaut\r\n  association to parent zetr_ddl_i_company_information as _companyInformation on $projection.CompanyCode = _companyInformation.CompanyCode\r\n{\r\n  key bukrs as CompanyCode,\r\n  key uname as Username,\r\n      ogisc as OutgoingInvoiceStatusChange,\r\n      ogdsc as OutgoingDeliveryStatusChange,\r\n      _companyInformation // Make association public\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_T_USAUT\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_COMPANY_INFORMATION\"\n],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'User Authorizations'\r\ndefine view entity zetr_ddl_i_user_authorizations\r\n  as select from zetr_t_usaut\r\n  association to parent zetr_ddl_i_company_information as _companyInformation on $projection.CompanyCode = _companyInformation.CompanyCode\r\n{\r\n  key bukrs as CompanyCode,\r\n  key uname as Username,\r\n      ogisc as OutgoingInvoiceStatusChange,\r\n      ogdsc as OutgoingDeliveryStatusChange,\r\n      icipc as IncomingInvoicePurcGrpChange,\r\n      _companyInformation // Make association public\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_T_USAUT\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_COMPANY_INFORMATION\"\n],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"4",
     "SOURCE_TYPE":"W",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"

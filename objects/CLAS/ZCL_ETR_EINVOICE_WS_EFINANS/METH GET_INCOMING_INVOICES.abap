@@ -46,25 +46,11 @@
         IMPORTING
           ev_output_data_str = DATA(lv_document_xml) ).
       DATA(lt_xml_table) = zcl_etr_regulative_common=>parse_xml( lv_document_xml ).
-      LOOP AT lt_xml_table INTO DATA(ls_xml_line).
-        CHECK ls_xml_line-node_type = 'CO_NT_VALUE'.
-        CASE ls_xml_line-name.
-          WHEN 'faturaTuru'.
-            <ls_list>-prfid = zcl_etr_invoice_operations=>conversion_profile_id_input( ls_xml_line-value ).
-          WHEN 'faturaTipi'.
-            <ls_list>-invty = zcl_etr_invoice_operations=>conversion_invoice_type_input( ls_xml_line-value ).
-          WHEN 'kur'.
-            <ls_list>-kursf = ls_xml_line-value.
-          WHEN 'paraBirimi'.
-            <ls_list>-waers = ls_xml_line-value.
-          WHEN 'odenecekTutar'.
-            <ls_list>-wrbtr = ls_xml_line-value.
-          WHEN 'vergiDahilTutar'.
-            <ls_list>-fwste += ls_xml_line-value.
-          WHEN 'vergiHaricToplam'.
-            <ls_list>-fwste -= ls_xml_line-value.
-        ENDCASE.
-      ENDLOOP.
+      incoming_invoice_get_fields(
+        EXPORTING
+          it_xml_table = lt_xml_table
+        CHANGING
+          cs_invoice   = <ls_list> ).
 
       set_incoming_invoice_received( <ls_list>-invui ).
     ENDLOOP.

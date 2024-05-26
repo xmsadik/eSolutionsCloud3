@@ -21,3 +21,9 @@
         VALUE(rs_status)  TYPE mty_document_status
       RAISING
         zcx_etr_regulative_exception .
+
+    METHODS incoming_invoice_get_fields
+      IMPORTING
+        it_xml_table TYPE zcl_etr_regulative_common=>mty_xml_nodes
+      CHANGING
+        cs_invoice   TYPE zetr_t_icinv.

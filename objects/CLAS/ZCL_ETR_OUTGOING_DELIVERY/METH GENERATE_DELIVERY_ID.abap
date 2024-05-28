@@ -64,17 +64,19 @@
         ELSE.
           lv_days_num = lv_days.
         ENDIF.
-        DO lv_days_num TIMES.
-          SELECT SINGLE *
-            FROM zetr_t_eiser
-            WHERE bukrs = @ms_document-bukrs
-              AND serpr = @ls_serial-nxtsp
-            INTO @ls_serial.
-          IF sy-subrc IS NOT INITIAL.
-            RAISE EXCEPTION TYPE zcx_etr_regulative_exception
-              MESSAGE e031(zetr_common) WITH ms_document-serpr.
-          ENDIF.
-        ENDDO.
+        CONCATENATE ls_serial-serpr lv_days_num lv_gjahr INTO lv_delivery_no.
+        CONCATENATE ls_serial-numrn lv_days_num INTO ls_serial-numrn.
+*        DO lv_days_num TIMES.
+*          SELECT SINGLE *
+*            FROM zetr_t_eiser
+*            WHERE bukrs = @ms_document-bukrs
+*              AND serpr = @ls_serial-nxtsp
+*            INTO @ls_serial.
+*          IF sy-subrc IS NOT INITIAL.
+*            RAISE EXCEPTION TYPE zcx_etr_regulative_exception
+*              MESSAGE e031(zetr_common) WITH ms_document-serpr.
+*          ENDIF.
+*        ENDDO.
         cl_numberrange_runtime=>number_get(
           EXPORTING
             nr_range_nr       = ls_serial-numrn
@@ -84,9 +86,10 @@
             toyear            = lv_gjahr
           IMPORTING
             number            = lv_number ).
-        ms_document-dlvno = lv_number+4(*).
-        ms_document-dlvno(3) = ls_serial-serpr.
-        ms_document-dlvno+3(4) = lv_gjahr.
+        ms_document-dlvno = lv_delivery_no && lv_number+7(*).
+*        ms_document-dlvno = lv_number+4(*).
+*        ms_document-dlvno(3) = ls_serial-serpr.
+*        ms_document-dlvno+3(4) = lv_gjahr.
     ENDCASE.
 
     IF ms_document-dlvno IS NOT INITIAL.

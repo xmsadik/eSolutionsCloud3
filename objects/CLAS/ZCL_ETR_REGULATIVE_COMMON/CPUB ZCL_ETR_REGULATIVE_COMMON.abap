@@ -47,3 +47,13 @@ CLASS zcl_etr_regulative_common DEFINITION
     CLASS-METHODS get_ui_url
       RETURNING
         VALUE(rv_url) TYPE string.
+    CLASS-METHODS amount_to_words
+      IMPORTING
+        !amount      TYPE wrbtr_cs
+      RETURNING
+        VALUE(words) TYPE string.
+    CLASS-METHODS number_to_words
+      IMPORTING
+        !number      TYPE string
+      RETURNING
+        VALUE(words) TYPE string.

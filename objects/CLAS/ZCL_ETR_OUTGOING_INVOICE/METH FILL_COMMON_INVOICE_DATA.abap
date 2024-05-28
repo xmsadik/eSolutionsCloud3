@@ -133,7 +133,11 @@
       ENDIF.
     ENDIF.
 
-*    lv_payableamount = ms_invoice_ubl-legalmonetarytotal-payableamount-content.
+    DATA(lv_payableamount) = CONV wrbtr_cs( ms_invoice_ubl-legalmonetarytotal-payableamount-content ).
+    DATA(lv_words) = zcl_etr_regulative_common=>amount_to_words( lv_payableamount ).
+    APPEND INITIAL LINE TO ms_invoice_ubl-note ASSIGNING <ls_invoice_note>.
+    CONCATENATE 'Yalnızca' ` ` lv_words INTO <ls_invoice_note>-content.
+
 *    lv_currency = ms_invoice_ubl-legalmonetarytotal-payableamount-currencyid.
 *    CASE lv_currency.
 *      WHEN 'TRY'.

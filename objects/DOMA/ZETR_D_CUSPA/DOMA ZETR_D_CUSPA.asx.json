@@ -98,6 +98,42 @@
     "DOMVALUE_L":"ADDSIGN",
     "DOMVALUE_H":"",
     "APPVAL":""
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "AS4LOCAL":"N",
+    "VALPOS":6,
+    "AS4VERS":0,
+    "DOMVALUE_L":"INCINVFLD",
+    "DOMVALUE_H":"",
+    "APPVAL":""
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "AS4LOCAL":"N",
+    "VALPOS":7,
+    "AS4VERS":0,
+    "DOMVALUE_L":"CUSTOM1",
+    "DOMVALUE_H":"",
+    "APPVAL":""
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "AS4LOCAL":"N",
+    "VALPOS":8,
+    "AS4VERS":0,
+    "DOMVALUE_L":"CUSTOM2",
+    "DOMVALUE_H":"",
+    "APPVAL":""
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "AS4LOCAL":"N",
+    "VALPOS":9,
+    "AS4VERS":0,
+    "DOMVALUE_L":"CUSTOM3",
+    "DOMVALUE_H":"",
+    "APPVAL":""
    }
   ]
  },
@@ -159,6 +195,50 @@
     "DOMVAL_LD":"",
     "DOMVAL_HD":"",
     "DOMVALUE_L":"ADDSIGN"
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "VALPOS":6,
+    "AS4VERS":0,
+    "DDTEXT":"Incoming Invoice Field Mapping",
+    "DOMVAL_LD":"",
+    "DOMVAL_HD":"",
+    "DOMVALUE_L":"INCINVFLD"
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "VALPOS":7,
+    "AS4VERS":0,
+    "DDTEXT":"Custom Field 1",
+    "DOMVAL_LD":"",
+    "DOMVAL_HD":"",
+    "DOMVALUE_L":"CUSTOM1"
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "VALPOS":8,
+    "AS4VERS":0,
+    "DDTEXT":"Custom Field 2",
+    "DOMVAL_LD":"",
+    "DOMVAL_HD":"",
+    "DOMVALUE_L":"CUSTOM2"
+   },
+   {
+    "DOMNAME":"ZETR_D_CUSPA",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "VALPOS":9,
+    "AS4VERS":0,
+    "DDTEXT":"Custom Field 3",
+    "DOMVAL_LD":"",
+    "DOMVAL_HD":"",
+    "DOMVALUE_L":"CUSTOM3"
    },
    {
     "DOMNAME":"ZETR_D_CUSPA",

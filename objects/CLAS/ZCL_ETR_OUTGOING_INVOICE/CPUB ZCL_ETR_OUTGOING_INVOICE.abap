@@ -264,6 +264,8 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES admat TYPE c LENGTH 35.
     TYPES arktx TYPE zetr_e_notes.
     TYPES descr TYPE zetr_e_notes.
+    TYPES model TYPE zetr_e_notes.
+    TYPES brand TYPE zetr_e_notes.
     TYPES fkimg TYPE menge_d.
     TYPES vrkme TYPE meins.
     TYPES netwr TYPE wrbtr_cs.

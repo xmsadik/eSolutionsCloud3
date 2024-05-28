@@ -22,6 +22,8 @@
       <ls_invoice_line>-item-manufacturersitemidentificatio-id-content = ls_invoice_items-admat.
       <ls_invoice_line>-item-name-content = ls_invoice_items-arktx.
       <ls_invoice_line>-item-description-content = ls_invoice_items-descr.
+      <ls_invoice_line>-item-modelname-content = ls_invoice_items-model.
+      <ls_invoice_line>-item-brandname-content = ls_invoice_items-brand.
       <ls_invoice_line>-invoicedquantity-content = ls_invoice_items-fkimg.
       SELECT SINGLE unitc
         FROM zetr_t_untmc

@@ -380,21 +380,21 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
                                                           %control-StatusDetail = if_abap_behv=>mk-on
                                                           %control-Response = if_abap_behv=>mk-on ) )
 
-                ENTITY Outgoingdeliveries
-                    CREATE BY \_deliveryContents
-                    FIELDS ( DocumentUUID ContentType DocumentType )
-                    AUTO FILL CID
-                    WITH VALUE #( FOR delivery IN deliveryList WHERE ( StatusCode = '1' OR StatusCode = '5' )
-                                     ( DocumentUUID = delivery-DocumentUUID
-                                       %target = VALUE #( ( DocumentUUID = delivery-DocumentUUID
-                                                            DocumentType = 'OUTDLVDOC'
-                                                            ContentType = 'PDF' )
-                                                          ( DocumentUUID = delivery-DocumentUUID
-                                                            DocumentType = 'OUTDLVDOC'
-                                                            ContentType = 'HTML' )
-                                                          ( DocumentUUID = delivery-DocumentUUID
-                                                            DocumentType = 'OUTDLVDOC'
-                                                            ContentType = 'UBL' ) ) ) )
+*                ENTITY Outgoingdeliveries
+*                    CREATE BY \_deliveryContents
+*                    FIELDS ( DocumentUUID ContentType DocumentType )
+*                    AUTO FILL CID
+*                    WITH VALUE #( FOR delivery IN deliveryList WHERE ( StatusCode = '1' OR StatusCode = '5' )
+*                                     ( DocumentUUID = delivery-DocumentUUID
+*                                       %target = VALUE #( ( DocumentUUID = delivery-DocumentUUID
+*                                                            DocumentType = 'OUTDLVDOC'
+*                                                            ContentType = 'PDF' )
+*                                                          ( DocumentUUID = delivery-DocumentUUID
+*                                                            DocumentType = 'OUTDLVDOC'
+*                                                            ContentType = 'HTML' )
+*                                                          ( DocumentUUID = delivery-DocumentUUID
+*                                                            DocumentType = 'OUTDLVDOC'
+*                                                            ContentType = 'UBL' ) ) ) )
 
                   ENTITY Outgoingdeliveries
                     CREATE BY \_deliveryLogs

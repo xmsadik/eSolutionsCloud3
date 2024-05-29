@@ -27,6 +27,17 @@
 
     CHECK rs_document IS NOT INITIAL.
     INSERT zetr_t_oginv FROM @rs_document.
+    DATA lt_contents TYPE TABLE OF zetr_t_arcd.
+    lt_contents = VALUE #( ( docty = 'OUTINVDOC'
+                             docui = rs_document-docui
+                             conty = 'PDF' )
+                           ( docty = 'OUTINVDOC'
+                             docui = rs_document-docui
+                             conty = 'HTML' )
+                           ( docty = 'OUTINVDOC'
+                             docui = rs_document-docui
+                             conty = 'UBL' ) ).
+    INSERT zetr_t_arcd FROM TABLE @lt_contents.
     zcl_etr_regulative_log=>create_single_log( iv_log_code    = zcl_etr_regulative_log=>mc_log_codes-created
                                                iv_document_id = rs_document-docui ).
     COMMIT WORK AND WAIT.

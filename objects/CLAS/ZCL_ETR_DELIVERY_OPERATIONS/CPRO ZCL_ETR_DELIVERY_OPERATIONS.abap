@@ -2,6 +2,16 @@
     DATA mv_company_code TYPE bukrs.
     DATA mv_company_taxid TYPE zetr_e_taxid.
 
+    METHODS outgoing_delivery_preview
+      IMPORTING
+        !iv_document_uid        TYPE sysuuid_c22
+        !iv_content_type        TYPE zetr_e_dctyp
+        !iv_document_ubl        TYPE xstring
+      RETURNING
+        VALUE(rv_delivery_data) TYPE zetr_e_dcont
+      RAISING
+        zcx_etr_regulative_exception .
+
     METHODS save_incoming_deliveries
       IMPORTING
         !it_list  TYPE mty_incoming_list

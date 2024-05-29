@@ -33,7 +33,7 @@
     "REFRESH_INTERVALL":0,
     "DISPLAY_NUMBER_UNIT":"",
     "FLAVOR_ID":"",
-    "CHANGED_AT":"+020240506105842",
+    "CHANGED_AT":"+020240529142725",
     "CHANGED_BY":"SAP_CUSTOMER",
     "MASTERLANG":"",
     "ACH_COMPONENT":"",
@@ -82,6 +82,15 @@
     "APP_ID":"ZETR_OUTG_INV_UI5R",
     "TILE_ID":"UI5R_21D1D215B40A20326D3161D88BD245AD44759C36_AL",
     "TILE_TITLE":"eSolutions - Outgoing Invoices",
+    "TILE_SUBTITLE":"",
+    "TILE_KEYWORDS":"",
+    "TILE_INFORMATION":""
+   },
+   {
+    "LANGU":"T",
+    "APP_ID":"ZETR_OUTG_INV_UI5R",
+    "TILE_ID":"UI5R_21D1D215B40A20326D3161D88BD245AD44759C36_AL",
+    "TILE_TITLE":"eÇözümler - Giden Faturalar",
     "TILE_SUBTITLE":"",
     "TILE_KEYWORDS":"",
     "TILE_INFORMATION":""
@@ -138,6 +147,15 @@
     "TILE_KEYWORDS":"",
     "TILE_INFORMATION":"",
     "ALT_SMART_LINK_TITLE":"eSolutions - Outgoing Invoices"
+   },
+   {
+    "APP_ID":"ZETR_OUTG_INV_UI5R",
+    "LANGU":"T",
+    "TILE_TITLE":"eÇözümler - Giden Faturalar",
+    "TILE_SUBTITLE":"",
+    "TILE_KEYWORDS":"",
+    "TILE_INFORMATION":"",
+    "ALT_SMART_LINK_TITLE":"eÇözümler - Giden Faturalar"
    }
   ]
  },
@@ -165,8 +183,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2024-05-06",
-    "CHECK_DATE":"2024-05-06",
+    "CREATED_ON":"2024-05-29",
+    "CHECK_DATE":"2024-05-29",
     "CHECK_CFG":""
    }
   ]

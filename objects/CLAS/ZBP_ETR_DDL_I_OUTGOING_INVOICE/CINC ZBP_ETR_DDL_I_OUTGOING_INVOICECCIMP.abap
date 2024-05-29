@@ -397,21 +397,21 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                                                         %control-StatusDetail = if_abap_behv=>mk-on
                                                         %control-Response = if_abap_behv=>mk-on ) )
 
-                ENTITY OutgoingInvoices
-                    CREATE BY \_invoiceContents
-                    FIELDS ( DocumentUUID ContentType DocumentType )
-                    AUTO FILL CID
-                    WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode <> '' AND StatusCode <> '2' )
-                                     ( DocumentUUID = Invoice-DocumentUUID
-                                       %target = VALUE #( ( DocumentType = 'OUTINVDOC'
-                                                            DocumentUUID = Invoice-DocumentUUID
-                                                            ContentType = 'PDF' )
-                                                          ( DocumentType = 'OUTINVDOC'
-                                                            DocumentUUID = Invoice-DocumentUUID
-                                                            ContentType = 'HTML' )
-                                                          ( DocumentType = 'OUTINVDOC'
-                                                            DocumentUUID = Invoice-DocumentUUID
-                                                            ContentType = 'UBL' ) ) ) )
+*                ENTITY OutgoingInvoices
+*                    CREATE BY \_invoiceContents
+*                    FIELDS ( DocumentUUID ContentType DocumentType )
+*                    AUTO FILL CID
+*                    WITH VALUE #( FOR Invoice IN InvoiceList WHERE ( StatusCode <> '' AND StatusCode <> '2' )
+*                                     ( DocumentUUID = Invoice-DocumentUUID
+*                                       %target = VALUE #( ( DocumentType = 'OUTINVDOC'
+*                                                            DocumentUUID = Invoice-DocumentUUID
+*                                                            ContentType = 'PDF' )
+*                                                          ( DocumentType = 'OUTINVDOC'
+*                                                            DocumentUUID = Invoice-DocumentUUID
+*                                                            ContentType = 'HTML' )
+*                                                          ( DocumentType = 'OUTINVDOC'
+*                                                            DocumentUUID = Invoice-DocumentUUID
+*                                                            ContentType = 'UBL' ) ) ) )
 
                   ENTITY OutgoingInvoices
                     CREATE BY \_invoiceLogs

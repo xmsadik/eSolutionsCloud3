@@ -20,19 +20,25 @@
                                            '&FiscalYear=' && <ls_output>-FiscalYear.
       ENDCASE.
 
+*      IF <ls_output>-StatusCode <> '2' AND <ls_output>-StatusCode <> ''.
+      TRY.
+          cl_system_uuid=>convert_uuid_c22_static(
+            EXPORTING
+              uuid = <ls_output>-documentuuid
+            IMPORTING
+              uuid_c36 = DATA(lv_uuid) ).
+        CATCH cx_uuid_error.
+          "handle exception
+      ENDTRY.
       IF <ls_output>-StatusCode <> '2' AND <ls_output>-StatusCode <> ''.
-        TRY.
-            cl_system_uuid=>convert_uuid_c22_static(
-              EXPORTING
-                uuid = <ls_output>-documentuuid
-              IMPORTING
-                uuid_c36 = DATA(lv_uuid) ).
-          CATCH cx_uuid_error.
-            "handle exception
-        ENDTRY.
         <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
                                     '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_INVOICES/Contents(DocumentUUID=guid''' &&
                                     lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTINVDOC'')/$value'.
+*                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
+      ELSE.
+        <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
+                                    '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_INVOICES/Contents(DocumentUUID=guid''' &&
+                                    lv_uuid && ''',ContentType=''HTML'',DocumentType=''OUTINVDOC'')/$value'.
 *                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
       ENDIF.
     ENDLOOP.

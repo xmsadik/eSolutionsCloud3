@@ -115,8 +115,7 @@
             toyear            = lv_gjahr
           IMPORTING
             number            = lv_number ).
-        lv_number = lv_number+4(*).
-        ms_document-invno = lv_invoice_no && lv_number+7(*).
+        ms_document-invno = lv_invoice_no && lv_number+11(*).
 *        ms_document-invno = lv_number+4(*).
 *        ms_document-invno(3) = ls_serial-serpr.
 *        ms_document-invno+3(4) = lv_gjahr.

@@ -62,7 +62,8 @@
            vbpa~addressid AS adrwe
       FROM i_billingdocumentitem AS vbrp
       LEFT OUTER JOIN I_ProductPlantBasic AS marc
-        ON marc~product = vbrp~product
+        ON  marc~product = vbrp~product
+        AND marc~plant = vbrp~plant
       LEFT OUTER JOIN I_CountryText AS t005t
         ON  t005t~Language = @sy-langu
         AND t005t~country = marc~CountryOfOrigin

@@ -26,6 +26,7 @@
     SORT lt_likp BY vgbel.
     DELETE ADJACENT DUPLICATES FROM lt_likp COMPARING vgbel.
     LOOP AT lt_likp INTO DATA(ls_likp).
+      CHECK ls_likp-vgdat IS NOT INITIAL.
       APPEND INITIAL LINE TO ms_invoice_ubl-despatchdocumentreference ASSIGNING FIELD-SYMBOL(<ls_desdoc_ref>).
       IF ls_likp-vgxbl IS NOT INITIAL.
         <ls_desdoc_ref>-id-content = ls_likp-vgxbl.

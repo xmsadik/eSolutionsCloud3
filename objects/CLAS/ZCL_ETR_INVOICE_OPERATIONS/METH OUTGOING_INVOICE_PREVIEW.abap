@@ -40,13 +40,14 @@
                                            lv_message+100(50)
                                            lv_message+150(50).
         ELSE.
-          rv_document = xco_cp=>string( lv_response )->as_xstring( xco_cp_binary=>text_encoding->base64 )->value.
+*          rv_document = lv_response.
+*          rv_document = xco_cp=>string( lv_response )->as_xstring( xco_cp_binary=>text_encoding->base64 )->value.
 *          DATA(lv_decoded_data) = cl_web_http_utility=>decode_base64( encoded = lv_response ).
-*          rv_document = cl_abap_conv_codepage=>create_out( )->convert(
-*              replace( val = lv_decoded_data
-*                       sub = |\n|
-*                       with = ``
-*                       occ = 0  ) ).
+          rv_document = cl_abap_conv_codepage=>create_out( )->convert(
+              replace( val = lv_response
+                       sub = |\n|
+                       with = ``
+                       occ = 0  ) ).
         ENDIF.
       CATCH cx_http_dest_provider_error INTO DATA(lx_http_dest_provider_error).
         lv_message = lx_http_dest_provider_error->get_text( ).

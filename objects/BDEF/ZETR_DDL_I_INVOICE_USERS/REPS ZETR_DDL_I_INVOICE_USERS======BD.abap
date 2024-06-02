@@ -1,5 +1,5 @@
 managed implementation in class zbp_etr_ddl_i_invoice_users unique;
-strict ( 1 );
+strict ( 2 );
 
 define behavior for zetr_ddl_i_invoice_users //alias <alias_name>
 persistent table zetr_t_inv_ruser

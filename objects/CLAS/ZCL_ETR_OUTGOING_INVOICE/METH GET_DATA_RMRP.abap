@@ -1,5 +1,7 @@
   METHOD get_data_rmrp.
-    SELECT SINGLE DocumentDate AS doc_date,
+    SELECT SINGLE SupplierInvoice AS document_number,
+                  FiscalYear AS fiscal_year,
+                  DocumentDate AS doc_date,
                   AccountingDocumentType AS doc_type,
                   DocumentCurrency AS Currency,
                   ExchangeRate AS exch_rate,

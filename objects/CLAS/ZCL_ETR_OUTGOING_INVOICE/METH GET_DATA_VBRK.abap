@@ -1,5 +1,6 @@
   METHOD get_data_vbrk.
-    SELECT SINGLE vbrk~TransactionCurrency AS waerk,
+    SELECT SINGLE vbrk~BillingDocument AS vbeln,
+                  vbrk~TransactionCurrency AS waerk,
                   vbrk~IncotermsClassification AS inco1,
                   ' ' AS exnum,
                   vbrk~CreationDate AS erdat,

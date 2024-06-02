@@ -1,5 +1,8 @@
   METHOD get_data_bkpf.
-    SELECT SINGLE companycodecurrency AS hwaer,
+    SELECT SINGLE companycode AS bukrs,
+                  accountingdocument AS belnr,
+                  fiscalyear AS gjahr,
+                  companycodecurrency AS hwaer,
                   transactioncurrency AS waers,
                   documentdate AS bldat,
                   accountingdocumenttype AS blart,

@@ -36,6 +36,9 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES END OF mty_t005u.
 
     TYPES BEGIN OF mty_bkpf.
+    TYPES bukrs TYPE bukrs.
+    TYPES belnr TYPE belnr_d.
+    TYPES gjahr TYPE gjahr.
     TYPES hwaer TYPE waers.
     TYPES waers TYPE waers.
     TYPES bldat TYPE datum.
@@ -93,6 +96,8 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES END OF mty_accdoc_data .
 
     TYPES BEGIN OF mty_invrec_headerdata.
+    TYPES document_number TYPE belnr_d.
+    TYPES fiscal_year TYPE gjahr.
     TYPES doc_date TYPE datum.
     TYPES doc_type TYPE blart.
     TYPES currency TYPE waers.
@@ -173,6 +178,7 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES END OF mty_invrec_data .
 
     TYPES BEGIN OF mty_vbrk.
+    TYPES vbeln TYPE belnr_d.
     TYPES waerk TYPE waers.
     TYPES inco1 TYPE c LENGTH 3.
     TYPES exnum TYPE c LENGTH 10.

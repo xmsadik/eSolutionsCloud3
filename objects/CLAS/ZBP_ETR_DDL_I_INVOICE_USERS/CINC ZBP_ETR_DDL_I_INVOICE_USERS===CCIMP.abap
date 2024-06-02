@@ -49,6 +49,7 @@ CLASS lhc_zetr_ddl_i_invoice_users IMPLEMENTATION.
                                                            RegisterTime = ls_data-regtm
                                                            DefaultAlias = ls_data-defal
                                                            TaxpayerType = ls_data-txpty ) ).
+                CLEAR lt_data_temp.
               ENDIF.
             ENDLOOP.
           ENDIF.

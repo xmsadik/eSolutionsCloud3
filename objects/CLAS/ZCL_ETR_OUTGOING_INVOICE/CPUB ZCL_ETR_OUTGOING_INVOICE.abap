@@ -213,6 +213,13 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES auvsa TYPE c LENGTH 2.
     TYPES kunwe TYPE zetr_e_partner.
     TYPES adrwe TYPE c LENGTH 10.
+    TYPES netwr TYPE wrbtr_cs.
+    TYPES kzwi1 TYPE wrbtr_cs.
+    TYPES kzwi2 TYPE wrbtr_cs.
+    TYPES kzwi3 TYPE wrbtr_cs.
+    TYPES kzwi4 TYPE wrbtr_cs.
+    TYPES kzwi5 TYPE wrbtr_cs.
+    TYPES kzwi6 TYPE wrbtr_cs.
     TYPES END OF mty_vbrp.
 
     TYPES BEGIN OF mty_konv.

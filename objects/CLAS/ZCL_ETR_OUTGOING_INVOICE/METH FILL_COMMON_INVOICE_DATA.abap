@@ -134,7 +134,7 @@
     ENDIF.
 
     DATA(lv_payableamount) = CONV wrbtr_cs( ms_invoice_ubl-legalmonetarytotal-payableamount-content ).
-    DATA(lv_words) = zcl_etr_regulative_common=>amount_to_words( lv_payableamount ).
+    DATA(lv_words) = zcl_etr_regulative_common=>amount_to_words( amount = lv_payableamount currency = ms_invoice_ubl-documentcurrencycode-content  ).
     APPEND INITIAL LINE TO ms_invoice_ubl-note ASSIGNING <ls_invoice_note>.
     CONCATENATE 'Yalnızca' ` ` lv_words INTO <ls_invoice_note>-content.
 

@@ -59,7 +59,14 @@
            ' ' AS aubst,
            vbap~ShippingType AS auvsa,
            vbpa~customer AS kunwe,
-           vbpa~addressid AS adrwe
+           vbpa~addressid AS adrwe,
+           vbrp~netamount AS netwr,
+           vbrp~Subtotal1Amount AS kzwi1,
+           vbrp~Subtotal2Amount AS kzwi2,
+           vbrp~Subtotal3Amount AS kzwi3,
+           vbrp~Subtotal4Amount AS kzwi4,
+           vbrp~Subtotal5Amount AS kzwi5,
+           vbrp~Subtotal6Amount AS kzwi6
       FROM i_billingdocumentitem AS vbrp
       LEFT OUTER JOIN I_ProductPlantBasic AS marc
         ON  marc~product = vbrp~product

@@ -1,7 +1,7 @@
   METHOD outgoing_invoice_preview.
-    DATA(lv_endpoint) = CONV string( 'https://noordzee-dev-r502zlx1.it-cpi024-rt.cfapps.eu10-002.hana.ondemand.com/http/XMLandXSLTConvertHTMLandPDF' ).
-    DATA(lv_ws_user) = CONV string( 'sb-0066513c-0941-4137-9f3f-79e93c918ae0!b352430|it-rt-noordzee-dev-r502zlx1!b182722' ).
-    DATA(lv_ws_password) = CONV string( '97675543-20d0-4077-87bb-26d8bfbcc702$XEe9Jut7aPG8uW2o64vv6Uaq4YRQnPjTLeWEMCJ52MQ=' ).
+    DATA(lv_endpoint) = CONV string( '' ).
+    DATA(lv_ws_user) = CONV string( '' ).
+    DATA(lv_ws_password) = CONV string( '' ).
     TRY.
         DATA(lo_destination) = cl_http_destination_provider=>create_by_url( i_url = lv_endpoint ).
         DATA(lo_http_client) = cl_web_http_client_manager=>create_by_http_destination( lo_destination ).

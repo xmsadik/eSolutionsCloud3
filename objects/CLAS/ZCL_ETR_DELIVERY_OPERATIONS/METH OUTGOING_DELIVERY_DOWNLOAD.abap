@@ -6,9 +6,9 @@
     IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE zcx_etr_regulative_exception
         MESSAGE e005(zetr_common).
-    ELSEIF ls_document-stacd = '' OR ls_document-stacd = '2'.
-      RAISE EXCEPTION TYPE zcx_etr_regulative_exception
-        MESSAGE e032(zetr_common).
+*    ELSEIF ls_document-stacd = '' OR ls_document-stacd = '2'.
+*      RAISE EXCEPTION TYPE zcx_etr_regulative_exception
+*        MESSAGE e032(zetr_common).
     ELSEIF ls_document-archv IS NOT INITIAL.
       SELECT SINGLE contn
         FROM zetr_t_arcd

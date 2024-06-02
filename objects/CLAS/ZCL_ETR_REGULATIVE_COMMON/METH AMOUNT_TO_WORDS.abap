@@ -46,5 +46,9 @@
       ENDCASE.
     ENDLOOP.
 
-    words = words && ` TL ` && number_to_words( lv_decimal ) && ` Kuruş`.
+    IF currency EQ 'EUR'.
+      words = words && ` EUR ` && number_to_words( lv_decimal ) && ` Cent`.
+    ELSE.
+      words = words && ` TL ` && number_to_words( lv_decimal ) && ` Kuruş`.
+    ENDIF.
   ENDMETHOD.

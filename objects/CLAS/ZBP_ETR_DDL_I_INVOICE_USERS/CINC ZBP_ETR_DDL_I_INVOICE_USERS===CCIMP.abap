@@ -31,16 +31,30 @@ CLASS lhc_zetr_ddl_i_invoice_users IMPLEMENTATION.
           MODIFY ENTITIES OF zetr_ddl_i_invoice_users
             IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
             DELETE FROM lt_old_data.
-          IF lines( lt_data ) > 100000.
-            DATA lt_data_temp TYPE zcl_etr_einvoice_ws=>mty_taxpayers_list .
-            LOOP AT lt_data INTO DATA(ls_data_temp).
-              APPEND ls_data_temp TO lt_data_temp.
-              DELETE lt_data.
-              IF lines( lt_data_temp ) >= 100000.
-                MODIFY ENTITIES OF zetr_ddl_i_invoice_users
-                  IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
-                  CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
-                    WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
+          DATA lt_data_temp TYPE zcl_etr_einvoice_ws=>mty_taxpayers_list .
+          LOOP AT lt_data INTO DATA(ls_data_temp).
+            APPEND ls_data_temp TO lt_data_temp.
+            IF lines( lt_data_temp ) >= 100000.
+              MODIFY ENTITIES OF zetr_ddl_i_invoice_users
+                IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
+                CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
+                  WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
+                                                         TaxID = ls_data-taxid
+                                                         RecordNo = ls_data-recno
+                                                         Aliass = ls_data-aliass
+                                                         Title = ls_data-title
+                                                         RegisterDate = ls_data-regdt
+                                                         RegisterTime = ls_data-regtm
+                                                         DefaultAlias = ls_data-defal
+                                                         TaxpayerType = ls_data-txpty ) ).
+              CLEAR lt_data_temp.
+            ENDIF.
+          ENDLOOP.
+          IF lt_data_temp IS NOT INITIAL.
+            MODIFY ENTITIES OF zetr_ddl_i_invoice_users
+             IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
+             CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
+               WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
                                                            TaxID = ls_data-taxid
                                                            RecordNo = ls_data-recno
                                                            Aliass = ls_data-aliass
@@ -49,23 +63,6 @@ CLASS lhc_zetr_ddl_i_invoice_users IMPLEMENTATION.
                                                            RegisterTime = ls_data-regtm
                                                            DefaultAlias = ls_data-defal
                                                            TaxpayerType = ls_data-txpty ) ).
-                CLEAR lt_data_temp.
-              ENDIF.
-            ENDLOOP.
-          ENDIF.
-          IF lt_data IS NOT INITIAL.
-            MODIFY ENTITIES OF zetr_ddl_i_invoice_users
-             IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
-             CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
-               WITH VALUE #( FOR ls_data IN lt_data ( %cid = ls_data-taxid && ls_data-recno
-                                                      TaxID = ls_data-taxid
-                                                      RecordNo = ls_data-recno
-                                                      Aliass = ls_data-aliass
-                                                      Title = ls_data-title
-                                                      RegisterDate = ls_data-regdt
-                                                      RegisterTime = ls_data-regtm
-                                                      DefaultAlias = ls_data-defal
-                                                      TaxpayerType = ls_data-txpty ) ).
           ENDIF.
           APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
                                               number   = '082'

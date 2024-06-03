@@ -117,6 +117,11 @@
 
       CONDENSE: ls_items-netpr, ls_items-peinh, ls_items-disrt, ls_items-surrt, ls_items-othtr.
       ls_items-waers = ms_billing_data-vbrk-waerk.
+      collect_items_vbrk_change_item(
+        EXPORTING
+          is_vbrp = ls_vbrp
+        CHANGING
+          cs_item = ls_items ).
       IF ms_document-itmcl = abap_false.
         ls_items-posnr = ls_vbrp-posnr.
         APPEND ls_items TO mt_invoice_items.

@@ -298,6 +298,11 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES othtt TYPE zetr_e_taxty.
     TYPES othtr TYPE c LENGTH 20.
     TYPES waers TYPE waers.
+    TYPES cfld1 TYPE zetr_e_descr.
+    TYPES cfld2 TYPE zetr_e_descr.
+    TYPES cfld3 TYPE zetr_e_descr.
+    TYPES cfld4 TYPE zetr_e_descr.
+    TYPES cfld5 TYPE zetr_e_descr.
     INCLUDE TYPE mty_export_spec_data.
     TYPES END OF mty_item_collect .
     TYPES mty_item_collect_t TYPE TABLE OF mty_item_collect .

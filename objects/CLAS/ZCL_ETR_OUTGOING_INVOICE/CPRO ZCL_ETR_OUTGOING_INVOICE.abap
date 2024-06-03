@@ -135,5 +135,10 @@
       RETURNING
         VALUE(rt_rule_output) TYPE mty_invoice_rules_out .
     METHODS collect_items_vbrk .
+    METHODS collect_items_vbrk_change_item
+      IMPORTING
+        is_vbrp TYPE mty_vbrp
+      CHANGING
+        cs_item TYPE mty_item_collect.
     METHODS collect_items_bkpf .
     METHODS collect_items_rmrp .

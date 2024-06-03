@@ -90,6 +90,13 @@
         iv_kalsm TYPE mty_kalsm
       RAISING
         zcx_etr_regulative_exception .
+    METHODS build_invoice_data_item_change
+      IMPORTING
+        is_item         TYPE mty_item_collect
+      CHANGING
+        cs_invoice_line TYPE zif_etr_invoice_ubl21=>invoicelinetype
+      RAISING
+        zcx_etr_regulative_exception .
     METHODS fill_common_tax_totals
       RAISING
         zcx_etr_regulative_exception .

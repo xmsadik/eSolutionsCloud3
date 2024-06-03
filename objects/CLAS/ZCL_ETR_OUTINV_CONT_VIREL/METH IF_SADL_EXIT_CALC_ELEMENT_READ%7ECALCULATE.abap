@@ -16,7 +16,14 @@
               DATA(lo_invoice_operations) = zcl_etr_invoice_operations=>factory( <ls_output>-companycode ).
               <ls_output>-Content = lo_invoice_operations->outgoing_invoice_download( iv_document_uid = <ls_output>-DocumentUUID
                                                                                       iv_content_type = <ls_output>-ContentType ).
-            CATCH zcx_etr_regulative_exception.
+            CATCH zcx_etr_regulative_exception INTO DATA(lx_etr_regulative_exception).
+              <ls_output>-Content = cl_abap_conv_codepage=>create_out( )->convert(
+                                                                                   replace( val = '<!DOCTYPE html><html><body><h1>Hata Oluştu / Error Occured</h1><p>' &&
+                                                                                                   lx_etr_regulative_exception->get_text( ) &&
+                                                                                                   '</p></body></html>'
+                                                                                            sub = |\n|
+                                                                                            with = ``
+                                                                                            occ = 0  ) ).
           ENDTRY.
         ENDIF.
       ENDIF.

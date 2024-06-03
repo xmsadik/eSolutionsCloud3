@@ -235,5 +235,11 @@
         <ls_taxsubtotal>-taxamount-content = ls_invoice_items-othtx.
         <ls_taxsubtotal>-taxamount-currencyid = ls_invoice_items-waers.
       ENDIF.
+
+      build_invoice_data_item_change(
+        EXPORTING
+          is_item         = ls_invoice_items
+        CHANGING
+          cs_invoice_line = <ls_invoice_line> ).
     ENDLOOP.
   ENDMETHOD.

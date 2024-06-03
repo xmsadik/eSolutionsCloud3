@@ -143,7 +143,8 @@
         READ TABLE ls_delivery-shipment-goodsitem INTO DATA(ls_goods_item) INDEX 1.
         IF sy-subrc IS NOT INITIAL OR ls_goods_item-requiredcustomsid-content IS INITIAL.
           RAISE EXCEPTION TYPE zcx_etr_regulative_exception
-            MESSAGE e206(zetr_common).
+            MESSAGE e206(zetr_common) WITH ls_invoice_line-item-sellersitemidentification-id-content && ` ` &&
+                                           ls_invoice_line-item-name-content.
         ENDIF.
       ENDLOOP.
     ENDIF.

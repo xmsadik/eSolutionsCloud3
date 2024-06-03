@@ -15,6 +15,7 @@
     DATA mt_items_allowance TYPE mty_item_allowance_t .
     DATA ms_invrec_data TYPE mty_invrec_data .
     DATA ms_billing_data TYPE mty_billing_data .
+    DATA mv_profile_id TYPE zetr_e_inprf.
 
     METHODS get_data_vbrk.
     METHODS get_data_bkpf.

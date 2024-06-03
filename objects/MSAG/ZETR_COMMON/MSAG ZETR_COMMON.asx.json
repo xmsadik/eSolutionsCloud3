@@ -3781,7 +3781,7 @@
     "SPRSL":"E",
     "ARBGB":"ZETR_COMMON",
     "MSGNR":"206",
-    "TEXT":"GTİP information is missing"
+    "TEXT":"GTİP information is missing (&1)"
    },
    {
     "SPRSL":"E",
@@ -5246,8 +5246,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2024-05-27",
-    "CHECK_DATE":"2024-05-27",
+    "CREATED_ON":"2024-06-03",
+    "CHECK_DATE":"2024-06-03",
     "CHECK_CFG":""
    }
   ]

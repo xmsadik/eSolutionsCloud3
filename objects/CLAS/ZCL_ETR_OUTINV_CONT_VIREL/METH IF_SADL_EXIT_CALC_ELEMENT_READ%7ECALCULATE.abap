@@ -18,7 +18,7 @@
                                                                                       iv_content_type = <ls_output>-ContentType ).
             CATCH zcx_etr_regulative_exception INTO DATA(lx_etr_regulative_exception).
               <ls_output>-Content = cl_abap_conv_codepage=>create_out( )->convert(
-                                                                                   replace( val = '<!DOCTYPE html><html><body><h1>Hata Oluştu / Error Occured</h1><p>' &&
+                                                                                   replace( val = '<!DOCTYPE html><html><body><h1>Hata Olustu / Error Occured</h1><p>' &&
                                                                                                    lx_etr_regulative_exception->get_text( ) &&
                                                                                                    '</p></body></html>'
                                                                                             sub = |\n|

@@ -95,8 +95,16 @@
 *    ENDIF.
 
     IF ms_document-inote IS NOT INITIAL.
-      APPEND INITIAL LINE TO ms_invoice_ubl-note ASSIGNING FIELD-SYMBOL(<ls_invoice_note>).
-      <ls_invoice_note>-content = ms_document-inote.
+      SPLIT ms_document-inote AT '*' INTO TABLE DATA(lt_notes).
+      IF lt_notes IS NOT INITIAL.
+        LOOP AT lt_notes INTO DATA(ls_note).
+          APPEND INITIAL LINE TO ms_invoice_ubl-note ASSIGNING FIELD-SYMBOL(<ls_invoice_note>).
+          <ls_invoice_note>-content = ls_note.
+        ENDLOOP.
+      ELSE.
+        APPEND INITIAL LINE TO ms_invoice_ubl-note ASSIGNING <ls_invoice_note>.
+        <ls_invoice_note>-content = ms_document-inote.
+      ENDIF.
     ENDIF.
 
     IF ms_document-xsltt IS NOT INITIAL.

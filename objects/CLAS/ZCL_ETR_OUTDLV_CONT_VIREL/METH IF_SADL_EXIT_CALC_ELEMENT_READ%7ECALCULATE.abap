@@ -23,7 +23,14 @@
                   <ls_output>-Content = lo_delivery_operations->outgoing_delivery_download( iv_document_uid = <ls_output>-DocumentUUID
                                                                                             iv_content_type = <ls_output>-ContentType ).
               ENDCASE.
-            CATCH zcx_etr_regulative_exception.
+            CATCH zcx_etr_regulative_exception INTO DATA(lx_etr_regulative_exception).
+              <ls_output>-Content = cl_abap_conv_codepage=>create_out( )->convert(
+                                                                                   replace( val = '<!DOCTYPE html><html><body><h1>Hata Olustu / Error Occured</h1><p>' &&
+                                                                                                   lx_etr_regulative_exception->get_text( ) &&
+                                                                                                   '</p></body></html>'
+                                                                                            sub = |\n|
+                                                                                            with = ``
+                                                                                            occ = 0  ) ).
           ENDTRY.
         ENDIF.
       ENDIF.

@@ -48,8 +48,16 @@
     ENDIF.
 
     IF ms_document-dnote IS NOT INITIAL.
-      APPEND INITIAL LINE TO ms_delivery_ubl-note ASSIGNING FIELD-SYMBOL(<ls_invoice_note>).
-      <ls_invoice_note>-content = ms_document-dnote.
+      SPLIT ms_document-dnote AT '*' INTO TABLE DATA(lt_notes).
+      IF lt_notes IS NOT INITIAL.
+        LOOP AT lt_notes INTO DATA(ls_note).
+          APPEND INITIAL LINE TO ms_delivery_ubl-note ASSIGNING FIELD-SYMBOL(<ls_delivery_note>).
+          <ls_delivery_note>-content = ls_note.
+        ENDLOOP.
+      ELSE.
+        APPEND INITIAL LINE TO ms_delivery_ubl-note ASSIGNING <ls_delivery_note>.
+        <ls_delivery_note>-content = ms_document-dnote.
+      ENDIF.
     ENDIF.
 
     IF ms_document-xsltt IS NOT INITIAL.

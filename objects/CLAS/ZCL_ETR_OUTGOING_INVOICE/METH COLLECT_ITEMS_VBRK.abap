@@ -37,9 +37,6 @@
         ENDLOOP.
       ENDIF.
 
-      IF ls_vbrp-herkl IS NOT INITIAL.
-        ls_items-herkl = ls_vbrp-herkx.
-      ENDIF.
       LOOP AT ms_billing_data-konv USING KEY by_koaid INTO ls_konv WHERE kposn = ls_vbrp-posnr
                                                                      AND koaid = 'A'
                                                                      AND kinak = space.

@@ -268,6 +268,7 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES hscod TYPE c LENGTH 20.
     TYPES kwrfr TYPE wrbtr_cs.
     TYPES kwrin TYPE wrbtr_cs.
+    TYPES kapad TYPE i.
     TYPES END OF mty_export_spec_data .
 
     TYPES BEGIN OF mty_item_collect.
@@ -284,7 +285,8 @@ CLASS zcl_etr_outgoing_invoice DEFINITION
     TYPES netwr TYPE wrbtr_cs.
     TYPES netpr TYPE c LENGTH 20.
     TYPES peinh TYPE c LENGTH 20.
-    TYPES herkl TYPE zetr_e_descr.
+    TYPES herkl TYPE land1.
+    TYPES herkx TYPE zetr_e_descr.
     TYPES netwa TYPE waers.
     TYPES disrt TYPE c LENGTH 20.
     TYPES distr TYPE wrbtr_cs.

@@ -31,9 +31,9 @@
       ENDLOOP.
       CHECK iv_db_write = abap_true.
       DELETE FROM zetr_t_inv_ruser.
-      COMMIT WORK AND WAIT.
+*      COMMIT WORK AND WAIT.
       INSERT zetr_t_inv_ruser FROM TABLE @rt_list.
-      COMMIT WORK AND WAIT.
+*      COMMIT WORK AND WAIT.
     ELSE.
       RAISE EXCEPTION TYPE zcx_etr_regulative_exception
         MESSAGE e004(zetr_common).

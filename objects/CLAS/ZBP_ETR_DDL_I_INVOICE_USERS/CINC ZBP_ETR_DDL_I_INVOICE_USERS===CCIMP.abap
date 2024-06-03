@@ -23,47 +23,47 @@ CLASS lhc_zetr_ddl_i_invoice_users IMPLEMENTATION.
     IF lv_exists = abap_true.
       TRY.
           DATA(lo_invoice_operations) = zcl_etr_invoice_operations=>factory( iv_company = ls_key-%param-companycode ).
-          DATA(lt_data) = lo_invoice_operations->update_einvoice_users( iv_db_write = abap_false ).
-          DATA lt_old_data TYPE TABLE FOR DELETE zetr_ddl_i_invoice_users.
-          SELECT *
-            FROM zetr_ddl_i_invoice_users
-            INTO CORRESPONDING FIELDS OF TABLE @lt_old_data.
-          MODIFY ENTITIES OF zetr_ddl_i_invoice_users
-            IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
-            DELETE FROM lt_old_data.
-          DATA lt_data_temp TYPE zcl_etr_einvoice_ws=>mty_taxpayers_list .
-          LOOP AT lt_data INTO DATA(ls_data_temp).
-            APPEND ls_data_temp TO lt_data_temp.
-            IF lines( lt_data_temp ) >= 100000.
-              MODIFY ENTITIES OF zetr_ddl_i_invoice_users
-                IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
-                CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
-                  WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
-                                                         TaxID = ls_data-taxid
-                                                         RecordNo = ls_data-recno
-                                                         Aliass = ls_data-aliass
-                                                         Title = ls_data-title
-                                                         RegisterDate = ls_data-regdt
-                                                         RegisterTime = ls_data-regtm
-                                                         DefaultAlias = ls_data-defal
-                                                         TaxpayerType = ls_data-txpty ) ).
-              CLEAR lt_data_temp.
-            ENDIF.
-          ENDLOOP.
-          IF lt_data_temp IS NOT INITIAL.
-            MODIFY ENTITIES OF zetr_ddl_i_invoice_users
-             IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
-             CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
-               WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
-                                                           TaxID = ls_data-taxid
-                                                           RecordNo = ls_data-recno
-                                                           Aliass = ls_data-aliass
-                                                           Title = ls_data-title
-                                                           RegisterDate = ls_data-regdt
-                                                           RegisterTime = ls_data-regtm
-                                                           DefaultAlias = ls_data-defal
-                                                           TaxpayerType = ls_data-txpty ) ).
-          ENDIF.
+          DATA(lt_data) = lo_invoice_operations->update_einvoice_users( iv_db_write = abap_true ).
+*          DATA lt_old_data TYPE TABLE FOR DELETE zetr_ddl_i_invoice_users.
+*          SELECT *
+*            FROM zetr_ddl_i_invoice_users
+*            INTO CORRESPONDING FIELDS OF TABLE @lt_old_data.
+*          MODIFY ENTITIES OF zetr_ddl_i_invoice_users
+*            IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
+*            DELETE FROM lt_old_data.
+*          DATA lt_data_temp TYPE zcl_etr_einvoice_ws=>mty_taxpayers_list .
+*          LOOP AT lt_data INTO DATA(ls_data_temp).
+*            APPEND ls_data_temp TO lt_data_temp.
+*            IF lines( lt_data_temp ) >= 500000.
+*              MODIFY ENTITIES OF zetr_ddl_i_invoice_users
+*                IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
+*                CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
+*                  WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
+*                                                         TaxID = ls_data-taxid
+*                                                         RecordNo = ls_data-recno
+*                                                         Aliass = ls_data-aliass
+*                                                         Title = ls_data-title
+*                                                         RegisterDate = ls_data-regdt
+*                                                         RegisterTime = ls_data-regtm
+*                                                         DefaultAlias = ls_data-defal
+*                                                         TaxpayerType = ls_data-txpty ) ).
+*              CLEAR lt_data_temp.
+*            ENDIF.
+*          ENDLOOP.
+*          IF lt_data_temp IS NOT INITIAL.
+*            MODIFY ENTITIES OF zetr_ddl_i_invoice_users
+*             IN LOCAL MODE ENTITY zetr_ddl_i_invoice_users
+*             CREATE FIELDS ( TaxID RecordNo Aliass Title RegisterDate RegisterTime DefaultAlias TaxpayerType )
+*               WITH VALUE #( FOR ls_data IN lt_data_temp ( %cid = ls_data-taxid && ls_data-recno
+*                                                           TaxID = ls_data-taxid
+*                                                           RecordNo = ls_data-recno
+*                                                           Aliass = ls_data-aliass
+*                                                           Title = ls_data-title
+*                                                           RegisterDate = ls_data-regdt
+*                                                           RegisterTime = ls_data-regtm
+*                                                           DefaultAlias = ls_data-defal
+*                                                           TaxpayerType = ls_data-txpty ) ).
+*          ENDIF.
           APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
                                               number   = '082'
                                               severity = if_abap_behv_message=>severity-success ) ) TO reported-zetr_ddl_i_invoice_users.

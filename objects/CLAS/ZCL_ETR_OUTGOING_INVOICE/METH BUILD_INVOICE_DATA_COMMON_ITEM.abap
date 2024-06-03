@@ -18,7 +18,7 @@
         CONDENSE <ls_invoice_line>-item-sellersitemidentification-id-content.
       ENDIF.
       <ls_invoice_line>-item-buyersitemidentification-id-content = ls_invoice_items-kdmat.
-      <ls_invoice_line>-item-origincountry-name-content = ls_invoice_items-herkl.
+      <ls_invoice_line>-item-origincountry-name-content = ls_invoice_items-herkx.
       <ls_invoice_line>-item-manufacturersitemidentificatio-id-content = ls_invoice_items-admat.
       <ls_invoice_line>-item-name-content = ls_invoice_items-arktx.
       <ls_invoice_line>-item-description-content = ls_invoice_items-descr.

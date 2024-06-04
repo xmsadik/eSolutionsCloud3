@@ -48,7 +48,10 @@
 
     IF currency EQ 'EUR'.
       words = words && ` EUR ` && number_to_words( lv_decimal ) && ` Cent`.
+    ELSEIF currency EQ 'USD'.
+      words = words && ` USD ` && number_to_words( lv_decimal ) && ` Cent`.
     ELSE.
       words = words && ` TL ` && number_to_words( lv_decimal ) && ` Kuruş`.
     ENDIF.
+
   ENDMETHOD.

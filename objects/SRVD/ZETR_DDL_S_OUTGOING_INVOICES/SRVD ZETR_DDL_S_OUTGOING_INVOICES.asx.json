@@ -7,9 +7,9 @@
     "SRVDNAME":"ZETR_DDL_S_OUTGOING_INVOICES",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-02-16",
-    "CHANGED_AT":"14:25:14",
-    "DT_UUID":"AB54FC360F6F1EDEB39AE64D67861F5B",
+    "CHANGED_ON":"2024-06-04",
+    "CHANGED_AT":"14:10:18",
+    "DT_UUID":"4D5EAEBF6DC31EEF88CF85701AEA408A",
     "SOURCE_ORIGIN":"0",
     "SRVD_SOURCE_TYPE":"S",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -35,7 +35,7 @@
    {
     "SRVDNAME":"ZETR_DDL_S_OUTGOING_INVOICES",
     "VERSION":"A",
-    "SOURCE":"@EndUserText.label: 'Outgoing Invoices'\r\ndefine service ZETR_DDL_S_OUTGOING_INVOICES {\r\n  expose zetr_ddl_p_outgoing_invoices as OutgoingInvoices;\r\n  expose zetr_ddl_p_outinv_logs       as Logs;\r\n  expose zetr_ddl_p_outgoing_invcont  as Contents;\r\n}"
+    "SOURCE":"@EndUserText.label: 'Outgoing Invoices'\r\ndefine service ZETR_DDL_S_OUTGOING_INVOICES {\r\n  expose zetr_ddl_p_outgoing_invoices as OutgoingInvoices;\r\n  expose zetr_ddl_p_outinv_logs       as Logs;\r\n  expose zetr_ddl_p_outgoing_invcont  as Contents;\r\n  expose zetr_ddl_vh_reject_types;\r\n}"
    }
   ]
  },
@@ -92,6 +92,15 @@
     "EXPOSED_ALIAS":"LOGS",
     "EXPOSED_ALIAS_RAW":"Logs",
     "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_S_OUTGOING_INVOICES",
+    "SERVICE":"ZETR_DDL_S_OUTGOING_INVOICES",
+    "EXPOSED_ARTIFACT":"ZETR_DDL_VH_REJECT_TYPES",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
    }
   ]
  },
@@ -104,8 +113,8 @@
     "SERVICE":"ZETR_DDL_S_OUTGOING_INVOICES",
     "SERVICE_RAW":"ZETR_DDL_S_OUTGOING_INVOICES",
     "SOURCE_TYPE":"S",
-    "DT_UUID":"AB54FC360F6F1EDEB39AE64D67861F5B",
-    "RT_HASH":"359FB68B79E6EDEC38B84CB90888E0DA12EE595B",
+    "DT_UUID":"4D5EAEBF6DC31EEF88CF85701AEA408A",
+    "RT_HASH":"316F4618B9494AAA0D64DDC6245CC608CC14FFEE",
     "GEN_VERSION":"0"
    }
   ]

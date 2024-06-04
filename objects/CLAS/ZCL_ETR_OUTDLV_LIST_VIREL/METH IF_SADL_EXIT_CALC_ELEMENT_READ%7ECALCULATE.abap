@@ -20,32 +20,30 @@
 *                                           '&FiscalYear=' && <ls_output>-FiscalYear.
 *      ENDCASE.
 
+      TRY.
+          cl_system_uuid=>convert_uuid_c22_static(
+            EXPORTING
+              uuid = <ls_output>-documentuuid
+            IMPORTING
+              uuid_c36 = DATA(lv_uuid) ).
+        CATCH cx_uuid_error.
+          "handle exception
+      ENDTRY.
       IF <ls_output>-StatusCode <> '2' AND <ls_output>-StatusCode <> ''.
-        TRY.
-            cl_system_uuid=>convert_uuid_c22_static(
-              EXPORTING
-                uuid = <ls_output>-documentuuid
-              IMPORTING
-                uuid_c36 = DATA(lv_uuid) ).
-          CATCH cx_uuid_error.
-            "handle exception
-        ENDTRY.
-        IF <ls_output>-StatusCode <> '2' AND <ls_output>-StatusCode <> ''.
-          <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
-                                      '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_DELIVERIES/Contents(DocumentUUID=guid''' &&
-                                      lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTDLVDOC'')/$value'.
+        <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
+                                    '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_DELIVERIES/Contents(DocumentUUID=guid''' &&
+                                    lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTDLVDOC'')/$value'.
 *                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
-        ELSE.
-          <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
-                                      '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_DELIVERIES/Contents(DocumentUUID=guid''' &&
-                                      lv_uuid && ''',ContentType=''HTML'',DocumentType=''OUTDLVDOC'')/$value'.
+      ELSE.
+        <ls_output>-ContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
+                                    '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_DELIVERIES/Contents(DocumentUUID=guid''' &&
+                                    lv_uuid && ''',ContentType=''HTML'',DocumentType=''OUTDLVDOC'')/$value'.
 *                                      lv_uuid && ''',ContentType=''PDF'')/$value")'.
-        ENDIF.
-        IF <ls_output>-ResponseUUID IS NOT INITIAL.
-          <ls_output>-ResponseContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
-                                      '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_DELIVERIES/Contents(DocumentUUID=guid''' &&
-                                      lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTDLVRES'')/$value'.
-        ENDIF.
+      ENDIF.
+      IF <ls_output>-ResponseUUID IS NOT INITIAL.
+        <ls_output>-ResponseContentUrl = 'https://' && zcl_etr_regulative_common=>get_ui_url( ) &&
+                                    '/sap/opu/odata/sap/ZETR_DDL_B_OUTG_DELIVERIES/Contents(DocumentUUID=guid''' &&
+                                    lv_uuid && ''',ContentType=''PDF'',DocumentType=''OUTDLVRES'')/$value'.
       ENDIF.
     ENDLOOP.
     ct_calculated_data = CORRESPONDING #( lt_output ).

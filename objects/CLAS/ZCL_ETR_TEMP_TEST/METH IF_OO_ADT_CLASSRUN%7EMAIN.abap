@@ -1,5 +1,3 @@
   METHOD if_oo_adt_classrun~main.
-    DATA lv_amount TYPE wrbtr_cs VALUE '5011101034.05'.
-    DATA(lv_words) = zcl_etr_regulative_common=>amount_to_words( lv_amount ).
-    out->write( lv_words ).
+    UPDATE zetr_t_oginv SET raded = '00000000'.
   ENDMETHOD.

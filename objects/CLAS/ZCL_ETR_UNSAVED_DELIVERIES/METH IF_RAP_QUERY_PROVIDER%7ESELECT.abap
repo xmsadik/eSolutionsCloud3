@@ -14,7 +14,7 @@
               lv_bukrs               TYPE bukrs,
               lo_delivery_operations TYPE REF TO zcl_etr_delivery_operations,
               lt_docui_range         TYPE RANGE OF sysuuid_c22,
-              ls_document            TYPE zetr_t_ogdlv.
+              ls_document            TYPE zcl_etr_delivery_operations=>mty_outgoing_delivery.
         DATA(lt_paging) = io_request->get_paging( ).
         LOOP AT lt_filter INTO DATA(ls_filter).
           CASE ls_filter-name.

@@ -36,6 +36,9 @@ CLASS zcl_etr_delivery_operations DEFINITION
         ruuid TYPE zetr_t_ogdlv-ruuid,
         itmrs TYPE zetr_t_ogdlv-itmrs,
       END OF mty_outgoing_document_status.
+    TYPES BEGIN OF mty_outgoing_delivery.
+    INCLUDE TYPE zetr_t_ogdlv.
+    TYPES END OF mty_outgoing_delivery.
 
     CLASS-METHODS factory
       IMPORTING
@@ -108,7 +111,7 @@ CLASS zcl_etr_delivery_operations DEFINITION
         !iv_belnr          TYPE belnr_d
         !iv_gjahr          TYPE gjahr
       RETURNING
-        VALUE(rs_document) TYPE zetr_t_ogdlv
+        VALUE(rs_document) TYPE mty_outgoing_delivery
       RAISING
         zcx_etr_regulative_exception .
 

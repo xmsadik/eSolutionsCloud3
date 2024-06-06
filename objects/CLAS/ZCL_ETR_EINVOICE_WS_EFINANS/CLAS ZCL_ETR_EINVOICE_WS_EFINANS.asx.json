@@ -1991,7 +1991,7 @@
     "BCMTDSYN":0,
     "BCEVTCAT":0,
     "TYPESRC_LENG":147,
-    "TYPESRC":"BEGIN OF mty_user_alias,\r\n        etiket                  TYPE String,\r\n        etiketolusturulmazamani TYPE string,\r\n      END OF mty_user_alias\r\n"
+    "TYPESRC":"BEGIN OF mty_user_alias,\r\n        etiket                  TYPE string,\r\n        etiketolusturulmazamani TYPE string,\r\n      END OF mty_user_alias\r\n"
    },
    {
     "CLSNAME":"ZCL_ETR_EINVOICE_WS_EFINANS",

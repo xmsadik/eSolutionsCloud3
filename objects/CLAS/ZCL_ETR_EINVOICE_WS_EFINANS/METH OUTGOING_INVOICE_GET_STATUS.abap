@@ -117,9 +117,11 @@
       rs_status-radsc = abap_false.
     ENDIF.
     rs_status-radsc = ls_status-gonderimcevabikodu.
-    rs_status-raded = ls_status-gtbfiiliihracattarihi(4) &&
-                      ls_status-gtbfiiliihracattarihi+5(2) &&
-                      ls_status-gtbfiiliihracattarihi+8(2).
+    IF ls_status-gtbfiiliihracattarihi IS NOT INITIAL.
+      rs_status-raded = ls_status-gtbfiiliihracattarihi(4) &&
+                        ls_status-gtbfiiliihracattarihi+5(2) &&
+                        ls_status-gtbfiiliihracattarihi+8(2).
+    ENDIF.
     rs_status-cedrn = ls_status-gtbgcbtescilno.
     rs_status-radrn = ls_status-gtbrefno.
     rs_status-invno = ls_status-belgeno.

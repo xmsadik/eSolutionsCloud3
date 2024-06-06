@@ -27,6 +27,9 @@ CLASS zcl_etr_invoice_operations DEFINITION
         invii TYPE zetr_e_docii,
         rprid TYPE zetr_e_rprid,
       END OF mty_outgoing_document_status.
+    TYPES BEGIN OF mty_outgoing_invoice.
+    INCLUDE TYPE zetr_t_oginv.
+    TYPES END OF mty_outgoing_invoice.
 
     CLASS-METHODS factory
       IMPORTING
@@ -116,7 +119,7 @@ CLASS zcl_etr_invoice_operations DEFINITION
         !iv_belnr          TYPE belnr_d
         !iv_gjahr          TYPE gjahr
       RETURNING
-        VALUE(rs_document) TYPE zetr_t_oginv
+        VALUE(rs_document) TYPE mty_outgoing_invoice
       RAISING
         zcx_etr_regulative_exception .
 

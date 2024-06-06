@@ -47,8 +47,11 @@
     IF sy-subrc = 0.
       DO 5 TIMES.
         CLEAR es_status.
-        es_status = outgoing_delivery_get_status( VALUE #( docii = ls_xml_line-value ) ).
-        IF es_status-stacd = 1.
+        TRY.
+            es_status = outgoing_delivery_get_status( VALUE #( docii = ls_xml_line-value ) ).
+          CATCH cx_root.
+        ENDTRY.
+        IF es_status-stacd = 1 OR es_status IS INITIAL.
           WAIT UP TO 1 SECONDS.
         ELSE.
           EXIT.

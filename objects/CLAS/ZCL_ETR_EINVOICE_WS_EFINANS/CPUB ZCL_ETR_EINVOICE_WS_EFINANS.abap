@@ -38,7 +38,7 @@ CLASS zcl_etr_einvoice_ws_efinans DEFINITION
       mty_incoming_documents TYPE STANDARD TABLE OF mty_incoming_document WITH DEFAULT KEY .
     TYPES:
       BEGIN OF mty_user_alias,
-        etiket                  TYPE String,
+        etiket                  TYPE string,
         etiketolusturulmazamani TYPE string,
       END OF mty_user_alias .
     TYPES:
@@ -196,7 +196,7 @@ CLASS zcl_etr_einvoice_ws_efinans DEFINITION
         ek_bilgiler                    TYPE mty_fat1_ekbilgi_t,
       END OF mty_fat1_belge .
 
-    CONSTANTS mc_erpcode_parameter TYPE zetr_E_CUSPA VALUE 'ERPCODE' ##NO_TEXT.
+    CONSTANTS mc_erpcode_parameter TYPE zetr_e_cuspa VALUE 'ERPCODE' ##NO_TEXT.
 
     METHODS: download_registered_taxpayers REDEFINITION.
     METHODS: outgoing_invoice_download REDEFINITION.

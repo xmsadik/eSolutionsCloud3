@@ -26,7 +26,7 @@
         !iv_belnr          TYPE belnr_d
         !iv_gjahr          TYPE gjahr
       RETURNING
-        VALUE(rs_document) TYPE zetr_t_ogdlv
+        VALUE(rs_document) TYPE mty_outgoing_delivery
       RAISING
         zcx_etr_regulative_exception.
 
@@ -37,7 +37,7 @@
         !iv_belnr          TYPE belnr_d
         !iv_gjahr          TYPE gjahr
       RETURNING
-        VALUE(rs_document) TYPE zetr_t_ogdlv
+        VALUE(rs_document) TYPE mty_outgoing_delivery
       RAISING
         zcx_etr_regulative_exception.
 
@@ -48,7 +48,7 @@
         !iv_belnr          TYPE belnr_d
         !iv_gjahr          TYPE gjahr
       RETURNING
-        VALUE(rs_document) TYPE zetr_t_ogdlv
+        VALUE(rs_document) TYPE mty_outgoing_delivery
       RAISING
         zcx_etr_regulative_exception.
 

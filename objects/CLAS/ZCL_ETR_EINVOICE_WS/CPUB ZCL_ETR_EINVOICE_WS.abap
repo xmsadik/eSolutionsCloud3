@@ -64,12 +64,13 @@ CLASS zcl_etr_einvoice_ws DEFINITION
     METHODS get_incoming_invoices
       ABSTRACT
       IMPORTING
-        !iv_date_from  TYPE datum OPTIONAL
-        !iv_date_to    TYPE datum OPTIONAL
+        !iv_date_from       TYPE datum OPTIONAL
+        !iv_date_to         TYPE datum OPTIONAL
+        !iv_import_received TYPE zetr_e_imrec OPTIONAL
       EXPORTING
-        !ev_message    TYPE bapi_msg
+        !ev_message         TYPE bapi_msg
       RETURNING
-        VALUE(rt_list) TYPE mty_incoming_list
+        VALUE(rt_list)      TYPE mty_incoming_list
       RAISING
         zcx_etr_regulative_exception .
 

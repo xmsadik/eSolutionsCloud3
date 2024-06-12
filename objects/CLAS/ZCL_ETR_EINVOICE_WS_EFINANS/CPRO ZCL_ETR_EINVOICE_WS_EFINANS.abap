@@ -1,10 +1,11 @@
   PROTECTED SECTION.
     METHODS get_incoming_invoices_int
       IMPORTING
-        !iv_date_from      TYPE datum
-        !iv_date_to        TYPE datum
+        !iv_date_from       TYPE datum
+        !iv_date_to         TYPE datum
+        !iv_import_received TYPE zetr_e_imrec OPTIONAL
       RETURNING
-        VALUE(rt_invoices) TYPE mty_incoming_documents
+        VALUE(rt_invoices)  TYPE mty_incoming_documents
       RAISING
         zcx_etr_regulative_exception.
 

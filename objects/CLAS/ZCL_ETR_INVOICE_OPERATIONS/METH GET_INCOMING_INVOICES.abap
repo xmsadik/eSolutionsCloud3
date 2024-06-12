@@ -1,7 +1,8 @@
   METHOD get_incoming_invoices.
     DATA(lo_einvoice_service) = zcl_etr_einvoice_ws=>factory( mv_company_code ).
     rt_list = lo_einvoice_service->get_incoming_invoices( iv_date_from = iv_date_from
-                                                          iv_date_to   = iv_date_to ).
+                                                          iv_date_to   = iv_date_to
+                                                          iv_import_received = iv_import_received ).
     CHECK rt_list IS NOT INITIAL.
     SELECT invui
       FROM zetr_t_icinv

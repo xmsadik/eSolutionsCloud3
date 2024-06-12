@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@EndUserText.label: 'Download Incoming Invoices'\r\n@ObjectModel.query.implementedBy:'ABAP:ZCL_ETR_DOWNLOAD_INCINV'\r\n//@Search.searchable: true\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Download Incoming Invoices',\r\n                typeName: 'Download Incoming Invoice',\r\n                title:{ type: #STANDARD, label: 'Download Incoming Invoices', value: 'invno' }\r\n           }\r\n}\r\ndefine root custom entity zetr_ddl_i_download_incinv\r\n  // with parameters parameter_name : parameter_type\r\n{\r\n      @UI    : { lineItem:       [ { position: 1 } ] }\r\n      //      @Search.defaultSearchElement: true\r\n  key docui  : sysuuid_c22;\r\n      @UI    : { lineItem:       [ { position: 2, importance: #HIGH } ],\r\n                 selectionField: [ { position: 2 } ] }\r\n      @Consumption.filter : {  multipleSelections: true }\r\n      @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_company_codes', element: 'CompanyCode' }}]\r\n      bukrs  : bukrs;\r\n      @UI    : { lineItem:       [ { position: 3 } ] }\r\n      invui  : zetr_e_duich;\r\n      @UI    : { lineItem:       [ { position: 4 } ] }\r\n      invno  : zetr_e_docno;\r\n      @UI    : { lineItem:       [ { position: 5 } ] }\r\n      prfid  : zetr_e_inprf;\r\n      @UI    : { lineItem:       [ { position: 6 } ] }\r\n      invty  : zetr_e_invty;\r\n      @UI    : { lineItem:       [ { position: 7 } ] }\r\n      taxid  : zetr_e_taxid;\r\n      @UI    : { lineItem:       [ { position: 8 } ] }\r\n      aliass : zetr_e_alias;\r\n      @UI    : { lineItem:       [ { position: 9 } ] }\r\n      title  : zetr_e_title;\r\n      @UI    : { lineItem:       [ { position: 10 } ] }\r\n      bldat  : bldat;\r\n      @UI    : { lineItem:       [ { position: 11 } ],\r\n                 selectionField: [ { position: 11 } ] }\r\n      @Consumption.filter : {  selectionType: #INTERVAL }\r\n      recdt  : zetr_e_recdt;\r\n      @Semantics.amount.currencyCode : 'waers'\r\n      @UI    : { lineItem:       [ { position: 12 } ] }\r\n      wrbtr  : wrbtr_cs;\r\n      @Semantics.amount.currencyCode : 'waers'\r\n      @UI    : { lineItem:       [ { position: 13 } ] }\r\n      fwste  : fwste_cs;\r\n      @UI    : { lineItem:       [ { position: 14 } ] }\r\n      waers  : waers;\r\n      @UI    : { lineItem:       [ { position: 15 } ] }\r\n      kursf  : zetr_e_kursf;\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@EndUserText.label: 'Download Incoming Invoices'\r\n@ObjectModel.query.implementedBy:'ABAP:ZCL_ETR_DOWNLOAD_INCINV'\r\n//@Search.searchable: true\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Download Incoming Invoices',\r\n                typeName: 'Download Incoming Invoice',\r\n                title:{ type: #STANDARD, label: 'Download Incoming Invoices', value: 'invno' }\r\n           }\r\n}\r\ndefine root custom entity zetr_ddl_i_download_incinv\r\n  // with parameters parameter_name : parameter_type\r\n{\r\n      @UI    : { lineItem:       [ { position: 1 } ] }\r\n      //      @Search.defaultSearchElement: true\r\n  key docui  : sysuuid_c22;\r\n      @UI    : { lineItem:       [ { position: 2, importance: #HIGH } ],\r\n                 selectionField: [ { position: 2 } ] }\r\n      @Consumption.filter : {  multipleSelections: true }\r\n      @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_company_codes', element: 'CompanyCode' }}]\r\n      bukrs  : bukrs;\r\n      @UI    : { lineItem:       [ { position: 3 } ] }\r\n      invui  : zetr_e_duich;\r\n      @UI    : { lineItem:       [ { position: 4 } ] }\r\n      invno  : zetr_e_docno;\r\n      @UI    : { lineItem:       [ { position: 5 } ] }\r\n      prfid  : zetr_e_inprf;\r\n      @UI    : { lineItem:       [ { position: 6 } ] }\r\n      invty  : zetr_e_invty;\r\n      @UI    : { lineItem:       [ { position: 7 } ] }\r\n      taxid  : zetr_e_taxid;\r\n      @UI    : { lineItem:       [ { position: 8 } ] }\r\n      aliass : zetr_e_alias;\r\n      @UI    : { lineItem:       [ { position: 9 } ] }\r\n      title  : zetr_e_title;\r\n      @UI    : { lineItem:       [ { position: 10 } ] }\r\n      bldat  : bldat;\r\n      @UI    : { lineItem:       [ { position: 11 } ],\r\n                 selectionField: [ { position: 11 } ] }\r\n      @Consumption.filter : {  selectionType: #INTERVAL }\r\n      recdt  : zetr_e_recdt;\r\n      @Semantics.amount.currencyCode : 'waers'\r\n      @UI    : { lineItem:       [ { position: 12 } ] }\r\n      wrbtr  : wrbtr_cs;\r\n      @Semantics.amount.currencyCode : 'waers'\r\n      @UI    : { lineItem:       [ { position: 13 } ] }\r\n      fwste  : fwste_cs;\r\n      @UI    : { lineItem:       [ { position: 14 } ] }\r\n      waers  : waers;\r\n      @UI    : { lineItem:       [ { position: 15 } ] }\r\n      kursf  : zetr_e_kursf;\r\n      @UI    : { selectionField: [ { position: 16 } ] }\r\n      @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_aba_boolean', element: 'Value' }}]\r\n      imrec  : zetr_e_imrec;\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":",W4T",
+    "CHGFLAG":"4",
     "SOURCE_TYPE":"Q",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -93,6 +93,18 @@
     "FIELDNAME":"FWSTE",
     "DEPTH":0,
     "DDTEXT":"Tax Amount in Document Currency",
+    "FIELDLABEL":"",
+    "QUICKINFO":""
+   },
+   {
+    "DDLNAME":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "NODENAME":".NODE1",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "FIELDNAME":"IMREC",
+    "DEPTH":0,
+    "DDTEXT":"Import received",
     "FIELDLABEL":"",
     "QUICKINFO":""
    },
@@ -373,6 +385,48 @@
     "NAME":"UI.LINEITEM$1$.POSITION",
     "POSITION":41,
     "VALUE":"13"
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "LFIELDNAME":"IMREC",
+    "NAME":"CONSUMPTION",
+    "POSITION":48,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "LFIELDNAME":"IMREC",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY",
+    "POSITION":49,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "LFIELDNAME":"IMREC",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "POSITION":51,
+    "VALUE":"'Value'"
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "LFIELDNAME":"IMREC",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "POSITION":50,
+    "VALUE":"'zetr_ddl_vh_aba_boolean'"
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "LFIELDNAME":"IMREC",
+    "NAME":"UI",
+    "POSITION":46,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",
+    "LFIELDNAME":"IMREC",
+    "NAME":"UI.SELECTIONFIELD$1$.POSITION",
+    "POSITION":47,
+    "VALUE":"16"
    },
    {
     "STRUCOBJN":"ZETR_DDL_I_DOWNLOAD_INCINV",

@@ -3,6 +3,7 @@
         DATA(lt_filter) = io_request->get_filter( )->get_as_ranges( ).
         DATA: lv_begda    TYPE datum,
               lv_endda    TYPE datum,
+              lv_imrec    TYPE zetr_e_imrec,
               lt_list_all TYPE zcl_etr_invoice_operations=>mty_incoming_list.
         DATA(lt_paging) = io_request->get_paging( ).
         LOOP AT lt_filter INTO DATA(ls_filter).
@@ -18,6 +19,11 @@
                 lv_begda = ls_range-low.
                 lv_endda = ls_range-high.
               ENDIF.
+            WHEN 'IMREC'.
+              READ TABLE ls_filter-range INTO ls_range INDEX 1.
+              IF sy-subrc = 0 AND ls_range-low = 'X'.
+                lv_imrec = abap_true.
+              ENDIF.
           ENDCASE.
         ENDLOOP.
         IF NOT line_exists( lt_filter[ name = 'BUKRS' ] ).
@@ -32,7 +38,8 @@
           TRY.
               DATA(lo_invoice_operations) = zcl_etr_invoice_operations=>factory( ls_company-bukrs ).
               DATA(lt_invoice_list) = lo_invoice_operations->get_incoming_invoices( iv_date_from = lv_begda
-                                                                                    iv_date_to   = lv_endda ).
+                                                                                    iv_date_to   = lv_endda
+                                                                                    iv_import_received = lv_imrec ).
               APPEND LINES OF lt_invoice_list TO lt_list_all.
             CATCH zcx_etr_regulative_exception INTO DATA(lx_regulative_exception).
           ENDTRY.

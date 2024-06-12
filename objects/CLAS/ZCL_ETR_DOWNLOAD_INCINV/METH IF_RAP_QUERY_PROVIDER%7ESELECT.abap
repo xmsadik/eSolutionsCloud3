@@ -4,6 +4,7 @@
         DATA: lv_begda    TYPE datum,
               lv_endda    TYPE datum,
               lv_imrec    TYPE zetr_e_imrec,
+              lv_invui    TYPE zetr_e_duich,
               lt_list_all TYPE zcl_etr_invoice_operations=>mty_incoming_list.
         DATA(lt_paging) = io_request->get_paging( ).
         LOOP AT lt_filter INTO DATA(ls_filter).
@@ -18,6 +19,14 @@
               IF sy-subrc = 0.
                 lv_begda = ls_range-low.
                 lv_endda = ls_range-high.
+                IF lv_endda IS INITIAL.
+                  lv_endda = lv_begda.
+                ENDIF.
+              ENDIF.
+            WHEN 'INVUI'.
+              READ TABLE ls_filter-range INTO ls_range INDEX 1.
+              IF sy-subrc = 0 AND ls_range-low IS NOT INITIAL.
+                lv_invui = ls_range-low.
               ENDIF.
             WHEN 'IMREC'.
               READ TABLE ls_filter-range INTO ls_range INDEX 1.
@@ -39,7 +48,8 @@
               DATA(lo_invoice_operations) = zcl_etr_invoice_operations=>factory( ls_company-bukrs ).
               DATA(lt_invoice_list) = lo_invoice_operations->get_incoming_invoices( iv_date_from = lv_begda
                                                                                     iv_date_to   = lv_endda
-                                                                                    iv_import_received = lv_imrec ).
+                                                                                    iv_import_received = lv_imrec
+                                                                                    iv_invoice_uuid = lv_invui ).
               APPEND LINES OF lt_invoice_list TO lt_list_all.
             CATCH zcx_etr_regulative_exception INTO DATA(lx_regulative_exception).
           ENDTRY.

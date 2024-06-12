@@ -128,6 +128,7 @@ CLASS zcl_etr_invoice_operations DEFINITION
         !iv_date_from       TYPE datum OPTIONAL
         !iv_date_to         TYPE datum OPTIONAL
         !iv_import_received TYPE zetr_e_imrec OPTIONAL
+        !iv_invoice_uuid    TYPE zetr_e_duich OPTIONAL
       RETURNING
         VALUE(rt_list)      TYPE mty_incoming_list
       RAISING

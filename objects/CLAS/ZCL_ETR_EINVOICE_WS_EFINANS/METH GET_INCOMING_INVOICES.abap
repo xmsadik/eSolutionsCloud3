@@ -5,7 +5,8 @@
     ENDIF.
     DATA(lt_service_return) = get_incoming_invoices_int( iv_date_from = iv_date_from
                                                          iv_date_to = iv_date_to
-                                                         iv_import_received = iv_import_received ).
+                                                         iv_import_received = iv_import_received
+                                                         iv_invoice_uuid = iv_invoice_uuid ).
     LOOP AT lt_service_return ASSIGNING FIELD-SYMBOL(<ls_service_return>).
       TRY.
           DATA(lv_uuid) = cl_system_uuid=>create_uuid_c22_static( ).

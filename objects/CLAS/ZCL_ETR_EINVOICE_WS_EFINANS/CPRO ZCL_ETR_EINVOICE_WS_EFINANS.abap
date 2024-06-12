@@ -4,6 +4,7 @@
         !iv_date_from       TYPE datum
         !iv_date_to         TYPE datum
         !iv_import_received TYPE zetr_e_imrec OPTIONAL
+        !iv_invoice_uuid    TYPE zetr_e_duich OPTIONAL
       RETURNING
         VALUE(rt_invoices)  TYPE mty_incoming_documents
       RAISING

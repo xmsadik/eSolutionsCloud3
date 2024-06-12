@@ -25,6 +25,7 @@
               '<gelisTarihiBaslangic>' iv_date_from '000000</gelisTarihiBaslangic>'
               '<gelisTarihiBitis>' iv_date_to '235959</gelisTarihiBitis>'
               '<vergiTcKimlikNo>' mv_company_taxid '</vergiTcKimlikNo>'
+              '<ettn>' iv_invoice_uuid '</ettn>'
            '</parametreler>'
         '</ser:gelenBelgeleriAlExt>'
       '</soapenv:Body>'

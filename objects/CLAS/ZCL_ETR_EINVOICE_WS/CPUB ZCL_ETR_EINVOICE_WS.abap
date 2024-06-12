@@ -67,6 +67,7 @@ CLASS zcl_etr_einvoice_ws DEFINITION
         !iv_date_from       TYPE datum OPTIONAL
         !iv_date_to         TYPE datum OPTIONAL
         !iv_import_received TYPE zetr_e_imrec OPTIONAL
+        !iv_invoice_uuid    TYPE zetr_e_duich OPTIONAL
       EXPORTING
         !ev_message         TYPE bapi_msg
       RETURNING

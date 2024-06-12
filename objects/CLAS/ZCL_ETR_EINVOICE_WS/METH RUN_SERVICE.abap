@@ -55,6 +55,7 @@
 
         DATA(lo_response) = lo_http_client->execute( i_method  = if_web_http_client=>post ).
         rv_response = lo_response->get_text( ).
+        lo_http_client->close( ).
         IF rv_response IS INITIAL.
           DATA(ls_response) = lo_response->get_status( ).
           lv_message = ls_response-code.

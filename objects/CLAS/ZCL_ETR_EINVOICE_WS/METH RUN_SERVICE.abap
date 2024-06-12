@@ -73,19 +73,26 @@
                                            lv_message+100(50)
                                            lv_message+150(50).
         ENDIF.
-      CATCH cx_http_dest_provider_error INTO DATA(lx_http_dest_provider_error).
-        lv_message = lx_http_dest_provider_error->get_text( ).
+      CATCH cx_root INTO DATA(lx_root).
+        lv_message = lx_root->get_text( ).
         RAISE EXCEPTION TYPE zcx_etr_regulative_exception
           MESSAGE e000(zetr_common) WITH lv_message(50)
                                          lv_message+50(50)
                                          lv_message+100(50)
                                          lv_message+150(50).
-      CATCH cx_web_http_client_error INTO DATA(lx_web_http_client_error).
-        lv_message = lx_web_http_client_error->get_text( ).
-        RAISE EXCEPTION TYPE zcx_etr_regulative_exception
-          MESSAGE e000(zetr_common) WITH lv_message(50)
-                                         lv_message+50(50)
-                                         lv_message+100(50)
-                                         lv_message+150(50).
+*      CATCH cx_http_dest_provider_error INTO DATA(lx_http_dest_provider_error).
+*        lv_message = lx_http_dest_provider_error->get_text( ).
+*        RAISE EXCEPTION TYPE zcx_etr_regulative_exception
+*          MESSAGE e000(zetr_common) WITH lv_message(50)
+*                                         lv_message+50(50)
+*                                         lv_message+100(50)
+*                                         lv_message+150(50).
+*      CATCH cx_web_http_client_error INTO DATA(lx_web_http_client_error).
+*        lv_message = lx_web_http_client_error->get_text( ).
+*        RAISE EXCEPTION TYPE zcx_etr_regulative_exception
+*          MESSAGE e000(zetr_common) WITH lv_message(50)
+*                                         lv_message+50(50)
+*                                         lv_message+100(50)
+*                                         lv_message+150(50).
     ENDTRY.
   ENDMETHOD.

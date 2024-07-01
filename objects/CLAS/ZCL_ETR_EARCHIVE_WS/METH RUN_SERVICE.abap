@@ -66,7 +66,15 @@
                                            lv_message+100(50)
                                            lv_message+150(50).
         ELSEIF rv_response CS 'faultstring'.
-          FIND REGEX 'faultstring:.*''.*''' IN rv_response SUBMATCHES lv_message.
+          DATA(lt_xml_table) = zcl_etr_regulative_common=>parse_xml( rv_response ).
+          LOOP AT lt_xml_table INTO DATA(ls_xml_line).
+            CASE ls_xml_line-name.
+              WHEN 'faultstring'.
+                CHECK ls_xml_line-node_type = 'CO_NT_VALUE'.
+                CONCATENATE lv_message ls_xml_line-value INTO lv_message.
+            ENDCASE.
+          ENDLOOP.
+*          FIND REGEX 'faultstring:.*''.*''' IN rv_response SUBMATCHES lv_message.
           RAISE EXCEPTION TYPE zcx_etr_regulative_exception
             MESSAGE e000(zetr_common) WITH lv_message(50)
                                            lv_message+50(50)

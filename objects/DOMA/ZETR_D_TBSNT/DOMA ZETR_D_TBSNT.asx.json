@@ -59,7 +59,7 @@
     "AS4LOCAL":"N",
     "VALPOS":1,
     "AS4VERS":0,
-    "DOMVALUE_L":"Y",
+    "DOMVALUE_L":"X",
     "DOMVALUE_H":"",
     "APPVAL":""
    },
@@ -87,7 +87,7 @@
     "DDTEXT":"Yes",
     "DOMVAL_LD":"",
     "DOMVAL_HD":"",
-    "DOMVALUE_L":"Y"
+    "DOMVALUE_L":"X"
    },
    {
     "DOMNAME":"ZETR_D_TBSNT",

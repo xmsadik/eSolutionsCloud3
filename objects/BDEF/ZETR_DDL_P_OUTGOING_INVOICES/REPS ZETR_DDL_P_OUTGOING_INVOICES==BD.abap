@@ -15,7 +15,6 @@ define behavior for zetr_ddl_p_outgoing_invoices alias OutgoingInvoices
 
 define behavior for zetr_ddl_p_outgoing_invcont alias InvoiceContents
 {
-  use update;
   use association _outgoingInvoices;
 }
 

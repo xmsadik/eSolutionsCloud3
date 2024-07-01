@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-05-22",
-    "CHANGED_AT":"15:17:18",
-    "UUID":"370E609375501EEF8689CC028F7A206B",
+    "CHANGED_ON":"2024-06-10",
+    "CHANGED_AT":"18:36:01",
+    "UUID":"4D5EAEBF6DC31EEF89EB09170F260099",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer: #CORE\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Transport Header Data',\r\n                typeName: 'Transport Header Data',\r\n                title:{ type: #STANDARD, label: 'Transport Header Data', value: 'DocumentUUID' }\r\n           }\r\n}\r\nannotate entity zetr_ddl_p_outgoing_deltdat with\r\n{\r\n  @UI.hidden: true\r\n  DocumentUUID;\r\n  @UI: { lineItem: [ { position: 10 } ],\r\n         identification: [ { position: 10 } ] }\r\n  ActualDeliveryDate;\r\n  @UI: { lineItem: [ { position: 20 } ],\r\n         identification: [ { position: 20 } ] }\r\n  ActualDeliveryTime;\r\n  @UI: { lineItem: [ { position: 30 } ],\r\n         identification: [ { position: 30 } ] }\r\n  VehiclePlate;\r\n  @UI: { lineItem: [ { position: 40 } ],\r\n         identification: [ { position: 40 } ] }\r\n  TransportCompanyTaxID;\r\n  @UI: { lineItem: [ { position: 50 } ],\r\n         identification: [ { position: 50 } ] }\r\n  TransportCompanyTitle;\r\n  @UI: { lineItem: [ { position: 60 } ],\r\n         identification: [ { position: 60 } ] }\r\n  DeliveryAddressStreet;\r\n  @UI: { lineItem: [ { position: 70 } ],\r\n         identification: [ { position: 70 } ] }\r\n  DeliveryAddressBuildingName;\r\n  @UI: { lineItem: [ { position: 80 } ],\r\n         identification: [ { position: 80 } ] }\r\n  DeliveryAddressBuildingNumber;\r\n  @UI: { lineItem: [ { position: 90 } ],\r\n         identification: [ { position: 90 } ] }\r\n  DeliveryAddressRegion;\r\n  @UI: { lineItem: [ { position: 100 } ],\r\n         identification: [ { position: 100 } ] }\r\n  DeliveryAddressSubdivision;\r\n  @UI: { lineItem: [ { position: 110 } ],\r\n         identification: [ { position: 110 } ] }\r\n  DeliveryAddressCity;\r\n  @UI: { lineItem: [ { position: 120 } ],\r\n         identification: [ { position: 120 } ] }\r\n  DeliveryAddressCountry;\r\n  @UI: { lineItem: [ { position: 130 } ],\r\n         identification: [ { position: 130 } ] }\r\n  DeliveryAddressPostalCode;\r\n  @UI: { lineItem: [ { position: 140 } ],\r\n         identification: [ { position: 140 } ] }\r\n  DeliveryAddressTelephone;\r\n  @UI: { lineItem: [ { position: 150 } ],\r\n         identification: [ { position: 150 } ] }\r\n  DeliveryAddressFax;\r\n  @UI: { lineItem: [ { position: 160 } ],\r\n         identification: [ { position: 160 } ] }\r\n  DeliveryAddressEMail;\r\n  @UI: { lineItem: [ { position: 170 } ],\r\n         identification: [ { position: 170 } ] }\r\n  DeliveryAddressWebsite;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer: #CORE\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Transport Header Data',\r\n                typeName: 'Transport Header Data',\r\n                title:{ type: #STANDARD, label: 'Transport Header Data', value: 'DocumentUUID' }\r\n           }\r\n}\r\nannotate entity zetr_ddl_p_outgoing_deltdat with\r\n{\r\n  @UI.facet: [ { id:              'Deliveries',\r\n                 purpose:         #HEADER,\r\n                 type:            #FIELDGROUP_REFERENCE,\r\n                 label:           'Transport Data',\r\n                 position:        10 },\r\n               { id:              'Fieldgroup2-ID',\r\n                 type:            #FIELDGROUP_REFERENCE,\r\n                 label:           'Transportation Data',\r\n                 parentId:        'Deliveries',\r\n                 targetQualifier: 'Fieldgroup2',\r\n                 position:         20 },\r\n               { id:              'Fieldgroup3-ID',\r\n                 type:            #FIELDGROUP_REFERENCE,\r\n                 label:           'Ship-To Address Data',\r\n                 parentId:        'Deliveries',\r\n                 targetQualifier: 'Fieldgroup3',\r\n                 position:         30 } ]\r\n  @UI.hidden: true\r\n  DocumentUUID;\r\n  @UI: { identification: [ { position: 420 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 420 } ] }\r\n  ActualDeliveryDate;\r\n  @UI: { identification: [ { position: 430 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 430 } ] }\r\n  ActualDeliveryTime;\r\n  @UI: { identification: [ { position: 440 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 440 } ] }\r\n  VehiclePlate;\r\n  @UI: { identification: [ { position: 450 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 450 } ] }\r\n  TransportCompanyTaxID;\r\n  @UI: { identification: [ { position: 460 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup2',  position: 460 } ] }\r\n  TransportCompanyTitle;\r\n  @UI: { identification: [ { position: 470 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 470 } ] }\r\n  DeliveryAddressStreet;\r\n  @UI: { identification: [ { position: 480 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 480 } ] }\r\n  DeliveryAddressBuildingName;\r\n  @UI: { identification: [ { position: 490 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 490 } ] }\r\n  DeliveryAddressBuildingNumber;\r\n  @UI: { identification: [ { position: 500 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 500 } ] }\r\n  DeliveryAddressRegion;\r\n  @UI: { identification: [ { position: 510 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 510 } ] }\r\n  DeliveryAddressSubdivision;\r\n  @UI: { identification: [ { position: 520 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 520 } ] }\r\n  DeliveryAddressCity;\r\n  @UI: { identification: [ { position: 530 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 530 } ] }\r\n  DeliveryAddressCountry;\r\n  @UI: { identification: [ { position: 540 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 540 } ] }\r\n  DeliveryAddressPostalCode;\r\n  @UI: { identification: [ { position: 550 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 550 } ] }\r\n  DeliveryAddressTelephone;\r\n  @UI: { identification: [ { position: 560 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 560 } ] }\r\n  DeliveryAddressFax;\r\n  @UI: { identification: [ { position: 570 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 570 } ] }\r\n  DeliveryAddressEMail;\r\n  @UI: { identification: [ { position: 580 } ],\r\n         fieldGroup: [ { qualifier: 'Fieldgroup3',  position: 580 } ] }\r\n  DeliveryAddressWebsite;\r\n\r\n}"
    }
   ]
  },
@@ -80,198 +80,415 @@
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "ELEMENT":"ACTUALDELIVERYDATE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"10"
+    "VALUE":"420"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "ELEMENT":"ACTUALDELIVERYDATE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"ACTUALDELIVERYDATE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"420"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"ACTUALDELIVERYTIME",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"430"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"ACTUALDELIVERYTIME",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"ACTUALDELIVERYTIME",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"430"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSBUILDINGNAME",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"480"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSBUILDINGNAME",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSBUILDINGNAME",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"480"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSBUILDINGNUMBER",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"490"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSBUILDINGNUMBER",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSBUILDINGNUMBER",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"490"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSCITY",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"520"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSCITY",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSCITY",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"520"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSCOUNTRY",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"530"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSCOUNTRY",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSCOUNTRY",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"530"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSEMAIL",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"570"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSEMAIL",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSEMAIL",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"570"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSFAX",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"560"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSFAX",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSFAX",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"560"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSPOSTALCODE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"540"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSPOSTALCODE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSPOSTALCODE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"540"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSREGION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"500"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSREGION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSREGION",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"500"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSSTREET",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"470"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSSTREET",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSSTREET",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"470"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSSUBDIVISION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"510"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSSUBDIVISION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSSUBDIVISION",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"510"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSTELEPHONE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"550"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSTELEPHONE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSTELEPHONE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"550"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSWEBSITE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"580"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSWEBSITE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DELIVERYADDRESSWEBSITE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"580"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.ID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Deliveries'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Transport Data'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"10"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"ACTUALDELIVERYTIME",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.PURPOSE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#HEADER"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.TYPE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#FIELDGROUP_REFERENCE"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.ID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2-ID'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Transportation Data'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.PARENTID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Deliveries'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"20"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"ACTUALDELIVERYTIME",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.TARGETQUALIFIER",
     "ELEMENT_TYPE":"S",
-    "VALUE":"20"
+    "VALUE":"'Fieldgroup2'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSBUILDINGNAME",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.TYPE",
     "ELEMENT_TYPE":"S",
-    "VALUE":"70"
+    "VALUE":"#FIELDGROUP_REFERENCE"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSBUILDINGNAME",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.ID",
     "ELEMENT_TYPE":"S",
-    "VALUE":"70"
+    "VALUE":"'Fieldgroup3-ID'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSBUILDINGNUMBER",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.LABEL",
     "ELEMENT_TYPE":"S",
-    "VALUE":"80"
+    "VALUE":"'Ship-To Address Data'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSBUILDINGNUMBER",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.PARENTID",
     "ELEMENT_TYPE":"S",
-    "VALUE":"80"
+    "VALUE":"'Deliveries'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSCITY",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"110"
+    "VALUE":"30"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSCITY",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.TARGETQUALIFIER",
     "ELEMENT_TYPE":"S",
-    "VALUE":"110"
+    "VALUE":"'Fieldgroup3'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSCOUNTRY",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.TYPE",
     "ELEMENT_TYPE":"S",
-    "VALUE":"120"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSCOUNTRY",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"120"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSEMAIL",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"160"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSEMAIL",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"160"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSFAX",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"150"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSFAX",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"150"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSPOSTALCODE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"130"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSPOSTALCODE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"130"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSREGION",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"90"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSREGION",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"90"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSSTREET",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"60"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSSTREET",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"60"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSSUBDIVISION",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"100"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSSUBDIVISION",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"100"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSTELEPHONE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"140"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSTELEPHONE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"140"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSWEBSITE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"170"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"DELIVERYADDRESSWEBSITE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"170"
+    "VALUE":"#FIELDGROUP_REFERENCE"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
@@ -283,44 +500,65 @@
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "ELEMENT":"TRANSPORTCOMPANYTAXID",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"40"
+    "VALUE":"450"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "ELEMENT":"TRANSPORTCOMPANYTAXID",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
     "ELEMENT_TYPE":"S",
-    "VALUE":"40"
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"TRANSPORTCOMPANYTAXID",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"450"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"TRANSPORTCOMPANYTITLE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"460"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"TRANSPORTCOMPANYTITLE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "ELEMENT":"TRANSPORTCOMPANYTITLE",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"50"
+    "VALUE":"460"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"TRANSPORTCOMPANYTITLE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"VEHICLEPLATE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"50"
+    "VALUE":"440"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "ELEMENT":"VEHICLEPLATE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
     "ELEMENT":"VEHICLEPLATE",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"30"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
-    "ELEMENT":"VEHICLEPLATE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"30"
+    "VALUE":"440"
    }
   ]
  },
@@ -348,6 +586,27 @@
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
     "TEXT":"Transport Header Data"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Transport Data"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$2$.LABEL",
+    "TEXT":"Transportation Data"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTDAT",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$3$.LABEL",
+    "TEXT":"Ship-To Address Data"
    }
   ]
  },
@@ -360,8 +619,8 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_OUTGOING_DELTDAT",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"370E609375501EEF8689CC028F7A206B",
-    "RT_HASH":"E198421512D1BB9514167F07725CDC17CD151EDB",
+    "DT_UUID":"4D5EAEBF6DC31EEF89EB09170F260099",
+    "RT_HASH":"791ED3D7440FB07DE99C44BA08CBFAF6009C2352",
     "GEN_VERSION":"0"
    }
   ]

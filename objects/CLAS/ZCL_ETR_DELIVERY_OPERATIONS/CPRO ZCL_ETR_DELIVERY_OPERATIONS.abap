@@ -21,34 +21,37 @@
 
     METHODS outgoing_delivery_save_likp
       IMPORTING
-        !iv_awtyp          TYPE zetr_e_awtyp
-        !iv_bukrs          TYPE bukrs
-        !iv_belnr          TYPE belnr_d
-        !iv_gjahr          TYPE gjahr
-      RETURNING
-        VALUE(rs_document) TYPE mty_outgoing_delivery
+        !iv_awtyp   TYPE zetr_e_awtyp
+        !iv_bukrs   TYPE bukrs
+        !iv_belnr   TYPE belnr_d
+        !iv_gjahr   TYPE gjahr
+      EXPORTING
+        es_document TYPE mty_outgoing_delivery
+        et_items    TYPE mty_outgoing_delivery_items_t
       RAISING
         zcx_etr_regulative_exception.
 
     METHODS outgoing_delivery_save_mkpf
       IMPORTING
-        !iv_awtyp          TYPE zetr_e_awtyp
-        !iv_bukrs          TYPE bukrs
-        !iv_belnr          TYPE belnr_d
-        !iv_gjahr          TYPE gjahr
-      RETURNING
-        VALUE(rs_document) TYPE mty_outgoing_delivery
+        !iv_awtyp   TYPE zetr_e_awtyp
+        !iv_bukrs   TYPE bukrs
+        !iv_belnr   TYPE belnr_d
+        !iv_gjahr   TYPE gjahr
+      EXPORTING
+        es_document TYPE mty_outgoing_delivery
+        et_items    TYPE mty_outgoing_delivery_items_t
       RAISING
         zcx_etr_regulative_exception.
 
     METHODS outgoing_delivery_save_bkpf
       IMPORTING
-        !iv_awtyp          TYPE zetr_e_awtyp
-        !iv_bukrs          TYPE bukrs
-        !iv_belnr          TYPE belnr_d
-        !iv_gjahr          TYPE gjahr
-      RETURNING
-        VALUE(rs_document) TYPE mty_outgoing_delivery
+        !iv_awtyp   TYPE zetr_e_awtyp
+        !iv_bukrs   TYPE bukrs
+        !iv_belnr   TYPE belnr_d
+        !iv_gjahr   TYPE gjahr
+      EXPORTING
+        es_document TYPE mty_outgoing_delivery
+        et_items    TYPE mty_outgoing_delivery_items_t
       RAISING
         zcx_etr_regulative_exception.
 

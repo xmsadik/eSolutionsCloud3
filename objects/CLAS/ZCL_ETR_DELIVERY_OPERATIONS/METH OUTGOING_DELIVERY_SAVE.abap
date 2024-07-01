@@ -9,20 +9,35 @@
 
     CASE iv_awtyp.
       WHEN 'LIKP'.
-        rs_document = outgoing_delivery_save_likp( iv_awtyp = iv_awtyp
-                                                   iv_bukrs = iv_bukrs
-                                                   iv_belnr = iv_belnr
-                                                   iv_gjahr = iv_gjahr ).
+        outgoing_delivery_save_likp(
+          EXPORTING
+            iv_awtyp = iv_awtyp
+            iv_bukrs = iv_bukrs
+            iv_belnr = iv_belnr
+            iv_gjahr = iv_gjahr
+          IMPORTING
+            es_document = rs_document
+            et_items    = DATA(lt_items) ).
       WHEN 'MKPF'.
-        rs_document = outgoing_delivery_save_mkpf( iv_awtyp = iv_awtyp
-                                                   iv_bukrs = iv_bukrs
-                                                   iv_belnr = iv_belnr
-                                                   iv_gjahr = iv_gjahr ).
+        outgoing_delivery_save_mkpf(
+          EXPORTING
+            iv_awtyp = iv_awtyp
+            iv_bukrs = iv_bukrs
+            iv_belnr = iv_belnr
+            iv_gjahr = iv_gjahr
+          IMPORTING
+            es_document = rs_document
+            et_items    = lt_items ).
       WHEN 'BKPF' OR 'BKPFF'.
-        rs_document = outgoing_delivery_save_bkpf( iv_awtyp = iv_awtyp
-                                                   iv_bukrs = iv_bukrs
-                                                   iv_belnr = iv_belnr
-                                                   iv_gjahr = iv_gjahr ).
+        outgoing_delivery_save_bkpf(
+          EXPORTING
+            iv_awtyp = iv_awtyp
+            iv_bukrs = iv_bukrs
+            iv_belnr = iv_belnr
+            iv_gjahr = iv_gjahr
+          IMPORTING
+            es_document = rs_document
+            et_items    = lt_items ).
     ENDCASE.
 
     CHECK rs_document IS NOT INITIAL.
@@ -38,8 +53,9 @@
                              docui = rs_document-docui
                              conty = 'UBL' ) ).
     INSERT zetr_t_arcd FROM TABLE @lt_contents.
-*    DATA(ls_transport) = CORRESPONDING zetr_t_odth( rs_document ).
-*    INSERT zetr_t_odth FROM @ls_transport.
+    DATA(ls_transport) = CORRESPONDING zetr_t_odth( rs_document ).
+    INSERT zetr_t_odth FROM @ls_transport.
+    INSERT zetr_t_ogdli FROM TABLE @lt_items.
     zcl_etr_regulative_log=>create_single_log( iv_log_code    = zcl_etr_regulative_log=>mc_log_codes-created
                                                iv_document_id = rs_document-docui ).
     COMMIT WORK AND WAIT.

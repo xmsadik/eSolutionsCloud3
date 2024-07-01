@@ -3,6 +3,10 @@
     mv_preview = iv_preview.
     mo_delivery_operations = zcl_etr_delivery_operations=>factory( ms_document-bukrs ).
 
+    SELECT *
+      FROM zetr_t_ogdli
+      WHERE docui = @is_document-docui
+      INTO TABLE @mt_saved_delivery_items.
     SELECT SINGLE *
       FROM zetr_t_edpar
       WHERE bukrs = @ms_document-bukrs

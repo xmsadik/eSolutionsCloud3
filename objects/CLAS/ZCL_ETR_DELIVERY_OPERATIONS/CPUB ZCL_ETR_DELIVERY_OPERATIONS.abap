@@ -39,6 +39,10 @@ CLASS zcl_etr_delivery_operations DEFINITION
     TYPES BEGIN OF mty_outgoing_delivery.
     INCLUDE TYPE zetr_t_ogdlv.
     TYPES END OF mty_outgoing_delivery.
+    TYPES BEGIN OF mty_outgoing_delivery_items.
+    INCLUDE TYPE zetr_t_ogdli.
+    TYPES END OF mty_outgoing_delivery_items.
+    TYPES mty_outgoing_delivery_items_t TYPE STANDARD TABLE OF mty_outgoing_delivery_items WITH EMPTY KEY.
 
     CLASS-METHODS factory
       IMPORTING
@@ -143,3 +147,12 @@ CLASS zcl_etr_delivery_operations DEFINITION
         VALUE(rv_response_data) TYPE zetr_e_dcont
       RAISING
         zcx_etr_regulative_exception .
+
+    METHODS outgoing_delivery_save_manu
+      IMPORTING
+        !is_header_data TYPE zetr_ddl_i_dlvworef_selection
+      EXPORTING
+        es_document     TYPE mty_outgoing_delivery
+        et_items        TYPE mty_outgoing_delivery_items_t
+      RAISING
+        zcx_etr_regulative_exception.

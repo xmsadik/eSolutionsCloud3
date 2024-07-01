@@ -31,65 +31,65 @@ authorization master ( global, instance )
   TransportType,
   TRAStatusCode;
 
-  mapping for zetr_t_oginv
-    {
-      DocumentUUID          = docui;
-      CompanyCode           = bukrs;
-      DocumentNumber        = belnr;
-      FiscalYear            = gjahr;
-      ReferenceDocumentType = awtyp;
-      DocumentType          = docty;
-      Plant                 = werks;
-      BusinessArea          = gsber;
-      SalesOrganization     = vkorg;
-      DistributionChannel   = vtweg;
-      PartnerNumber         = partner;
-      TaxID                 = taxid;
-      Aliass                = aliass;
-      DocumentDate          = bldat;
-      Amount                = wrbtr;
-      TaxAmount             = fwste;
-      ExchangeRate          = kursf;
-      Currency              = waers;
-      ProfileID             = prfid;
-      InvoiceType           = invty;
-      TaxType               = taxty;
-      SerialPrefix          = serpr;
-      XSLTTemplate          = xsltt;
-      TaxExemption          = taxex;
-      ExemptionExists       = texex;
-      Reversed              = revch;
-      ReverseDate           = revdt;
-      Printed               = prntd;
-      Sender                = sndus;
-      SendDate              = snddt;
-      SendTime              = sndtm;
-      InvoiceIDSaved        = inids;
-      CollectItems          = itmcl;
-      TransportType         = trnsp;
-      StatusCode            = stacd;
-      StatusDetail          = staex;
-      Response              = resst;
-      TRAStatusCode         = radsc;
-      Resendable            = rsend;
-      ActualExportDate      = raded;
-      CustomsDocumentNo     = cedrn;
-      CustomsReferenceNo    = radrn;
-      IntegratorDocumentID  = invii;
-      ReportID              = rprid;
-      EnvelopeUUID          = envui;
-      InvoiceUUID           = invui;
-      InvoiceID             = invno;
-      eArchiveType          = eatyp;
-      InternetSale          = intsl;
-      InvoiceNote           = inote;
-      Archived              = archv;
-      CreatedBy             = ernam;
-      CreateDate            = erdat;
-      CreateTime            = erzet;
-    }
+  //  mapping for zetr_t_oginv
+  //    {
+  //      DocumentUUID          = docui;
+  //      CompanyCode           = bukrs;
+  //      DocumentNumber        = belnr;
+  //      FiscalYear            = gjahr;
+  //      ReferenceDocumentType = awtyp;
+  //      DocumentType          = docty;
+  //      Plant                 = werks;
+  //      BusinessArea          = gsber;
+  //      SalesOrganization     = vkorg;
+  //      DistributionChannel   = vtweg;
+  //      PartnerNumber         = partner;
+  //      TaxID                 = taxid;
+  //      Aliass                = aliass;
+  //      DocumentDate          = bldat;
+  //      Amount                = wrbtr;
+  //      TaxAmount             = fwste;
+  //      ExchangeRate          = kursf;
+  //      Currency              = waers;
+  //      ProfileID             = prfid;
+  //      InvoiceType           = invty;
+  //      TaxType               = taxty;
+  //      SerialPrefix          = serpr;
+  //      XSLTTemplate          = xsltt;
+  //      TaxExemption          = taxex;
+  //      ExemptionExists       = texex;
+  //      Reversed              = revch;
+  //      ReverseDate           = revdt;
+  //      Printed               = prntd;
+  //      Sender                = sndus;
+  //      SendDate              = snddt;
+  //      SendTime              = sndtm;
+  //      InvoiceIDSaved        = inids;
+  //      CollectItems          = itmcl;
+  //      TransportType         = trnsp;
+  //      StatusCode            = stacd;
+  //      StatusDetail          = staex;
+  //      Response              = resst;
+  //      TRAStatusCode         = radsc;
+  //      Resendable            = rsend;
+  //      ActualExportDate      = raded;
+  //      CustomsDocumentNo     = cedrn;
+  //      CustomsReferenceNo    = radrn;
+  //      IntegratorDocumentID  = invii;
+  //      ReportID              = rprid;
+  //      EnvelopeUUID          = envui;
+  //      InvoiceUUID           = invui;
+  //      InvoiceID             = invno;
+  //      eArchiveType          = eatyp;
+  //      InternetSale          = intsl;
+  //      InvoiceNote           = inote;
+  //      Archived              = archv;
+  //      CreatedBy             = ernam;
+  //      CreateDate            = erdat;
+  //      CreateTime            = erzet;
+  //    }
 
-  association _invoiceContents { create; }
+  association _invoiceContents { }
   association _invoiceLogs { create; }
 
   action ( features : instance ) sendInvoices result [1] $self;
@@ -119,23 +119,23 @@ authorization dependent by _outgoingInvoices
 }
 
 define behavior for zetr_ddl_i_outgoing_invcont alias InvoiceContents
-persistent table zetr_t_arcd
-//with unmanaged save
+//persistent table zetr_t_arcd
+with unmanaged save
 lock dependent by _outgoingInvoices
 authorization dependent by _outgoingInvoices
 //etag master <field_name>
 //late numbering
 {
-  mapping for zetr_t_arcd
-    {
-      DocumentUUID = docui;
-      ContentType  = conty;
-      DocumentType = docty;
-      Content      = contn;
-    }
+  //  mapping for zetr_t_arcd
+  //    {
+  //      DocumentUUID = docui;
+  //      ContentType  = conty;
+  //      DocumentType = docty;
+  //      Content      = contn;
+  //    }
 
   update;
-  //  delete;
+  delete;
   field ( readonly ) DocumentUUID;
   field ( readonly : update ) ContentType, DocumentType;
   association _outgoingInvoices;

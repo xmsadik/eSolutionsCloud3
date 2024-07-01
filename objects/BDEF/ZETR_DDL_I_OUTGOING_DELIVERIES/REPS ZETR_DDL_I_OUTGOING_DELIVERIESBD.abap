@@ -2,18 +2,21 @@ managed implementation in class zbp_etr_ddl_i_outgoing_deliver unique;
 strict ( 1 );
 
 define behavior for zetr_ddl_i_outgoing_deliveries alias OutgoingDeliveries
-//persistent table zetr_t_ogdlv
-with unmanaged save
+persistent table zetr_t_ogdlv
 lock master
 authorization master ( instance )
 //etag master <field_name>
 {
-  //  create;
+  create;
   update ( features : instance );
   delete ( features : instance );
 
-  field ( readonly : update ) DocumentUUID;
-  field ( readonly ) TaxID;
+  field ( readonly : update )
+  DocumentUUID;
+
+  field ( readonly )
+  TaxID;
+
   field ( features : instance )
   ProfileID,
   Aliass,
@@ -22,23 +25,6 @@ authorization master ( instance )
   XSLTTemplate,
   CollectItems,
   DeliveryNote,
-  ActualDeliveryDate,
-  ActualDeliveryTime,
-  VehiclePlate,
-  TransportCompanyTaxID,
-  TransportCompanyTitle,
-  DeliveryAddressStreet,
-  DeliveryAddressBuildingName,
-  DeliveryAddressBuildingNumber,
-  DeliveryAddressRegion,
-  DeliveryAddressSubdivision,
-  DeliveryAddressCity,
-  DeliveryAddressCountry,
-  DeliveryAddressPostalCode,
-  DeliveryAddressTelephone,
-  DeliveryAddressFax,
-  DeliveryAddressEMail,
-  DeliveryAddressWebsite,
   PrintedDocumentDate,
   PrintedDocumentNumber,
   StatusCode,
@@ -101,12 +87,15 @@ authorization master ( instance )
   association _deliveryContents { create; }
   association _deliveryLogs { create; }
   association _deliveryTransporters { create; }
-  association _deliveryTransportHeader { }
+  association _deliveryTransportHeader { create; }
+  association _deliveryItems { create; }
 
   action ( features : instance ) sendDeliveries result [1] $self;
   action ( features : instance ) archiveDeliveries result [1] $self;
   action ( features : instance ) statusUpdate result [1] $self;
   action ( features : instance ) setAsRejected parameter ZETR_DDL_I_NOTE_SELECTION result [1] $self;
+  static action createWithoutReference parameter ZETR_DDL_I_DLVWOREF_SELECTION;
+
 }
 
 define behavior for zetr_ddl_i_outgoing_delcont alias DeliveryContents
@@ -138,9 +127,6 @@ lock dependent by _outgoingDeliveries
 authorization dependent by _outgoingDeliveries
 //etag master <field_name>
 {
-  //  update;
-  //  delete;
-
   field ( readonly : update ) LogUUID, DocumentUUID;
 
   association _outgoingDeliveries;
@@ -167,14 +153,13 @@ authorization dependent by _outgoingDeliveries
   delete;
 
   field ( readonly ) DocumentUUID;
-  field ( readonly : update ) ItemNumber;
+  field ( readonly : update ) TransporterType, Transporter;
 
   association _outgoingDeliveries;
 
   mapping for zetr_t_odti
     {
       DocumentUUID    = docui;
-      ItemNumber      = buzei;
       TransporterType = trnst;
       Transporter     = trnsp;
       Title           = title;
@@ -190,7 +175,7 @@ authorization dependent by _outgoingDeliveries
 //etag master <field_name>
 {
   update;
-  //  delete;
+  delete;
 
   field ( readonly ) DocumentUUID;
 
@@ -216,5 +201,35 @@ authorization dependent by _outgoingDeliveries
       DeliveryAddressFax            = faxnm;
       DeliveryAddressEMail          = email;
       DeliveryAddressWebsite        = website;
+    }
+}
+
+define behavior for zetr_ddl_i_outgoing_delitem alias Items
+persistent table zetr_t_ogdli
+lock dependent by _outgoingDeliveries
+authorization dependent by _outgoingDeliveries
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly ) DocumentUUID;
+  field ( readonly : update ) LineNumber;
+
+  association _outgoingDeliveries;
+
+  mapping for zetr_t_ogdli
+    {
+      DocumentUUID                   = docui;
+      LineNumber                     = linno;
+      SellersItemIdentification      = selii;
+      BuyersItemIdentification       = buyii;
+      ManufacturerItemIdentification = manii;
+      MaterialDescription            = mdesc;
+      Description                    = descr;
+      NetPrice                       = netpr;
+      Currency                       = waers;
+      Quantity                       = menge;
+      UnitOfMeasure                  = meins;
     }
 }

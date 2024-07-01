@@ -204,5 +204,5 @@
           AND deflt = @abap_true
         INTO @ls_document-xsltt.
     ENDIF.
-    rs_document = ls_document.
+    es_document = ls_document.
   ENDMETHOD.

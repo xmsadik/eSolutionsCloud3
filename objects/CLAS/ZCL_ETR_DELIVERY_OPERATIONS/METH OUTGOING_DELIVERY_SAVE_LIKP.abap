@@ -21,6 +21,11 @@
            END OF ty_likp,
            BEGIN OF ty_lips,
              posnr TYPE n LENGTH 6,
+             matnr TYPE matnr,
+             kdmat TYPE zetr_e_descr,
+             arktx TYPE zetr_e_descr,
+             lfimg TYPE menge_d,
+             vrkme TYPE meins,
              werks TYPE zetr_e_umwrk,
              lgort TYPE zetr_e_umlgo,
              umwrk TYPE zetr_e_umwrk,
@@ -64,6 +69,11 @@
     CHECK sy-subrc = 0 AND ls_likp-bldat BETWEEN ls_company_data-datab AND ls_company_data-datbi.
 
     SELECT DeliveryDocumentItem AS posnr,
+           Material AS matnr,
+           MaterialByCustomer AS kdmat,
+           DeliveryDocumentItemText AS arktx,
+           ActualDeliveryQuantity AS lfimg,
+           DeliveryQuantityUnit AS vrkme,
            Plant AS werks,
            StorageLocation AS lgort,
            IssuingOrReceivingPlant AS umwrk,
@@ -177,5 +187,17 @@
           AND deflt = @abap_true
         INTO @ls_document-xsltt.
     ENDIF.
-    rs_document = ls_document.
+    es_document = ls_document.
+
+    LOOP AT lt_lips INTO ls_lips.
+      CHECK ls_lips-lfimg IS NOT INITIAL.
+      APPEND INITIAL LINE TO et_items ASSIGNING FIELD-SYMBOL(<ls_items>).
+      <ls_items>-docui = es_document-docui.
+      <ls_items>-linno = sy-tabix.
+      <ls_items>-selii = ls_lips-matnr.
+      <ls_items>-buyii = ls_lips-kdmat.
+      <ls_items>-mdesc = ls_lips-arktx.
+      <ls_items>-menge = ls_lips-lfimg.
+      <ls_items>-meins = ls_lips-vrkme.
+    ENDLOOP.
   ENDMETHOD.

@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-05-22",
-    "CHANGED_AT":"18:25:46",
-    "UUID":"370E609375501EEF868D16893803A06B",
+    "CHANGED_ON":"2024-06-10",
+    "CHANGED_AT":"19:00:25",
+    "UUID":"4D5EAEBF6DC31EEF89EB763F3262C099",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer: #CORE\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Transporters',\r\n                typeName: 'Transporter',\r\n                title:{ type: #STANDARD, label: 'Transporters', value: 'Transporter' }\r\n           }\r\n}\r\nannotate entity zetr_ddl_p_outgoing_deltrns with\r\n{\r\n  @UI.hidden: true\r\n  DocumentUUID;\r\n  @UI.hidden: true\r\n  ItemNumber;\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_transporter_types', element: 'TransporterType' }}]\r\n  @UI: { lineItem: [ { position: 10 } ],\r\n         identification: [ { position: 10 } ] }\r\n  TransporterType;\r\n  @UI.hidden: true\r\n  TransporterTypeText;\r\n  @UI: { lineItem: [ { position: 20 } ],\r\n         identification: [ { position: 20 } ] }\r\n  Transporter;\r\n  @UI: { lineItem: [ { position: 30 } ],\r\n         identification: [ { position: 30 } ] }\r\n  Title;\r\n  @UI: { lineItem: [ { position: 40 } ],\r\n         identification: [ { position: 40 } ] }\r\n  FirstName;\r\n  @UI: { lineItem: [ { position: 50 } ],\r\n         identification: [ { position: 50 } ] }\r\n  LastName;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer: #CORE\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Transporters',\r\n                typeName: 'Transporter',\r\n                title:{ type: #STANDARD, label: 'Transporters', value: 'TransporterTypeText' }\r\n           }\r\n}\r\nannotate entity zetr_ddl_p_outgoing_deltrns with\r\n{\r\n  @UI.facet: [ { id:            'Transporters',\r\n                 purpose:       #STANDARD,\r\n                 type:          #IDENTIFICATION_REFERENCE,\r\n                 label:         'Transporters',\r\n                 position:      10 }  ]\r\n  @UI.hidden: true\r\n  DocumentUUID; \r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_transporter_types', element: 'TransporterType' }}]\r\n  @UI: { lineItem: [ { position: 10 } ],\r\n         identification: [ { position: 10 } ] }\r\n  TransporterType;\r\n  @UI.hidden: true\r\n  TransporterTypeText;\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_transporter_codes', element: 'Transporter' }}]  \r\n  @Consumption.valueHelpDefinition: [{additionalBinding: [{ element: 'TransporterType', localElement: 'TransporterType' }]}]\r\n  @UI: { lineItem: [ { position: 20 } ],\r\n         identification: [ { position: 20 } ] }\r\n  Transporter;\r\n  @UI: { lineItem: [ { position: 30 } ],\r\n         identification: [ { position: 30 } ] }\r\n  Title;\r\n  @UI: { lineItem: [ { position: 40 } ],\r\n         identification: [ { position: 40 } ] }\r\n  FirstName;\r\n  @UI: { lineItem: [ { position: 50 } ],\r\n         identification: [ { position: 50 } ] }\r\n  LastName;\r\n\r\n}"
    }
   ]
  },
@@ -61,7 +61,7 @@
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TITLE.VALUE",
     "ELEMENT_TYPE":"N",
-    "VALUE":"'Transporter'"
+    "VALUE":"'TransporterTypeText'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
@@ -76,6 +76,41 @@
     "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
     "ELEMENT_TYPE":"N",
     "VALUE":"'Transporters'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.ID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Transporters'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Transporters'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"10"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.PURPOSE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#STANDARD"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.TYPE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#IDENTIFICATION_REFERENCE"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
@@ -100,13 +135,6 @@
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
-    "ELEMENT":"ITEMNUMBER",
-    "NAME":"UI.HIDDEN",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"true"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
     "ELEMENT":"LASTNAME",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
@@ -132,6 +160,34 @@
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"30"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"TRANSPORTER",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ADDITIONALBINDING$1$.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'TransporterType'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"TRANSPORTER",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ADDITIONALBINDING$1$.LOCALELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'TransporterType'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"TRANSPORTER",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Transporter'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "ELEMENT":"TRANSPORTER",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'zetr_ddl_vh_transporter_codes'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
@@ -211,6 +267,13 @@
    },
    {
     "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"DOCUMENTUUID",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Transporters"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_OUTGOING_DELTRNS",
     "DDLANGUAGE":"T",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TITLE.LABEL",
@@ -241,8 +304,8 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_OUTGOING_DELTRNS",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"370E609375501EEF868D16893803A06B",
-    "RT_HASH":"CD2FE09979FEC7DA915620CABF1E30CD62687544",
+    "DT_UUID":"4D5EAEBF6DC31EEF89EB763F3262C099",
+    "RT_HASH":"A7E92CF2E5DE6107DD4148F7408BAA1CB1123DE9",
     "GEN_VERSION":"0"
    }
   ]

@@ -13,8 +13,13 @@
     DATA mt_delivery_items TYPE mty_item_collect_t .
     DATA ms_outdel_data TYPE mty_outdel_data .
     DATA ms_goodsmvmt_data TYPE mty_goodsmvmt_data .
+    DATA ms_manual_data TYPE mty_manual_data .
+    DATA mt_saved_delivery_items TYPE mty_delivery_items.
 
     METHODS build_delivery_data_likp
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu
       RAISING
         zcx_etr_regulative_exception .
     METHODS build_delivery_data_mkpf
@@ -47,12 +52,17 @@
         VALUE(rs_data) TYPE zif_etr_common_ubl21=>partytype
       RAISING
         zcx_etr_regulative_exception .
+    METHODS collect_items_common .
     METHODS collect_items_likp .
     METHODS collect_items_bkpf .
     METHODS collect_items_mkpf .
+    METHODS collect_items_manu .
     METHODS get_data_likp
       IMPORTING
         !iv_vbeln TYPE vbeln_vl.
+    METHODS get_data_manu
+      IMPORTING
+        !iv_belnr TYPE belnr_d.
     METHODS get_data_mkpf
       IMPORTING
         !iv_mblnr TYPE mblnr
@@ -82,6 +92,24 @@
       RAISING
         zcx_etr_regulative_exception .
     METHODS build_delivery_data_likp_trans
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu_head
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu_ref
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu_party
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu_item
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu_notes
+      RAISING
+        zcx_etr_regulative_exception .
+    METHODS build_delivery_data_manu_trans
       RAISING
         zcx_etr_regulative_exception .
     METHODS fill_common_delivery_data

@@ -12,7 +12,7 @@
     "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'Outgoing Delivery Transport Header Data'\r\ndefine view entity zetr_ddl_i_outgoing_deltdat\r\n  as select from zetr_t_odth\r\n  association to parent zetr_ddl_i_outgoing_deliveries as _outgoingDeliveries on $projection.DocumentUUID = _outgoingDeliveries.DocumentUUID\r\n\r\n{\r\n  key docui   as DocumentUUID,\r\n      addat   as ActualDeliveryDate,\r\n      adtim   as ActualDeliveryTime,\r\n      vhcll   as VehiclePlate,\r\n      taxid   as TransportCompanyTaxID,\r\n      title   as TransportCompanyTitle,\r\n      street  as DeliveryAddressStreet,\r\n      bldnm   as DeliveryAddressBuildingName,\r\n      bldno   as DeliveryAddressBuildingNumber,\r\n      subdv   as DeliveryAddressSubdivision,\r\n      cityn   as DeliveryAddressCity,\r\n      pstcd   as DeliveryAddressPostalCode,\r\n      region  as DeliveryAddressRegion,\r\n      country as DeliveryAddressCountry,\r\n      telnm   as DeliveryAddressTelephone,\r\n      faxnm   as DeliveryAddressFax,\r\n      email   as DeliveryAddressEMail,\r\n      website as DeliveryAddressWebsite,\r\n      _outgoingDeliveries\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_T_ODTH\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_OUTGOING_DELIVERIES\"\n],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"31",
     "SOURCE_TYPE":"W",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"

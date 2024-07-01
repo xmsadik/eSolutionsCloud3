@@ -12,7 +12,7 @@
     "SOURCE":"@EndUserText.label: 'Outgoing Delivery Logs'\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine view entity zetr_ddl_p_outgoing_dellogs\r\n  as projection on zetr_ddl_i_outgoing_dellogs\r\n{\r\n  key LogUUID,\r\n      DocumentUUID,\r\n      @ObjectModel.text.element: ['UserFullName']\r\n      CreatedBy,\r\n      UserFullName,\r\n      CreationDate,\r\n      CreationTime,\r\n      @ObjectModel.text.element: ['LogCodeDescription']\r\n      LogCode,\r\n      LogCodeDescription,\r\n      LogNote,\r\n      /* Associations */\r\n      _outgoingDeliveries : redirected to parent zetr_ddl_p_outgoing_deliveries\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_DDL_I_OUTGOING_DELLOGS\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_OUTGOING_DELIVERIES\",\n\"ZETR_DDL_P_OUTGOING_DELIVERIES\"\n],\n\"BASE\":\n[\n\"ZETR_DDL_I_OUTGOING_DELLOGS\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"31",
     "SOURCE_TYPE":"P",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"

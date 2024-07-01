@@ -501,11 +501,27 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD statusupdate.
+    DATA lt_journal_entry TYPE TABLE FOR ACTION IMPORT i_journalentrytp~change.
+
     READ ENTITIES OF zetr_ddl_i_outgoing_invoices IN LOCAL MODE
       ENTITY outgoinginvoices
       ALL FIELDS WITH
       CORRESPONDING #( keys )
       RESULT DATA(invoices).
+    IF line_exists( invoices[ InvoiceIDSaved = '' ] ).
+      SELECT ReferenceDocumentType AS awtyp,
+             OriginalReferenceDocument AS awkey,
+             companycode AS bukrs,
+             accountingdocument AS belnr,
+             fiscalyear AS gjahr,
+             DocumentReferenceID AS xblnr
+         FROM i_journalentry
+         FOR ALL ENTRIES IN @invoices
+         WHERE ReferenceDocumentType = @invoices-DocumentType
+           AND OriginalReferenceDocument = @invoices-AwkeyInternal
+         INTO TABLE @DATA(lt_fin_docs).
+      SORT lt_fin_docs BY awtyp awkey.
+    ENDIF.
 
     LOOP AT invoices ASSIGNING FIELD-SYMBOL(<ls_invoice>).
       TRY.
@@ -525,6 +541,29 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
           <ls_invoice>-InvoiceID = ls_status-invno.
           <ls_invoice>-IntegratorDocumentID = ls_status-invii.
           <ls_invoice>-ReportID = ls_status-rprid.
+          IF <ls_invoice>-InvoiceID IS NOT INITIAL AND <ls_invoice>-InvoiceIDSaved = abap_false AND
+             <ls_invoice>-StatusCode <> '' AND <ls_invoice>-StatusCode <> '2'.
+            IF <ls_invoice>-DocumentType <> 'BKPF'.
+              READ TABLE lt_fin_docs
+                INTO DATA(ls_fin_doc)
+                WITH KEY awtyp = <ls_invoice>-DocumentType
+                         awkey = <ls_invoice>-AwkeyInternal
+                BINARY SEARCH.
+              CHECK sy-subrc = 0.
+            ELSE.
+              ls_fin_doc-bukrs = <ls_invoice>-CompanyCode.
+              ls_fin_doc-belnr = <ls_invoice>-DocumentNumber.
+              ls_fin_doc-gjahr = <ls_invoice>-FiscalYear.
+            ENDIF.
+            APPEND INITIAL LINE TO lt_journal_entry ASSIGNING FIELD-SYMBOL(<ls_journal_entry>).
+            <ls_journal_entry>-AccountingDocument = ls_fin_doc-bukrs.
+            <ls_journal_entry>-CompanyCode = ls_fin_doc-bukrs.
+            <ls_journal_entry>-FiscalYear = ls_fin_doc-gjahr.
+            <ls_journal_entry>-%param-DocumentReferenceID = <ls_invoice>-InvoiceID.
+            <ls_journal_entry>-%param-%control-documentreferenceid = if_abap_behv=>mk-on.
+
+            <ls_invoice>-InvoiceIDSaved = abap_true.
+          ENDIF.
 
         CATCH zcx_etr_regulative_exception INTO DATA(lx_exception).
           DATA(lv_error) = CONV bapi_msg( lx_exception->get_text( ) ).
@@ -542,6 +581,42 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
     CHECK invoices IS NOT INITIAL.
 
     TRY.
+        IF lt_journal_entry IS NOT INITIAL.
+          MODIFY ENTITIES OF i_journalentrytp
+           ENTITY journalentry
+           EXECUTE change FROM lt_journal_entry
+           FAILED DATA(ls_failed)
+           REPORTED DATA(ls_reported)
+           MAPPED DATA(ls_mapped).
+          IF ls_failed IS NOT INITIAL.
+            SORT lt_fin_docs BY bukrs belnr gjahr.
+            LOOP AT ls_failed-journalentry INTO DATA(ls_journal_failed).
+              READ TABLE lt_fin_docs INTO ls_fin_doc
+                WITH KEY bukrs = ls_journal_failed-CompanyCode
+                         belnr = ls_journal_failed-AccountingDocument
+                         gjahr = ls_journal_failed-FiscalYear
+                BINARY SEARCH.
+              IF sy-subrc = 0.
+                CASE ls_fin_doc-awtyp(4).
+                  WHEN 'BKPF'.
+                    READ TABLE invoices
+                      ASSIGNING <ls_invoice>
+                      WITH KEY CompanyCode = ls_fin_doc-bukrs
+                               DocumentNumber = ls_fin_doc-belnr
+                               FiscalYear = ls_fin_doc-gjahr.
+                  WHEN OTHERS.
+                    READ TABLE invoices
+                      ASSIGNING <ls_invoice>
+                      WITH KEY DocumentType = ls_fin_doc-awtyp
+                               AwkeyInternal = ls_fin_doc-awkey.
+                ENDCASE.
+                CHECK sy-subrc = 0.
+                <ls_invoice>-InvoiceIDSaved = abap_false.
+              ENDIF.
+            ENDLOOP.
+          ENDIF.
+        ENDIF.
+
         MODIFY ENTITIES OF zetr_ddl_i_outgoing_invoices IN LOCAL MODE
           ENTITY outgoinginvoices
              UPDATE FIELDS ( StatusCode StatusDetail Response TRAStatusCode
@@ -561,6 +636,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                                                      EnvelopeUUID = invoice-EnvelopeUUID
                                                      InvoiceUUID = invoice-InvoiceUUID
                                                      InvoiceID = invoice-InvoiceID
+                                                     InvoiceIDSaved = invoice-InvoiceIDSaved
                                                      IntegratorDocumentID = invoice-IntegratorDocumentID
                                                      ReportID = invoice-ReportID
 
@@ -575,6 +651,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
                                                      %control-EnvelopeUUID = if_abap_behv=>mk-on
                                                      %control-InvoiceUUID = if_abap_behv=>mk-on
                                                      %control-InvoiceID = if_abap_behv=>mk-on
+                                                     %control-InvoiceIDSaved = if_abap_behv=>mk-on
                                                      %control-IntegratorDocumentID = if_abap_behv=>mk-on
                                                      %control-ReportID = if_abap_behv=>mk-on ) )
                   ENTITY outgoinginvoices
@@ -613,46 +690,32 @@ ENDCLASS.
 
 CLASS lsc_zetr_ddl_i_outgoing_invoic DEFINITION INHERITING FROM cl_abap_behavior_saver.
   PROTECTED SECTION.
-
     METHODS save_modified REDEFINITION.
-
     METHODS cleanup_finalize REDEFINITION.
-*    METHODS adjust_numbers REDEFINITION.
-
 ENDCLASS.
 
 CLASS lsc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
 
   METHOD save_modified.
-    DATA: lt_deleted TYPE RANGE OF sysuuid_c22.
     IF delete-outgoinginvoices IS NOT INITIAL.
-      SELECT *
-        FROM zetr_t_oginv
-        FOR ALL ENTRIES IN @delete-outgoinginvoices
-        WHERE docui = @delete-outgoinginvoices-documentuuid
-        INTO TABLE @DATA(lt_invoices).
-      LOOP AT lt_invoices INTO DATA(ls_invoice).
-        IF ls_invoice-stacd <> '' AND ls_invoice-stacd <> '2'.
-          APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
-                                              number   = '067'
-                                              severity = if_abap_behv_message=>severity-error ) ) TO reported-outgoinginvoices.
-        ELSE.
-          APPEND VALUE #( sign = 'I' option = 'EQ' low = ls_invoice-docui ) TO lt_deleted.
-        ENDIF.
-      ENDLOOP.
-      IF lt_deleted IS NOT INITIAL.
-        DELETE FROM zetr_t_oginv
-          WHERE docui IN @lt_deleted.
-        DELETE FROM zetr_t_arcd
-          WHERE docui IN @lt_deleted.
-      ENDIF.
+      DATA lt_oginv TYPE TABLE OF zetr_t_oginv.
+      lt_oginv = CORRESPONDING #( delete-outgoinginvoices MAPPING docui = DocumentUUID ).
+      DELETE zetr_t_oginv FROM TABLE @lt_oginv.
     ENDIF.
+    IF delete-invoicecontents IS NOT INITIAL.
+      DATA lt_arcd TYPE TABLE OF zetr_t_arcd.
+      lt_arcd = CORRESPONDING #( delete-invoicecontents MAPPING docui = DocumentUUID
+                                                                docty = DocumentType
+                                                                conty = ContentType ).
+      DELETE zetr_t_arcd FROM TABLE @lt_arcd.
+    ENDIF.
+
     IF update-outgoinginvoices IS NOT INITIAL.
       SELECT *
         FROM zetr_t_oginv
         FOR ALL ENTRIES IN @update-outgoinginvoices
         WHERE docui = @update-outgoinginvoices-documentuuid
-        INTO TABLE @lt_invoices.
+        INTO TABLE @DATA(lt_invoices).
       SORT lt_invoices BY docui.
 
       DATA lt_logs TYPE zetr_tt_log_data.
@@ -709,6 +772,9 @@ CLASS lsc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
         ENDIF.
         IF ls_update-%control-InvoiceID = if_abap_behv=>mk-on.
           <ls_invoice>-invno = ls_update-InvoiceID.
+        ENDIF.
+        IF ls_update-%control-InvoiceIDSaved = if_abap_behv=>mk-on.
+          <ls_invoice>-inids = ls_update-InvoiceIDSaved.
         ENDIF.
         IF ls_update-%control-IntegratorDocumentID = if_abap_behv=>mk-on.
           <ls_invoice>-invii = ls_update-IntegratorDocumentID.

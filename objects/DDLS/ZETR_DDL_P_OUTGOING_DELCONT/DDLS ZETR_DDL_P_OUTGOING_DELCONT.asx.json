@@ -12,7 +12,7 @@
     "SOURCE":"@EndUserText.label: 'Outgoing Delivery Contents'\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine view entity zetr_ddl_p_outgoing_delcont\r\n  as projection on zetr_ddl_i_outgoing_delcont\r\n{\r\n  key     DocumentUUID,\r\n  key     ContentType,\r\n          @ObjectModel.text.element: ['DocumentTypeText']\r\n  key     DocumentType,\r\n          DocumentTypeText,\r\n          CompanyCode,\r\n          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_ETR_OUTDLV_CONT_VIREL'\r\n          @Semantics.largeObject: { mimeType      : 'MimeType',\r\n                                    fileName      : 'Filename',\r\n                                    contentDispositionPreference: #INLINE }\r\n  virtual Content : zetr_e_dcont,\r\n          @Semantics.mimeType: true\r\n          MimeType,\r\n          Filename,\r\n//          ArchiveUUID,\r\n          /* Associations */\r\n          _outgoingDeliveries : redirected to parent zetr_ddl_p_outgoing_deliveries\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_DDL_I_OUTGOING_DELCONT\"\n],\n\"ASSOCIATED\":\n[\n\"ZETR_DDL_I_OUTGOING_DELIVERIES\",\n\"ZETR_DDL_P_OUTGOING_DELIVERIES\"\n],\n\"BASE\":\n[\n\"ZETR_DDL_I_OUTGOING_DELCONT\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"3",
+    "CHGFLAG":"31",
     "SOURCE_TYPE":"P",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"

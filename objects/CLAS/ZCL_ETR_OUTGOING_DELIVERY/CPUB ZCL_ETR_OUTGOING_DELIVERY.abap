@@ -187,6 +187,19 @@ CLASS zcl_etr_outgoing_delivery DEFINITION
     TYPES texts TYPE SORTED TABLE OF mty_texts WITH UNIQUE KEY tdobject tdid tdspras tdname.
     TYPES END OF mty_outdel_data .
 
+    TYPES BEGIN OF mty_manual_data.
+    TYPES t001 TYPE mty_t001.
+    TYPES t005 TYPE SORTED TABLE OF mty_t005 WITH UNIQUE KEY land1.
+    TYPES t005u TYPE SORTED TABLE OF mty_t005u WITH UNIQUE KEY land1 bland.
+    TYPES head TYPE zetr_t_ogdlv.
+    TYPES items TYPE SORTED TABLE OF zetr_t_ogdli WITH UNIQUE KEY linno.
+    TYPES vbak TYPE SORTED TABLE OF mty_vbak WITH UNIQUE KEY vbeln.
+    TYPES address_number TYPE c LENGTH 10.
+    TYPES taxid TYPE zetr_e_taxid.
+    TYPES tax_office TYPE zetr_e_tax_office.
+    TYPES texts TYPE SORTED TABLE OF mty_texts WITH UNIQUE KEY tdobject tdid tdspras tdname.
+    TYPES END OF mty_manual_data .
+
     TYPES BEGIN OF mty_item_collect.
     TYPES posnr TYPE n LENGTH 6.
     TYPES matnr TYPE matnr.
@@ -202,6 +215,7 @@ CLASS zcl_etr_outgoing_delivery DEFINITION
     TYPES netwa TYPE waers.
     TYPES END OF mty_item_collect .
     TYPES mty_item_collect_t TYPE TABLE OF mty_item_collect .
+    TYPES mty_delivery_items TYPE TABLE OF zetr_t_ogdli WITH EMPTY KEY.
 
     TYPES BEGIN OF mty_custom_parameters.
     TYPES cuspa TYPE zetr_e_cuspa.

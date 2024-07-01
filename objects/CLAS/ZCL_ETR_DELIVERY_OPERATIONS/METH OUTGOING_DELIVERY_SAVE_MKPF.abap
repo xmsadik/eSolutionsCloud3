@@ -21,6 +21,10 @@
            END OF ty_mkpf,
            BEGIN OF ty_mseg,
              buzei TYPE buzei,
+             matnr TYPE matnr,
+             arktx TYPE zetr_e_descr,
+             menge TYPE menge_d,
+             meins TYPE meins,
              shkzg TYPE shkzg,
              kunnr TYPE zetr_e_partner,
              lifnr TYPE zetr_e_partner,
@@ -73,6 +77,10 @@
     CHECK sy-subrc = 0 AND ls_mkpf-bldat BETWEEN ls_company_data-datab AND ls_company_data-datbi.
 
     SELECT MaterialDocumentItem AS buzei,
+           Material AS matnr,
+           MaterialDocumentItemText AS arktx,
+           QuantityInBaseUnit AS menge,
+           MaterialBaseUnit AS meins,
            DebitCreditCode AS shkzg,
            Customer AS kunnr,
            Supplier AS lifnr,
@@ -117,7 +125,7 @@
     ls_document-erzet = ls_mkpf-cputm.
 
     ls_edrule_input-awtyp = iv_awtyp.
-    ls_edrule_input-fidty = ls_mkpf-blart.
+    ls_edrule_input-mmdty = ls_mkpf-blart.
     ls_edrule_input-partner = ls_document-partner.
     ls_edrule_input-werks = ls_document-werks.
     ls_edrule_input-lgort = ls_document-lgort.
@@ -177,7 +185,6 @@
     ls_document-gjahr = iv_gjahr.
     ls_document-awtyp = iv_awtyp.
     ls_document-objtype = 'BUS2017'.
-    ls_document-uzeit = ls_mkpf-cputm.
     ls_document-ernam = ls_mkpf-usnam.
 
     ls_edrule_input-dtyin = ls_document-dlvty.
@@ -209,5 +216,16 @@
           AND deflt = @abap_true
         INTO @ls_document-xsltt.
     ENDIF.
-    rs_document = ls_document.
+    es_document = ls_document.
+
+    LOOP AT lt_mseg INTO DATA(ls_mseg).
+      CHECK ls_mseg-menge IS NOT INITIAL.
+      APPEND INITIAL LINE TO et_items ASSIGNING FIELD-SYMBOL(<ls_items>).
+      <ls_items>-docui = es_document-docui.
+      <ls_items>-linno = sy-tabix.
+      <ls_items>-selii = ls_mseg-matnr.
+      <ls_items>-mdesc = ls_mseg-arktx.
+      <ls_items>-menge = ls_mseg-menge.
+      <ls_items>-meins = ls_mseg-meins.
+    ENDLOOP.
   ENDMETHOD.

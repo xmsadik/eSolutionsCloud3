@@ -7,9 +7,9 @@
     "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-05-22",
-    "CHANGED_AT":"15:14:46",
-    "DT_UUID":"370E609375501EEF8689C0B361A7006B",
+    "CHANGED_ON":"2024-06-11",
+    "CHANGED_AT":"06:29:24",
+    "DT_UUID":"4D5EAEBF6DC31EEF89F77E27EDEF009B",
     "SOURCE_ORIGIN":"0",
     "SRVD_SOURCE_TYPE":"S",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -35,7 +35,7 @@
    {
     "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
     "VERSION":"A",
-    "SOURCE":"@EndUserText.label: 'Outgoing Deliveries'\r\ndefine service ZETR_DDL_D_OUTGOING_DELIVERIES {\r\n  expose zetr_ddl_p_outgoing_deliveries as OutgoingDeliveries;\r\n  expose zetr_ddl_p_outgoing_deltrns    as Transporters;\r\n  expose zetr_ddl_p_outgoing_deltdat    as TransportHeader;\r\n  expose zetr_ddl_p_outgoing_delcont    as Contents;\r\n  expose zetr_ddl_p_outgoing_dellogs    as Logs;\r\n}"
+    "SOURCE":"@EndUserText.label: 'Outgoing Deliveries'\r\ndefine service ZETR_DDL_D_OUTGOING_DELIVERIES {\r\n  expose zetr_ddl_p_outgoing_deliveries as OutgoingDeliveries;\r\n  expose zetr_ddl_p_outgoing_deltrns as Transporters;\r\n  expose zetr_ddl_p_outgoing_deltdat as TransportHeader;\r\n  expose zetr_ddl_p_outgoing_delcont as Contents;\r\n  expose zetr_ddl_p_outgoing_dellogs as Logs;\r\n  expose zetr_ddl_p_outgoing_delitem as Items;\r\n  expose zetr_ddl_vh_transporter_types;\r\n  expose I_CompanyCodeVH;\r\n  expose I_BusinessPartnerVH;\r\n  expose I_Plant;\r\n  expose I_StorageLocationStdVH;\r\n  expose zetr_ddl_vh_company_codes;\r\n}"
    }
   ]
  },
@@ -69,10 +69,55 @@
    {
     "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
     "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"I_BUSINESSPARTNERVH",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"I_COMPANYCODEVH",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"I_PLANT",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"I_STORAGELOCATIONSTDVH",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
     "EXPOSED_ARTIFACT":"ZETR_DDL_P_OUTGOING_DELCONT",
     "EXPOSED_ARTIFACT_TYPE":"E",
     "EXPOSED_ALIAS":"CONTENTS",
     "EXPOSED_ALIAS_RAW":"Contents",
+    "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"ZETR_DDL_P_OUTGOING_DELITEM",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"ITEMS",
+    "EXPOSED_ALIAS_RAW":"Items",
     "INCL_SERVICE":""
    },
    {
@@ -110,6 +155,24 @@
     "EXPOSED_ALIAS":"TRANSPORTERS",
     "EXPOSED_ALIAS_RAW":"Transporters",
     "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"ZETR_DDL_VH_COMPANY_CODES",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
+   },
+   {
+    "SRVDNAME":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
+    "EXPOSED_ARTIFACT":"ZETR_DDL_VH_TRANSPORTER_TYPES",
+    "EXPOSED_ARTIFACT_TYPE":"E",
+    "EXPOSED_ALIAS":"",
+    "EXPOSED_ALIAS_RAW":"",
+    "INCL_SERVICE":""
    }
   ]
  },
@@ -122,8 +185,8 @@
     "SERVICE":"ZETR_DDL_D_OUTGOING_DELIVERIES",
     "SERVICE_RAW":"ZETR_DDL_D_OUTGOING_DELIVERIES",
     "SOURCE_TYPE":"S",
-    "DT_UUID":"370E609375501EEF8689C0B361A7006B",
-    "RT_HASH":"612F73D7237D31B5F7A3DA1AE14D6795490F2007",
+    "DT_UUID":"4D5EAEBF6DC31EEF89F77E27EDEF009B",
+    "RT_HASH":"689BA5A06899C89A3AFE3BAFD8DE56BF87CB653B",
     "GEN_VERSION":"0"
    }
   ]

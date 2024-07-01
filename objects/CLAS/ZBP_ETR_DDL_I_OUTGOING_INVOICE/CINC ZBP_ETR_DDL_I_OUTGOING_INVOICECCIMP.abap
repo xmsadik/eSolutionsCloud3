@@ -556,7 +556,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
               ls_fin_doc-gjahr = <ls_invoice>-FiscalYear.
             ENDIF.
             APPEND INITIAL LINE TO lt_journal_entry ASSIGNING FIELD-SYMBOL(<ls_journal_entry>).
-            <ls_journal_entry>-AccountingDocument = ls_fin_doc-bukrs.
+            <ls_journal_entry>-AccountingDocument = ls_fin_doc-belnr.
             <ls_journal_entry>-CompanyCode = ls_fin_doc-bukrs.
             <ls_journal_entry>-FiscalYear = ls_fin_doc-gjahr.
             <ls_journal_entry>-%param-DocumentReferenceID = <ls_invoice>-InvoiceID.
@@ -622,7 +622,7 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
              UPDATE FIELDS ( StatusCode StatusDetail Response TRAStatusCode
                              Resendable ActualExportDate CustomsDocumentNo
                              CustomsReferenceNo EnvelopeUUID InvoiceUUID
-                             InvoiceID IntegratorDocumentID ReportID )
+                             InvoiceID IntegratorDocumentID ReportID InvoiceIDSaved )
              WITH VALUE #( FOR invoice IN invoices ( documentuuid = invoice-documentuuid
 
                                                      StatusCode = invoice-StatusCode

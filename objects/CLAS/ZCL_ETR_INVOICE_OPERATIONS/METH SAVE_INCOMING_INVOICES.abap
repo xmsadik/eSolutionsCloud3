@@ -10,13 +10,13 @@
                                                                                 logcd = zcl_etr_regulative_log=>mc_log_codes-received ) ) ).
 
     zcl_etr_regulative_archive=>create( it_archives = VALUE #( FOR ls_list IN it_list ( docui = ls_list-docui
-                                                                                        conty = zcl_etr_regulative_archive=>mc_content_types-pdf
-                                                                                        docty = 'INCINVDOC' )
-                                                                                      ( docui = ls_list-docui
-                                                                                        conty = zcl_etr_regulative_archive=>mc_content_types-html
-                                                                                        docty = 'INCINVDOC' )
-                                                                                      ( docui = ls_list-docui
-                                                                                        conty = zcl_etr_regulative_archive=>mc_content_types-ubl
-                                                                                        docty = 'INCINVDOC' ) ) ).
+                                                                                     conty = zcl_etr_regulative_archive=>mc_content_types-pdf
+                                                                                     docty = 'INCINVDOC' )
+                                                                                   ( docui = ls_list-docui
+                                                                                    conty = zcl_etr_regulative_archive=>mc_content_types-html
+                                                                                    docty = 'INCINVDOC' )
+                                                                                  ( docui = ls_list-docui
+                                                                                    conty = zcl_etr_regulative_archive=>mc_content_types-ubl
+                                                                                    docty = 'INCINVDOC' ) ) ).
     COMMIT WORK AND WAIT.
   ENDMETHOD.

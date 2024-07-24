@@ -519,6 +519,8 @@ CLASS lhc_zetr_ddl_i_outgoing_invoic IMPLEMENTATION.
          FOR ALL ENTRIES IN @invoices
          WHERE ReferenceDocumentType = @invoices-DocumentType
            AND OriginalReferenceDocument = @invoices-AwkeyInternal
+           AND IsReversed = ''
+           AND ReverseDocument = ''
          INTO TABLE @DATA(lt_fin_docs).
       SORT lt_fin_docs BY awtyp awkey.
     ENDIF.

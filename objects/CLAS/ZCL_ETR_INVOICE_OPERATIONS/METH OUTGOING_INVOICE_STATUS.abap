@@ -21,7 +21,7 @@
                                                                                                                       docii = ls_document-invii
                                                                                                                       duich = ls_document-invui
                                                                                                                       docno = ls_document-invno
-                                                                                                                      envui = ls_document-envui ) ).
+                                                                                                                 envui = ls_document-envui ) ).
           rs_status = CORRESPONDING #( ls_earchive_status ).
         WHEN OTHERS.
           DATA(lo_einvoice_service) = zcl_etr_einvoice_ws=>factory( iv_company = ls_document-bukrs ).
@@ -29,7 +29,7 @@
                                                                                                                       docii = ls_document-invii
                                                                                                                       duich = ls_document-invui
                                                                                                                       docno = ls_document-invno
-                                                                                                                      envui = ls_document-envui ) ).
+                                                                                                                 envui = ls_document-envui ) ).
           rs_status = CORRESPONDING #( ls_einvoice_status ).
       ENDCASE.
 
@@ -49,8 +49,10 @@
       ENDIF.
       IF rs_status-resst IS INITIAL.
         CASE ls_document-prfid.
-          WHEN 'TEMEL' OR 'EARSIV'. rs_status-resst = 'X'.
-          WHEN OTHERS. rs_status-resst = '0'.
+          WHEN 'TEMEL' OR 'EARSIV'.
+            rs_status-resst = 'X'.
+          WHEN OTHERS.
+            rs_status-resst = '0'.
         ENDCASE.
       ENDIF.
 

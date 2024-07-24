@@ -1,0 +1,1 @@
+CLASS zbp_etr_ddl_i_l_form_par_dat DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zetr_ddl_i_ledger_form_par_dat.

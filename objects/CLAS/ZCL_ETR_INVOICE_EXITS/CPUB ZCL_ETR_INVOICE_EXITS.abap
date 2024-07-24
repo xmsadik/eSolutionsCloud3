@@ -103,9 +103,7 @@ CLASS zcl_etr_invoice_exits DEFINITION
         !is_accountingdocheader TYPE mty_accdoc_header
         !it_accountingdocitems  TYPE mty_accdoc_items
       CHANGING
-        !cs_validationmessage   TYPE symsg
-      RAISING
-        cx_ble_runtime_error .
+        !cs_validationmessage   TYPE symsg.
 
     CLASS-METHODS fin_acdoc_substitution
       IMPORTING

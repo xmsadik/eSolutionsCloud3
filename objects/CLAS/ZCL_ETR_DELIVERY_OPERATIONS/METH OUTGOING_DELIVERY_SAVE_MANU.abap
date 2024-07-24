@@ -161,7 +161,7 @@
                                  docui = es_document-docui
                                  conty = 'UBL' ) ).
         INSERT zetr_t_arcd FROM TABLE @lt_contents.
-        DATA(ls_transport) = CORRESPONDING zetr_t_odth( es_document ).
+        DATA(ls_transport) = CORRESPONDING zetr_t_odth( es_document EXCEPT taxid ).
         INSERT zetr_t_odth FROM @ls_transport.
 *    INSERT zetr_t_ogdli FROM TABLE @lt_items.
         zcl_etr_regulative_log=>create_single_log( iv_log_code    = zcl_etr_regulative_log=>mc_log_codes-created

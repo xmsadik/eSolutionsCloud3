@@ -538,81 +538,15 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
           IMPORTING
             es_document    = DATA(ls_document)
             et_items       = DATA(lt_items) ).
-*        MODIFY ENTITIES OF zetr_ddl_i_outgoing_deliveries IN LOCAL MODE
-*          ENTITY OutgoingDeliveries
-*             CREATE FIELDS ( DocumentUUID CompanyCode DocumentNumber FiscalYear DocumentType
-*                             Plant StorageLocation ReceivingPlant ReceivingStorageLocation
-*                             PartnerNumber TaxID Aliass DocumentDate ProfileID DeliveryType
-*                             SerialPrefix XSLTTemplate CreatedBy CreateDate CreateTime )
-*             AUTO FILL CID
-*             WITH VALUE #( ( DocumentUUID = ls_document-docui
-*                             CompanyCode = ls_document-bukrs
-*                             DocumentNumber = ls_document-belnr
-*                             FiscalYear = ls_document-gjahr
-*                             DocumentType = ls_document-awtyp
-*                             Plant = ls_document-werks
-*                             StorageLocation = ls_document-lgort
-*                             ReceivingPlant = ls_document-umwrk
-*                             ReceivingStorageLocation = ls_document-umlgo
-*                             PartnerNumber = ls_document-partner
-*                             TaxID = ls_document-taxid
-*                             Aliass = ls_document-aliass
-*                             DocumentDate = ls_document-bldat
-*                             ProfileID = ls_document-prfid
-*                             DeliveryType = ls_document-dlvty
-*                             SerialPrefix = ls_document-serpr
-*                             XSLTTemplate = ls_document-xsltt
-*                             CreatedBy = ls_document-ernam
-*                             CreateDate = ls_document-erdat
-*                             CreateTime = ls_document-erzet ) )
-*
-*          ENTITY outgoingdeliveries
-*            CREATE BY \_deliveryContents
-*            FIELDS ( DocumentUUID ContentType DocumentType )
-*            AUTO FILL CID
-*            WITH VALUE #( ( %target = VALUE #( ( DocumentUUID = ls_document-docui
-*                                                 ContentType = 'PDF'
-*                                                 DocumentType = 'OUTDLVDOC' )
-*                                               ( DocumentUUID = ls_document-docui
-*                                                 ContentType = 'HTML'
-*                                                 DocumentType = 'OUTDLVDOC' )
-*                                               ( DocumentUUID = ls_document-docui
-*                                                 ContentType = 'UBL'
-*                                                 DocumentType = 'OUTDLVDOC' ) ) ) )
-*
-*          ENTITY outgoingdeliveries
-*            CREATE BY \_deliveryItems
-*            FIELDS ( DocumentUUID LineNumber SellersItemIdentification BuyersItemIdentification
-*                     ManufacturerItemIdentification MaterialDescription Description
-*                     NetPrice Currency Quantity UnitOfMeasure )
-*            AUTO FILL CID
-*            WITH VALUE #( FOR item IN lt_items
-*                             ( documentuuid = item-docui
-*                               %target = VALUE #( ( DocumentUUID = item-docui
-*                                                    LineNumber = item-linno
-*                                                    SellersItemIdentification = item-selii
-*                                                    BuyersItemIdentification = item-buyii
-*                                                    ManufacturerItemIdentification = item-manii
-*                                                    MaterialDescription = item-mdesc
-*                                                    Description = item-descr
-*                                                    NetPrice = item-netpr
-*                                                    Currency = item-waers
-*                                                    Quantity = item-menge
-*                                                    UnitOfMeasure = item-meins ) ) ) )
-*
-*          ENTITY outgoingdeliveries
-*            CREATE BY \_deliverylogs
-*            FIELDS ( loguuid documentuuid createdby creationdate creationtime logcode lognote )
-*            AUTO FILL CID
-*            WITH VALUE #( ( documentuuid = ls_document-docui
-*                               %target = VALUE #( ( loguuid = cl_system_uuid=>create_uuid_c22_static( )
-*                                                    documentuuid = ls_document-docui
-*                                                    createdby = sy-uname
-*                                                    creationdate = cl_abap_context_info=>get_system_date( )
-*                                                    creationtime = cl_abap_context_info=>get_system_time( )
-*                                                    logcode = zcl_etr_regulative_log=>mc_log_codes-created ) ) ) )
-*             FAILED failed
-*             REPORTED reported.
+        IF ls_document IS INITIAL.
+          APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
+                                              number   = '212'
+                                              severity = if_abap_behv_message=>severity-error ) ) TO reported-outgoingdeliveries.
+        ELSE.
+          APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
+                                              number   = '003'
+                                              severity = if_abap_behv_message=>severity-success ) ) TO reported-outgoingdeliveries.
+        ENDIF.
       CATCH cx_root INTO DATA(lx_root).
         DATA(lv_error) = CONV bapi_msg( lx_root->get_text( ) ).
         APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
@@ -623,10 +557,6 @@ CLASS lhc_zetr_ddl_i_outgoing_delive IMPLEMENTATION.
                                             v3 = lv_error+85(50)
                                             v4 = lv_error+135(*) ) ) TO reported-Outgoingdeliveries.
     ENDTRY.
-
-    APPEND VALUE #( %msg = new_message( id       = 'ZETR_COMMON'
-                                        number   = '003'
-                                        severity = if_abap_behv_message=>severity-success ) ) TO reported-outgoingdeliveries.
   ENDMETHOD.
 
 ENDCLASS.

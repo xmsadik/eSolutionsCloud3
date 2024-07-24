@@ -11,6 +11,7 @@ authorization master ( instance )
   create;
   update;
   delete;
+
   field ( readonly : update ) CompanyCode;
 
   mapping for zetr_t_srkdb

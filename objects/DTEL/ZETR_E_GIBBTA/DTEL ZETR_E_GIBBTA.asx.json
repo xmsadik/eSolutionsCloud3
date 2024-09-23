@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_GIBBTA",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR100",
+    "DOMNAME":"ZETR_D_TEXT100",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -31,7 +31,7 @@
     "LENG":100,
     "DECIMALS":0,
     "OUTPUTLEN":100,
-    "LOWERCASE":"",
+    "LOWERCASE":"X",
     "SIGNFLAG":"",
     "CONVEXIT":"",
     "VALEXI":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"GIB Doc. T",
     "SCRTEXT_M":"GIB Doc. T. Desc",
     "SCRTEXT_L":"GIB Document Type Description"
+   },
+   {
+    "ROLLNAME":"ZETR_E_GIBBTA",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Belge türü",
+    "REPTEXT":"Belge türü tanımı",
+    "SCRTEXT_S":"Belge türü",
+    "SCRTEXT_M":"Belge türü",
+    "SCRTEXT_L":"Belge türü tanımı"
    }
   ]
  },

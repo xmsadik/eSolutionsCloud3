@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-07-18",
-    "CHANGED_AT":"22:17:29",
-    "UUID":"055B4DF6A2A01EEF91AA70A00754E0F3",
+    "CHANGED_ON":"2024-09-08",
+    "CHANGED_AT":"17:23:39",
+    "UUID":"CF477070255A1EEF9BC0E2BDAF77A19A",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer : #CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Doc Will Not Be Reflected In The Ledger',\r\ntypeName:'Doc Will Not Be Reflected In The Ledger',\r\ntitle:{type:#STANDARD,label:'Doc Will Not Be Reflected In The Ledger',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_NOT_REFL_DOC with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Doc Will Not Be Reflected In The Ledger',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  DocNo;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  FiscalYear;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer : #CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Doc Will Not Be Reflected In The Ledger',\r\ntypeName:'Doc Will Not Be Reflected In The Ledger',\r\ntitle:{type:#STANDARD,label:'Doc Will Not Be Reflected In The Ledger',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_NOT_REFL_DOC with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Doc Will Not Be Reflected In The Ledger',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  DocNo;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  FiscalYear;\r\n\r\n}"
    }
   ]
  },
@@ -194,21 +194,21 @@
     "ELEMENT":"FISCALYEAR",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"20"
+    "VALUE":"30"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
     "ELEMENT":"FISCALYEAR",
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"20"
+    "VALUE":"30"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
     "ELEMENT":"FISCALYEAR",
     "NAME":"UI.SELECTIONFIELD$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"20"
+    "VALUE":"30"
    }
   ]
  },
@@ -243,6 +243,34 @@
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
     "TEXT":"Doc Will Not Be Reflected In The Ledger"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.LABEL",
+    "TEXT":"Deftere Yansımayacak Belgeler"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"Deftere Yansımayacak Belgeler"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"Deftere Yansımayacak Belgeler"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_NOT_REFL_DOC",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Deftere Yansımayacak Belgeler"
    }
   ]
  },
@@ -255,9 +283,10 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_LEDGER_NOT_REFL_DOC",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"055B4DF6A2A01EEF91AA70A00754E0F3",
-    "RT_HASH":"612596AC3DE809ABA9A0CF9A6A52BD7A962780BC",
-    "GEN_VERSION":"0"
+    "DT_UUID":"CF477070255A1EEF9BC0E2BDAF77A19A",
+    "RT_HASH":"22C56C784999340213B69E07E397B09990BD5C59",
+    "GEN_VERSION":"0",
+    "TYPE":"0"
    }
   ]
  },

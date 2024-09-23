@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_ACCOUNT_DEF",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR255",
+    "DOMNAME":"ZETR_D_TEXT255",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -31,7 +31,7 @@
     "LENG":255,
     "DECIMALS":0,
     "OUTPUTLEN":255,
-    "LOWERCASE":"",
+    "LOWERCASE":"X",
     "SIGNFLAG":"",
     "CONVEXIT":"",
     "VALEXI":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"Acc Def",
     "SCRTEXT_M":"Account Definition",
     "SCRTEXT_L":"Account Definition"
+   },
+   {
+    "ROLLNAME":"ZETR_E_ACCOUNT_DEF",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Hesap Tanımı",
+    "REPTEXT":"Hesap Tanımı",
+    "SCRTEXT_S":"Hsp.tnm.",
+    "SCRTEXT_M":"Hesap Tanımı",
+    "SCRTEXT_L":"Hesap Tanımı"
    }
   ]
  },

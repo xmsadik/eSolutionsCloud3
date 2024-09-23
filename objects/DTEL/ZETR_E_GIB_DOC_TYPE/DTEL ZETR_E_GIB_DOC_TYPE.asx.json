@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_GIB_DOC_TYPE",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR20",
+    "DOMNAME":"ZETR_D_GIB_DOC_TYPE",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -31,11 +31,11 @@
     "LENG":20,
     "DECIMALS":0,
     "OUTPUTLEN":20,
-    "LOWERCASE":"",
+    "LOWERCASE":"X",
     "SIGNFLAG":"",
     "CONVEXIT":"",
     "VALEXI":"",
-    "ENTITYTAB":"",
+    "ENTITYTAB":"ZETR_T_GIBBT",
     "REFKIND":"D",
     "REFTYPE":"",
     "PROXYTYPE":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"GIB Doc. T",
     "SCRTEXT_M":"GIB Doc. Type",
     "SCRTEXT_L":"GIB Document Type"
+   },
+   {
+    "ROLLNAME":"ZETR_E_GIB_DOC_TYPE",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"GIB Belge Türü",
+    "REPTEXT":"GIB Belge Türü",
+    "SCRTEXT_S":"GIB Belge",
+    "SCRTEXT_M":"GIB Belge Türü",
+    "SCRTEXT_L":"GIB Belge Türü"
    }
   ]
  },

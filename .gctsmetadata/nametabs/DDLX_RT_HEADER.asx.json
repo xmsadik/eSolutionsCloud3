@@ -14,7 +14,7 @@
     "NAME":"EXTENDED_ARTIFACT",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":30,
+    "LENGTH":40,
     "DECIMALS":-1
    },
    {
@@ -47,6 +47,13 @@
    },
    {
     "NAME":"GEN_VERSION",
+    "KEY":"",
+    "TYPE":"B",
+    "LENGTH":1,
+    "DECIMALS":-1
+   },
+   {
+    "NAME":"TYPE",
     "KEY":"",
     "TYPE":"B",
     "LENGTH":1,

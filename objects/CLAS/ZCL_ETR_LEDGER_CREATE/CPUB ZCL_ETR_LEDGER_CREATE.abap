@@ -1,0 +1,6 @@
+CLASS zcl_etr_ledger_create DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+

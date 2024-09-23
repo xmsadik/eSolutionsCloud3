@@ -1,4 +1,4 @@
-CLASS lhc_zetr_ddl_i_ledger_form_par DEFINITION INHERITING FROM cl_abap_behavior_handler.
+CLASS lhc_ZETR_DDL_I_LEDGER_FORM_PAR DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
@@ -6,25 +6,9 @@ CLASS lhc_zetr_ddl_i_ledger_form_par DEFINITION INHERITING FROM cl_abap_behavior
 
 ENDCLASS.
 
-CLASS lhc_zetr_ddl_i_ledger_form_par IMPLEMENTATION.
+CLASS lhc_ZETR_DDL_I_LEDGER_FORM_PAR IMPLEMENTATION.
 
   METHOD get_instance_authorizations.
-  ENDMETHOD.
-
-ENDCLASS.
-
-CLASS lsc_zetr_ddl_i_ledger_form_par DEFINITION INHERITING FROM cl_abap_behavior_saver.
-  PROTECTED SECTION.
-
-
-    METHODS cleanup_finalize REDEFINITION.
-
-ENDCLASS.
-
-CLASS lsc_zetr_ddl_i_ledger_form_par IMPLEMENTATION.
-
-
-  METHOD cleanup_finalize.
   ENDMETHOD.
 
 ENDCLASS.

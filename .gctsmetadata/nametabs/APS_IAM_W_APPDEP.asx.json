@@ -23,6 +23,13 @@
     "TYPE":"C",
     "LENGTH":1,
     "DECIMALS":-1
+   },
+   {
+    "NAME":"NAVIGATION_TARGET",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
    }
   ],
   "properties":

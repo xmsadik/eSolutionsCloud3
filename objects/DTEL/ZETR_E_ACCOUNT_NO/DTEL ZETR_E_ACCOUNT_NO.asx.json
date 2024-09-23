@@ -60,6 +60,17 @@
     "SCRTEXT_S":"Account",
     "SCRTEXT_M":"Account",
     "SCRTEXT_L":"Account"
+   },
+   {
+    "ROLLNAME":"ZETR_E_ACCOUNT_NO",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Hesap no",
+    "REPTEXT":"Hesap no",
+    "SCRTEXT_S":"Hesap no",
+    "SCRTEXT_M":"Hesap no",
+    "SCRTEXT_L":"Hesap no"
    }
   ]
  },

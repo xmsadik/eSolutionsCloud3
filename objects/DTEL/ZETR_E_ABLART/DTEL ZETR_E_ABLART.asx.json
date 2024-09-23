@@ -60,6 +60,17 @@
     "SCRTEXT_S":"OpenDocT",
     "SCRTEXT_M":"Opening Document Typ",
     "SCRTEXT_L":"Opening Document Type"
+   },
+   {
+    "ROLLNAME":"ZETR_E_ABLART",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Açılış Belge Türü",
+    "REPTEXT":"Açılış Belge Türü",
+    "SCRTEXT_S":"AçBlgTürü",
+    "SCRTEXT_M":"Açılış Belge Türü",
+    "SCRTEXT_L":"Açılış Belge Türü"
    }
   ]
  },

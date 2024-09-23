@@ -17,7 +17,7 @@
    {
     "CLSNAME":"ZBP_ETR_DDL_I_L_REFL_DOC",
     "CLSTYPE":0,
-    "UUID":"BVtN9qKgHu+RtCwd0sXg8w==",
+    "UUID":"BVtN9qKgHu+U+raLHD7BNA==",
     "REMOTE":""
    }
   ]
@@ -34,7 +34,7 @@
     "STATE":1,
     "RELEASE":0,
     "AUTHOR":"",
-    "CREATEDON":"2024-07-19",
+    "CREATEDON":"2024-08-06",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "CHGDANYBY":"",
@@ -51,7 +51,7 @@
     "UNICODE":"5",
     "RSTAT":"",
     "CLSBCIMPL":"",
-    "R3RELEASE":"795",
+    "R3RELEASE":"912",
     "CLSBCTRANS":"",
     "CLSBCCAT":0,
     "CLSBCNODEL":"",
@@ -73,7 +73,7 @@
    {
     "CLSNAME":"ZBP_ETR_DDL_I_L_REFL_DOC",
     "LANGU":"E",
-    "DESCRIPT":"Behavior Imp. for Doc That Will Be Reflected In The Ledger"
+    "DESCRIPT":"Behavior Implementation for ZETR_DDL_I_LEDGER_REFL_DOC"
    }
   ]
  },
@@ -101,8 +101,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2024-07-19",
-    "CHECK_DATE":"2024-07-19",
+    "CREATED_ON":"2024-08-06",
+    "CHECK_DATE":"2024-08-06",
     "CHECK_CFG":""
    }
   ]

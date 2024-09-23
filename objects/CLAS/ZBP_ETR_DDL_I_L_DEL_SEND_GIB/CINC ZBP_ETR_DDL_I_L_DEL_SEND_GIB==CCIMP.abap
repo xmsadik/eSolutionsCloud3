@@ -1,4 +1,4 @@
-CLASS lhc_zetr_ddl_i_ledger_del_send DEFINITION INHERITING FROM cl_abap_behavior_handler.
+CLASS lhc_ZETR_DDL_I_LEDGER_DEL_SEND DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
@@ -6,25 +6,9 @@ CLASS lhc_zetr_ddl_i_ledger_del_send DEFINITION INHERITING FROM cl_abap_behavior
 
 ENDCLASS.
 
-CLASS lhc_zetr_ddl_i_ledger_del_send IMPLEMENTATION.
+CLASS lhc_ZETR_DDL_I_LEDGER_DEL_SEND IMPLEMENTATION.
 
   METHOD get_instance_authorizations.
-  ENDMETHOD.
-
-ENDCLASS.
-
-CLASS lsc_zetr_ddl_i_ledger_del_send DEFINITION INHERITING FROM cl_abap_behavior_saver.
-  PROTECTED SECTION.
-
-
-    METHODS cleanup_finalize REDEFINITION.
-
-ENDCLASS.
-
-CLASS lsc_zetr_ddl_i_ledger_del_send IMPLEMENTATION.
-
-
-  METHOD cleanup_finalize.
   ENDMETHOD.
 
 ENDCLASS.

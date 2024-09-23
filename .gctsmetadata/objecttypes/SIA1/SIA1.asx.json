@@ -55,6 +55,17 @@
    {
     "OBJECTNAME":"SIA1",
     "OBJECTTYPE":"L",
+    "TABNAME":"APS_IAM_W_BCAPPS",
+    "COVER":"",
+    "CANDIDATE":"",
+    "DDIC":"X",
+    "PRIM_TABLE":"",
+    "VIEWGRANT":"",
+    "TAB_FILLED":""
+   },
+   {
+    "OBJECTNAME":"SIA1",
+    "OBJECTTYPE":"L",
     "TABNAME":"APS_IAM_W_BCRTFM",
     "COVER":"",
     "CANDIDATE":"",
@@ -252,6 +263,18 @@
     "TOBJKEY":"/&/L/*",
     "MASKNLEN":16,
     "MASKKLEN":3,
+    "PRIM_TABLE":""
+   },
+   {
+    "OBJECTNAME":"SIA1",
+    "OBJECTTYPE":"L",
+    "TRWCOUNT":10,
+    "TPGMID":"R3TR",
+    "TOBJECT":"TABU",
+    "TOBJ_NAME":"APS_IAM_W_BCAPPS",
+    "TOBJKEY":"/&/*",
+    "MASKNLEN":16,
+    "MASKKLEN":2,
     "PRIM_TABLE":""
    }
   ]

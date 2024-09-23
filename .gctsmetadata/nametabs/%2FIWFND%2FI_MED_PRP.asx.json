@@ -184,6 +184,13 @@
     "TYPE":"C",
     "LENGTH":1,
     "DECIMALS":-1
+   },
+   {
+    "NAME":"USE_VAR_SCALE_4_DECFLOAT",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
    }
   ],
   "properties":

@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-07-19",
-    "CHANGED_AT":"09:08:38",
-    "UUID":"055B4DF6A2A01EEF91B5CF8629FF40F3",
+    "CHANGED_ON":"2024-09-08",
+    "CHANGED_AT":"11:50:01",
+    "UUID":"CF477070255A1EEF9BBB0F48092C619A",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer:#CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Account Maintenance',\r\ntypeName:'Account Maintenance',\r\ntitle:{type:#STANDARD,label:'Document Types',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_ACC_MAINT with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Account Maintenance',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ChartOfAccountsText', element: 'ChartOfAccounts' }}]\r\n  ChartOfAcc;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_include_exclude', element: 'Include' }}]\r\n  IncExc;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}],\r\n  selectionField:[{position:40}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_option', element: 'Option_' }}]\r\n  AccOption;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}],\r\n  selectionField:[{position:50}]}\r\n  AccLow;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}],\r\n  selectionField:[{position:60}]}\r\n  AccHigh;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer:#CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Account Maintenance',\r\ntypeName:'Account Maintenance',\r\ntitle:{type:#STANDARD,label:'Document Types',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_ACC_MAINT with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Account Maintenance',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ChartOfAccountsStdVH', element: 'ChartOfAccounts' }}]\r\n  ChartOfAcc;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_include_exclude', element: 'Include' }}]\r\n  IncExc;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}],\r\n  selectionField:[{position:40}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_option', element: 'Option_' }}]\r\n  AccOption;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}],\r\n  selectionField:[{position:50}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_GLAccountStdVH', element: 'GLAccount' }}]\r\n  AccLow;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}],\r\n  selectionField:[{position:60}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_GLAccountStdVH', element: 'GLAccount' }}]\r\n  AccHigh;\r\n\r\n}"
    }
   ]
  },
@@ -87,6 +87,20 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
     "ELEMENT":"ACCHIGH",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'GLAccount'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "ELEMENT":"ACCHIGH",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_GLAccountStdVH'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "ELEMENT":"ACCHIGH",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"60"
@@ -104,6 +118,20 @@
     "NAME":"UI.SELECTIONFIELD$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"60"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "ELEMENT":"ACCLOW",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'GLAccount'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "ELEMENT":"ACCLOW",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_GLAccountStdVH'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
@@ -173,7 +201,7 @@
     "ELEMENT":"CHARTOFACC",
     "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'I_ChartOfAccountsText'"
+    "VALUE":"'I_ChartOfAccountsStdVH'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
@@ -355,6 +383,34 @@
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
     "TEXT":"Account Maintenance"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.LABEL",
+    "TEXT":"Hesap Bakımı"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"Hesap Bakımı"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"Hesap Bakımı"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_ACC_MAINT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Hesap Bakımı"
    }
   ]
  },
@@ -367,9 +423,10 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_LEDGER_ACC_MAINT",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"055B4DF6A2A01EEF91B5CF8629FF40F3",
-    "RT_HASH":"424CA4C4536B26CE5E232894A2C785638307497B",
-    "GEN_VERSION":"0"
+    "DT_UUID":"CF477070255A1EEF9BBB0F48092C619A",
+    "RT_HASH":"2CB85782FE71556FA4FECAAF36C98D7E61DDEE84",
+    "GEN_VERSION":"0",
+    "TYPE":"0"
    }
   ]
  },

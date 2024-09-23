@@ -1,4 +1,4 @@
-CLASS lhc_zetr_ddl_i_ledger_not_refl DEFINITION INHERITING FROM cl_abap_behavior_handler.
+CLASS lhc_ZETR_DDL_I_LEDGER_NOT_REFL DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
@@ -6,7 +6,7 @@ CLASS lhc_zetr_ddl_i_ledger_not_refl DEFINITION INHERITING FROM cl_abap_behavior
 
 ENDCLASS.
 
-CLASS lhc_zetr_ddl_i_ledger_not_refl IMPLEMENTATION.
+CLASS lhc_ZETR_DDL_I_LEDGER_NOT_REFL IMPLEMENTATION.
 
   METHOD get_instance_authorizations.
   ENDMETHOD.

@@ -58,6 +58,13 @@
     "TYPE":"C",
     "LENGTH":1,
     "DECIMALS":-1
+   },
+   {
+    "NAME":"RELEASE_STATUS",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
    }
   ],
   "properties":

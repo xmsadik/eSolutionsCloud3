@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-07-19",
-    "CHANGED_AT":"08:18:53",
-    "UUID":"055B4DF6A2A01EEF91B4F11C127BC0F3",
+    "CHANGED_ON":"2024-09-08",
+    "CHANGED_AT":"17:40:59",
+    "UUID":"CF477070255A1EEF9BC13038DCA7019A",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer : #CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Ledger Sent to GIB Can Be Deleted',\r\ntypeName:'Ledger Sent to GIB Can Be Deleted',\r\ntitle:{type:#STANDARD,label:'Ledger Sent to GIB Can Be Deleted',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_DEL_SEND_GIB with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Ledger Sent to GIB Can Be Deleted',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  BranchCode;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  FiscalYear;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}],\r\n  selectionField:[{position:40}]}\r\n  FiscalMonth;\r\n\r\n\r\n}"
+    "SOURCE":"@Metadata.layer : #CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Ledger Sent to GIB Can Be Deleted',\r\ntypeName:'Ledger Sent to GIB Can Be Deleted',\r\ntitle:{type:#STANDARD,label:'Ledger Sent to GIB Can Be Deleted',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_DEL_SEND_GIB with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Ledger Sent to GIB Can Be Deleted',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  BranchCode;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  FiscalYear;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}],\r\n  selectionField:[{position:40}]}\r\n  FiscalMonth;\r\n\r\n\r\n}"
    }
   ]
  },
@@ -104,6 +104,20 @@
     "NAME":"UI.SELECTIONFIELD$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"20"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'CompanyCode'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_CompanyCodeVH'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
@@ -250,6 +264,34 @@
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
     "TEXT":"Ledger Sent to GIB Can Be Deleted"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.LABEL",
+    "TEXT":"Silinebilecek Defterler"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"Silinebilecek Defterler"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"Silinebilecek Defterler"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DEL_SEND_GIB",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Silinebilecek Defterler"
    }
   ]
  },
@@ -262,9 +304,10 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_LEDGER_DEL_SEND_GIB",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"055B4DF6A2A01EEF91B4F11C127BC0F3",
-    "RT_HASH":"3E2141FDB6F7FDCE6B7A477B4B5B0334A35A400F",
-    "GEN_VERSION":"0"
+    "DT_UUID":"CF477070255A1EEF9BC13038DCA7019A",
+    "RT_HASH":"67D9CBA47E44A4ADFC4F73C945422823BFE4E64B",
+    "GEN_VERSION":"0",
+    "TYPE":"0"
    }
   ]
  },

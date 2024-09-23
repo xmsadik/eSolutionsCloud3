@@ -1,0 +1,118 @@
+[
+ {
+  "table":"DD04L",
+  "data":
+  [
+   {
+    "ROLLNAME":"ZETR_E_EDF_MUSTERI_AD",
+    "AS4LOCAL":"L",
+    "AS4VERS":0,
+    "DOMNAME":"ZETR_D_TEXT100",
+    "ROUTPUTLEN":0,
+    "MEMORYID":"",
+    "LOGFLAG":"",
+    "HEADLEN":55,
+    "SCRLEN1":10,
+    "SCRLEN2":20,
+    "SCRLEN3":40,
+    "ACTFLAG":"",
+    "APPLCLASS":"",
+    "AUTHCLASS":0,
+    "AS4USER":"SAP_CUSTOMER",
+    "AS4DATE":"0000-00-00",
+    "AS4TIME":"00:00:00",
+    "DTELMASTER":"E",
+    "RESERVEDTE":"",
+    "DTELGLOBAL":"",
+    "SHLPNAME":"",
+    "SHLPFIELD":"",
+    "DEFFDNAME":"",
+    "DATATYPE":"CHAR",
+    "LENG":100,
+    "DECIMALS":0,
+    "OUTPUTLEN":100,
+    "LOWERCASE":"X",
+    "SIGNFLAG":"",
+    "CONVEXIT":"",
+    "VALEXI":"",
+    "ENTITYTAB":"",
+    "REFKIND":"D",
+    "REFTYPE":"",
+    "PROXYTYPE":"",
+    "LTRFLDDIS":"",
+    "BIDICTRLC":"",
+    "NOHISTORY":"",
+    "ABAP_LANGUAGE_VERSION":"5"
+   }
+  ]
+ },
+ {
+  "table":"DD04T",
+  "data":
+  [
+   {
+    "ROLLNAME":"ZETR_E_EDF_MUSTERI_AD",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Customer Name",
+    "REPTEXT":"Customer Name",
+    "SCRTEXT_S":"Customer N",
+    "SCRTEXT_M":"Customer Name",
+    "SCRTEXT_L":"Customer Name"
+   },
+   {
+    "ROLLNAME":"ZETR_E_EDF_MUSTERI_AD",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Müşteri adı",
+    "REPTEXT":"Müşteri adı",
+    "SCRTEXT_S":"Müşteri ad",
+    "SCRTEXT_M":"Müşteri adı",
+    "SCRTEXT_L":"Müşteri adı"
+   }
+  ]
+ },
+ {
+  "table":"DDTYPES",
+  "data":
+  [
+   {
+    "TYPENAME":"ZETR_E_EDF_MUSTERI_AD",
+    "STATE":"N",
+    "TYPEKIND":"DTEL"
+   }
+  ]
+ },
+ {
+  "table":"TADIR",
+  "data":
+  [
+   {
+    "PGMID":"R3TR",
+    "OBJECT":"DTEL",
+    "OBJ_NAME":"ZETR_E_EDF_MUSTERI_AD",
+    "KORRNUM":"",
+    "SRCSYSTEM":"...",
+    "AUTHOR":"SAP_CUSTOMER",
+    "SRCDEP":"",
+    "DEVCLASS":"ZETR0",
+    "GENFLAG":"",
+    "EDTFLAG":"",
+    "CPROJECT":" L",
+    "MASTERLANG":"E",
+    "VERSID":"",
+    "PAKNOCHECK":"",
+    "OBJSTABLTY":"",
+    "COMPONENT":"",
+    "CRELEASE":"",
+    "DELFLAG":"",
+    "TRANSLTTXT":"",
+    "CREATED_ON":"2024-07-31",
+    "CHECK_DATE":"2024-07-31",
+    "CHECK_CFG":""
+   }
+  ]
+ }
+]

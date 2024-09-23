@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-07-19",
-    "CHANGED_AT":"09:10:47",
-    "UUID":"055B4DF6A2A01EEF91B5D91421F480F3",
+    "CHANGED_ON":"2024-09-08",
+    "CHANGED_AT":"11:56:25",
+    "UUID":"CF477070255A1EEF9BBB2BE25421A19A",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer:#CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Ledger Formation Parameter Data',\r\ntypeName:'Ledger Formation Parameter Data',\r\ntitle:{type:#STANDARD,label:'Document Types',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_FORM_PAR_DAT with\r\n{\r\n\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Ledger Formation Parameter Data',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  BranchCode;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  Xhana;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}]}\r\n  rfagl;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}]}\r\n  nbseg;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}]}\r\n  rflop;\r\n  @UI:{lineItem:[{position:70}],\r\n  identification:[{position:70}]}\r\n  rskb1;\r\n  @UI:{lineItem:[{position:80}],\r\n  identification:[{position:80}]}\r\n  waers;\r\n  @UI:{lineItem:[{position:90}],\r\n  identification:[{position:90}]}\r\n  Natpb;\r\n  @UI:{lineItem:[{position:1000}],\r\n  identification:[{position:100}]}\r\n  Npost;\r\n  @UI:{lineItem:[{position:110}],\r\n  identification:[{position:110}]}\r\n  Vdtys;\r\n  @UI:{lineItem:[{position:120}],\r\n  identification:[{position:120}]}\r\n  Srli1;\r\n  @UI:{lineItem:[{position:130}],\r\n  identification:[{position:130}]}\r\n  Srli2;\r\n  @UI:{lineItem:[{position:140}],\r\n  identification:[{position:140}]}\r\n  Dcdno;\r\n  @UI:{lineItem:[{position:150}],\r\n  identification:[{position:150}]}\r\n  Dcdgn;\r\n  @UI:{lineItem:[{position:160}],\r\n  identification:[{position:160}]}\r\n  Dfvhs;\r\n  @UI:{lineItem:[{position:170}],\r\n  identification:[{position:170}]}\r\n  Gtaob;\r\n  @UI:{lineItem:[{position:180}],\r\n  identification:[{position:180}]}\r\n  Getfl;\r\n  @UI:{lineItem:[{position:190}],\r\n  identification:[{position:190}]}\r\n  Ikyls;\r\n  @UI:{lineItem:[{position:200}],\r\n  identification:[{position:200}]}\r\n  Chktb;\r\n  @UI:{lineItem:[{position:210}],\r\n  identification:[{position:210}]}\r\n  Xhtml;\r\n  @UI:{lineItem:[{position:220}],\r\n  identification:[{position:220}]}\r\n  Colac;\r\n  @UI:{lineItem:[{position:230}],\r\n  identification:[{position:230}]}\r\n  Mznno;\r\n}"
+    "SOURCE":"@Metadata.layer:#CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Ledger Creation Parameters',\r\ntypeName:'Ledger Creation Parameters',\r\ntitle:{type:#STANDARD,label:'Document Types',value:'CompanyCode'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_FORM_PAR_DAT with\r\n{\r\n\r\n  @UI.facet:[{id:'Parameters',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Ledger Creation Parameters',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  BranchCode;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  Xhana;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}]}\r\n  rfagl;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}]}\r\n  nbseg;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}]}\r\n  rflop;\r\n  @UI:{lineItem:[{position:70}],\r\n  identification:[{position:70}]}\r\n  rskb1;\r\n  @UI:{lineItem:[{position:80}],\r\n  identification:[{position:80}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CurrencyStdVH', element: 'Currency' }}]\r\n  waers;\r\n  @UI:{lineItem:[{position:90}],\r\n  identification:[{position:90}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CurrencyStdVH', element: 'Currency' }}]\r\n  Natpb;\r\n  @UI:{lineItem:[{position:1000}],\r\n  identification:[{position:100}]}\r\n  Npost;\r\n  @UI:{lineItem:[{position:110}],\r\n  identification:[{position:110}]}\r\n  Vdtys;\r\n  @UI:{lineItem:[{position:120}],\r\n  identification:[{position:120}]}\r\n  Srli1;\r\n  @UI:{lineItem:[{position:130}],\r\n  identification:[{position:130}]}\r\n  Srli2;\r\n  @UI:{lineItem:[{position:140}],\r\n  identification:[{position:140}]}\r\n  Dcdno;\r\n  @UI:{lineItem:[{position:150}],\r\n  identification:[{position:150}]}\r\n  Dcdgn;\r\n  @UI:{lineItem:[{position:160}],\r\n  identification:[{position:160}]}\r\n  Dfvhs;\r\n  @UI:{lineItem:[{position:170}],\r\n  identification:[{position:170}]}\r\n  Gtaob;\r\n  @UI:{lineItem:[{position:180}],\r\n  identification:[{position:180}]}\r\n  Getfl;\r\n  @UI:{lineItem:[{position:190}],\r\n  identification:[{position:190}]}\r\n  Ikyls;\r\n  @UI:{lineItem:[{position:200}],\r\n  identification:[{position:200}]}\r\n  Chktb;\r\n  @UI:{lineItem:[{position:210}],\r\n  identification:[{position:210}]}\r\n  Xhtml;\r\n  @UI:{lineItem:[{position:220}],\r\n  identification:[{position:220}]}\r\n  Colac;\r\n  @UI:{lineItem:[{position:230}],\r\n  identification:[{position:230}]}\r\n  Mznno;\r\n}"
    }
   ]
  },
@@ -75,14 +75,14 @@
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAME",
     "ELEMENT_TYPE":"N",
-    "VALUE":"'Ledger Formation Parameter Data'"
+    "VALUE":"'Ledger Creation Parameters'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
     "ELEMENT_TYPE":"N",
-    "VALUE":"'Ledger Formation Parameter Data'"
+    "VALUE":"'Ledger Creation Parameters'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
@@ -159,14 +159,14 @@
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.ID",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'Informations'"
+    "VALUE":"'Parameters'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'Ledger Formation Parameter Data'"
+    "VALUE":"'Ledger Creation Parameters'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
@@ -318,6 +318,20 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "ELEMENT":"NATPB",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Currency'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "ELEMENT":"NATPB",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_CurrencyStdVH'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "ELEMENT":"NATPB",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"90"
@@ -444,6 +458,20 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "ELEMENT":"WAERS",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Currency'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "ELEMENT":"WAERS",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_CurrencyStdVH'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "ELEMENT":"WAERS",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"80"
@@ -508,21 +536,49 @@
     "DDLANGUAGE":"E",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAME",
-    "TEXT":"Ledger Formation Parameter Data"
+    "TEXT":"Ledger Creation Parameters"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "DDLANGUAGE":"E",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
-    "TEXT":"Ledger Formation Parameter Data"
+    "TEXT":"Ledger Creation Parameters"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
     "DDLANGUAGE":"E",
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
-    "TEXT":"Ledger Formation Parameter Data"
+    "TEXT":"Ledger Creation Parameters"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.LABEL",
+    "TEXT":"Defter Oluşturma Parametreleri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"Defter Oluşturma Parametreleri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"Defter Oluşturma Parametreleri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_FORM_PAR_DAT",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Defter Oluşturma Parametreleri"
    }
   ]
  },
@@ -535,9 +591,10 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_LEDGER_FORM_PAR_DAT",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"055B4DF6A2A01EEF91B5D91421F480F3",
-    "RT_HASH":"2A900D7679DC22092FE97C0039E2FF0B7C38A540",
-    "GEN_VERSION":"0"
+    "DT_UUID":"CF477070255A1EEF9BBB2BE25421A19A",
+    "RT_HASH":"12F6AA40E9C7DAE841AB34BED6500987F6C867C1",
+    "GEN_VERSION":"0",
+    "TYPE":"0"
    }
   ]
  },

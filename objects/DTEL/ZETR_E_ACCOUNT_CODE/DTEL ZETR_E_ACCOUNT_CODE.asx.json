@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_ACCOUNT_CODE",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR4",
+    "DOMNAME":"ZETR_D_ACCOUNT_CODE",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"Acc. Code",
     "SCRTEXT_M":"Account Code",
     "SCRTEXT_L":"Account Code"
+   },
+   {
+    "ROLLNAME":"ZETR_E_ACCOUNT_CODE",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Hesap Kodu",
+    "REPTEXT":"Hesap Kodu",
+    "SCRTEXT_S":"Hesap Kodu",
+    "SCRTEXT_M":"Hesap Kodu",
+    "SCRTEXT_L":"Hesap Kodu"
    }
   ]
  },

@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_BCODE",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR4",
+    "DOMNAME":"",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -36,7 +36,7 @@
     "CONVEXIT":"",
     "VALEXI":"",
     "ENTITYTAB":"",
-    "REFKIND":"D",
+    "REFKIND":"",
     "REFTYPE":"",
     "PROXYTYPE":"",
     "LTRFLDDIS":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"Branch",
     "SCRTEXT_M":"Branch",
     "SCRTEXT_L":"Branch"
+   },
+   {
+    "ROLLNAME":"ZETR_E_BCODE",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Şube",
+    "REPTEXT":"Şube",
+    "SCRTEXT_S":"Şube",
+    "SCRTEXT_M":"Şube",
+    "SCRTEXT_L":"Şube"
    }
   ]
  },

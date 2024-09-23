@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@EndUserText.label: 'Doc that will be reflected in the ledger'\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine root view entity ZETR_DDL_P_LEDGER_REFL_DOC\r\n  provider contract transactional_query\r\n  as projection on ZETR_DDL_I_LEDGER_REFL_DOC\r\n{\r\n  key CompanyCode,\r\n  key DocStatu\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_DDL_I_LEDGER_REFL_DOC\"\n],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@EndUserText.label: 'Doc that will be reflected in the ledger'\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine root view entity ZETR_DDL_P_LEDGER_REFL_DOC\r\n  provider contract transactional_query\r\n  as projection on ZETR_DDL_I_LEDGER_REFL_DOC\r\n{\r\n  key CompanyCode,\r\n      @ObjectModel.text.element: ['DocStatuText']\r\n  key DocStatu,\r\n      DocStatuText\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_DDL_I_LEDGER_REFL_DOC\"\n],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"4",
     "SOURCE_TYPE":"P",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -48,6 +48,20 @@
   "table":"DDFIELDANNO",
   "data":
   [
+   {
+    "STRUCOBJN":"ZETR_DDL_P_LEDGER_REFL_DOC",
+    "LFIELDNAME":"DOCSTATU",
+    "NAME":"OBJECTMODEL",
+    "POSITION":3,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZETR_DDL_P_LEDGER_REFL_DOC",
+    "LFIELDNAME":"DOCSTATU",
+    "NAME":"OBJECTMODEL.TEXT.ELEMENT$1$",
+    "POSITION":4,
+    "VALUE":"'DocStatuText'"
+   },
    {
     "STRUCOBJN":"ZETR_DDL_P_LEDGER_REFL_DOC",
     "LFIELDNAME":"MANDT",

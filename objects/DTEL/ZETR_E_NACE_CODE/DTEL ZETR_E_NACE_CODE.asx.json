@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_NACE_CODE",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR64",
+    "DOMNAME":"",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -36,7 +36,7 @@
     "CONVEXIT":"",
     "VALEXI":"",
     "ENTITYTAB":"",
-    "REFKIND":"D",
+    "REFKIND":"",
     "REFTYPE":"",
     "PROXYTYPE":"",
     "LTRFLDDIS":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"Nace Code",
     "SCRTEXT_M":"Nace Code",
     "SCRTEXT_L":"Nace Code"
+   },
+   {
+    "ROLLNAME":"ZETR_E_NACE_CODE",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Nace Kodu",
+    "REPTEXT":"Nace Kodu",
+    "SCRTEXT_S":"Nace Kodu",
+    "SCRTEXT_M":"Nace Kodu",
+    "SCRTEXT_L":"Nace Kodu"
    }
   ]
  },

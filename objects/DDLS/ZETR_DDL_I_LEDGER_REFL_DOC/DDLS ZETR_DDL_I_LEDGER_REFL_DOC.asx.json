@@ -9,7 +9,7 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'Doc that will be reflected in the ledger'\r\ndefine root view entity ZETR_DDL_I_LEDGER_REFL_DOC\r\n  as select from zetr_t_bldbk\r\n{\r\n  key bukrs as CompanyCode,\r\n  key bstat as DocStatu\r\n \r\n}\r\n\r\n\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZETR_T_BLDBK\"\n],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'Doc that will be reflected in the ledger'\r\ndefine root view entity ZETR_DDL_I_LEDGER_REFL_DOC\r\n  as select from    zetr_t_bldbk                                                   as Main\r\n    left outer join DDCDS_CUSTOMER_DOMAIN_VALUE_T( p_domain_name: 'ZETR_D_BSTAT' ) as DocumentStatus on  DocumentStatus.language  = $session.system_language\r\n                                                                                                     and DocumentStatus.value_low = Main.bstat\r\n\r\n{\r\n  key Main.bukrs          as CompanyCode,\r\n  key Main.bstat          as DocStatu,\r\n      DocumentStatus.text as DocStatuText\r\n\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"DDCDS_CUSTOMER_DOMAIN_VALUE_T\",\n\"ZETR_T_BLDBK\"\n],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
     "CHGFLAG":"",

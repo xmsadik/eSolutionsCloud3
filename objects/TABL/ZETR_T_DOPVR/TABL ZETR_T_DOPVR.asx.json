@@ -100,7 +100,7 @@
     "DATATYPE":"CHAR",
     "LENG":4,
     "DECIMALS":0,
-    "DOMNAME":"CHAR4",
+    "DOMNAME":"",
     "SHLPORIGIN":"",
     "TABLETYPE":"",
     "DEPTH":0,

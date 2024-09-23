@@ -139,6 +139,17 @@
     "PRIM_TABLE":"",
     "VIEWGRANT":"",
     "TAB_FILLED":""
+   },
+   {
+    "OBJECTNAME":"SRVD",
+    "OBJECTTYPE":"L",
+    "TABNAME":"SRVD_RT_METHODS",
+    "COVER":"",
+    "CANDIDATE":"",
+    "DDIC":"X",
+    "PRIM_TABLE":"",
+    "VIEWGRANT":"",
+    "TAB_FILLED":""
    }
   ]
  },
@@ -239,6 +250,18 @@
     "TOBJ_NAME":"SRVD_RT_CONTRACT",
     "TOBJKEY":"/&/*",
     "MASKNLEN":16,
+    "MASKKLEN":2,
+    "PRIM_TABLE":""
+   },
+   {
+    "OBJECTNAME":"SRVD",
+    "OBJECTTYPE":"L",
+    "TRWCOUNT":9,
+    "TPGMID":"R3TR",
+    "TOBJECT":"TABU",
+    "TOBJ_NAME":"SRVD_RT_METHODS",
+    "TOBJKEY":"/&/*",
+    "MASKNLEN":15,
     "MASKKLEN":2,
     "PRIM_TABLE":""
    }

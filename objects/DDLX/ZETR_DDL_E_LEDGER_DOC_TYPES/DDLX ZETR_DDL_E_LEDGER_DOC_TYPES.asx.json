@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-07-16",
-    "CHANGED_AT":"12:15:19",
-    "UUID":"055B4DF6A2A01EEF90EDA2126D13A0EF",
+    "CHANGED_ON":"2024-09-08",
+    "CHANGED_AT":"10:57:00",
+    "UUID":"CF477070255A1EEF9BBA22456750A19A",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer:#CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'e-Legder Company Information',\r\ntypeName:'e-Legder Company Information',\r\ntitle:{type:#STANDARD,label:'Document Types',value:'DocType'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_DOC_TYPES with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'e-Legder SMMM / YMM Informations',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  DocType;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  @Search.defaultSearchElement:true\r\n  DocTypeDesc;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  GibDocType;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}]}\r\n  paymentTerm;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}]}\r\n  GibDocTypeDesc;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}]}\r\n  OpeningClosing;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer:#CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'Legder Document Types',\r\ntypeName:'Legder Document Type',\r\ntitle:{type:#STANDARD,label:'Legder Document Types',value:'DocType'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_DOC_TYPES with\r\n{\r\n  @UI.facet:[{id:'DocumentTypes',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'Legder Document Types',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_AccountingDocumentType', element: 'AccountingDocumentType' }}]\r\n  DocType;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  @Search.defaultSearchElement:true\r\n  DocTypeDesc;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_ledger_tra_docty', element: 'TRADocumentType' }}]\r\n  GibDocType;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_ledger_paym_term', element: 'PaymentTerm' }}]\r\n  paymentTerm;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}]}\r\n  GibDocTypeDesc;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_ledger_open_close', element: 'OpenClose' }}]\r\n  OpeningClosing;\r\n\r\n}"
    }
   ]
  },
@@ -54,7 +54,7 @@
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TITLE.LABEL",
     "ELEMENT_TYPE":"N",
-    "VALUE":"'Document Types'"
+    "VALUE":"'Legder Document Types'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
@@ -75,14 +75,28 @@
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAME",
     "ELEMENT_TYPE":"N",
-    "VALUE":"'e-Legder Company Information'"
+    "VALUE":"'Legder Document Type'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
     "ELEMENT_TYPE":"N",
-    "VALUE":"'e-Legder Company Information'"
+    "VALUE":"'Legder Document Types'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"DOCTYPE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'AccountingDocumentType'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"DOCTYPE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_AccountingDocumentType'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
@@ -96,14 +110,14 @@
     "ELEMENT":"DOCTYPE",
     "NAME":"UI.FACET$1$.ID",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'Informations'"
+    "VALUE":"'DocumentTypes'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "ELEMENT":"DOCTYPE",
     "NAME":"UI.FACET$1$.LABEL",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'e-Legder SMMM / YMM Informations'"
+    "VALUE":"'Legder Document Types'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
@@ -185,6 +199,20 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "ELEMENT":"GIBDOCTYPE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'TRADocumentType'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"GIBDOCTYPE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'zetr_ddl_vh_ledger_tra_docty'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"GIBDOCTYPE",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"30"
@@ -220,6 +248,20 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "ELEMENT":"OPENINGCLOSING",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'OpenClose'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"OPENINGCLOSING",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'zetr_ddl_vh_ledger_open_close'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"OPENINGCLOSING",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"60"
@@ -230,6 +272,20 @@
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"60"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"PAYMENTTERM",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'PaymentTerm'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "ELEMENT":"PAYMENTTERM",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'zetr_ddl_vh_ledger_paym_term'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
@@ -256,28 +312,56 @@
     "DDLANGUAGE":"E",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TITLE.LABEL",
-    "TEXT":"Document Types"
+    "TEXT":"Legder Document Types"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "DDLANGUAGE":"E",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAME",
-    "TEXT":"e-Legder Company Information"
+    "TEXT":"Legder Document Type"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "DDLANGUAGE":"E",
     "ELEMENT":"",
     "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
-    "TEXT":"e-Legder Company Information"
+    "TEXT":"Legder Document Types"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
     "DDLANGUAGE":"E",
     "ELEMENT":"DOCTYPE",
     "NAME":"UI.FACET$1$.LABEL",
-    "TEXT":"e-Legder SMMM / YMM Informations"
+    "TEXT":"Legder Document Types"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.LABEL",
+    "TEXT":"Belge Türleri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"Belge Türleri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"Belge Türleri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_DOC_TYPES",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"DOCTYPE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Belge Türleri"
    }
   ]
  },
@@ -290,9 +374,10 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_LEDGER_DOC_TYPES",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"055B4DF6A2A01EEF90EDA2126D13A0EF",
-    "RT_HASH":"9C1D536978FC2899E977CC2A78DD3B320C6DA899",
-    "GEN_VERSION":"0"
+    "DT_UUID":"CF477070255A1EEF9BBA22456750A19A",
+    "RT_HASH":"F1F797FA3AB598263B254DD02CEFCF3A83CBE807",
+    "GEN_VERSION":"0",
+    "TYPE":"0"
    }
   ]
  },

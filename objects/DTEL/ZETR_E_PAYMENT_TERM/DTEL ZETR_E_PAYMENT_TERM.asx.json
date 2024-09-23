@@ -7,7 +7,7 @@
     "ROLLNAME":"ZETR_E_PAYMENT_TERM",
     "AS4LOCAL":"L",
     "AS4VERS":0,
-    "DOMNAME":"CHAR20",
+    "DOMNAME":"ZETR_D_PAYMENT_TERM",
     "ROUTPUTLEN":0,
     "MEMORYID":"",
     "LOGFLAG":"",
@@ -35,7 +35,7 @@
     "SIGNFLAG":"",
     "CONVEXIT":"",
     "VALEXI":"",
-    "ENTITYTAB":"",
+    "ENTITYTAB":"ZETR_T_ODMTT",
     "REFKIND":"D",
     "REFTYPE":"",
     "PROXYTYPE":"",
@@ -60,6 +60,17 @@
     "SCRTEXT_S":"Paym. Term",
     "SCRTEXT_M":"Payment Terms",
     "SCRTEXT_L":"Payment Terms"
+   },
+   {
+    "ROLLNAME":"ZETR_E_PAYMENT_TERM",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "DDTEXT":"Ödeme türü",
+    "REPTEXT":"Ödeme türü",
+    "SCRTEXT_S":"Ödeme türü",
+    "SCRTEXT_M":"Ödeme türü",
+    "SCRTEXT_L":"Ödeme türü"
    }
   ]
  },

@@ -7,9 +7,9 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-07-18",
-    "CHANGED_AT":"19:53:09",
-    "UUID":"055B4DF6A2A01EEF91A7EB5B74B1A0F3",
+    "CHANGED_ON":"2024-09-06",
+    "CHANGED_AT":"16:45:01",
+    "UUID":"CF477070255A1EEF9B8DEB6F0DA8C194",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer : #CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'e-Legder Company Information',\r\ntypeName:'e-Legder Company Information',\r\ntitle:{type:#STANDARD,label:'e-Legder Company Information',value:'CompanyName1'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_COMPANY_INFO with\r\n{\r\n  @UI.facet:[{id:'Informations',\r\n  purpose:#STANDARD,\r\n  type:#IDENTIFICATION_REFERENCE,\r\n  label:'e-Legder Company Information',\r\n  position:10}]\r\n\r\n  @UI:{lineItem:[{position:10,importance:#HIGH}],\r\n  identification:[{position:10}],\r\n  selectionField:[{position:10}]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{lineItem:[{position:20}],\r\n  identification:[{position:20}],\r\n  selectionField:[{position:20}]}\r\n  CompanyName1;\r\n  @UI:{lineItem:[{position:30}],\r\n  identification:[{position:30}],\r\n  selectionField:[{position:30}]}\r\n  CompanyName2;\r\n  @UI:{lineItem:[{position:40}],\r\n  identification:[{position:40}]}\r\n  NaceCode;\r\n  @UI:{lineItem:[{position:50}],\r\n  identification:[{position:50}]}\r\n  TaxID;\r\n  @UI:{lineItem:[{position:60}],\r\n  identification:[{position:60}]}\r\n  TaxOffice;\r\n  @UI:{lineItem:[{position:70}],\r\n  identification:[{position:70}]}\r\n  Adress1;\r\n  @UI:{lineItem:[{position:80}],\r\n  identification:[{position:80}]}\r\n  Adress2;\r\n  @UI:{lineItem:[{position:90}],\r\n  identification:[{position:90}]}\r\n  HouseNum;\r\n  @UI:{lineItem:[{position:1000}],\r\n  identification:[{position:100}]}\r\n  PostalCode;\r\n  @UI:{lineItem:[{position:110}],\r\n  identification:[{position:110}]}\r\n  City;\r\n  @UI:{lineItem:[{position:120}],\r\n  identification:[{position:120}]}\r\n  CountryU;\r\n  @UI:{lineItem:[{position:130}],\r\n  identification:[{position:130}]}\r\n  TelNumber;\r\n  @UI:{lineItem:[{position:140}],\r\n  identification:[{position:140}]}\r\n  FaxNumber;\r\n  @UI:{lineItem:[{position:150}],\r\n  identification:[{position:150}]}\r\n  Email;\r\n  @UI:{lineItem:[{position:160}],\r\n  identification:[{position:160}]}\r\n  Web;\r\n  @UI:{lineItem:[{position:170}],\r\n  identification:[{position:170}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_legal', element: 'Legal' }}]\r\n  Legal;\r\n  @UI:{lineItem:[{position:180}],\r\n  identification:[{position:180}]}\r\n  Creator;\r\n  @UI:{lineItem:[{position:190}],\r\n  identification:[{position:190}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_branch_type', element: 'BranchType' }}]\r\n  BranchType;\r\n  @UI:{lineItem:[{position:200}],\r\n  identification:[{position:200}]}\r\n  Days45;\r\n  @UI:{lineItem:[{position:210}],\r\n  identification:[{position:210}]}\r\n  Ledger;\r\n  @UI:{lineItem:[{position:220}],\r\n  identification:[{position:220}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_AccountingDocumentType', element: 'AccountingDocumentType' }}]\r\n  OpenningDocType;\r\n  @UI:{lineItem:[{position:230}],\r\n  identification:[{position:230}]}\r\n  ClosingDocType;\r\n  @UI:{lineItem:[{position:240}],\r\n  identification:[{position:240}]}\r\n  LedgerStartDate;\r\n  @UI:{lineItem:[{position:250}],\r\n  identification:[{position:250}]}\r\n  LedgerEndDate;\r\n  @UI:{lineItem:[{position:260}],\r\n  identification:[{position:260}]}\r\n  LiquidationDate;\r\n  @UI:{lineItem:[{position:270}],\r\n  identification:[{position:270}]}\r\n  MaxItem;\r\n  @UI:{lineItem:[{position:280}],\r\n  identification:[{position:280}]}\r\n  MaxCursor;\r\n  @UI:{lineItem:[{position:290}],\r\n  identification:[{position:290}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_integrator', element: 'Integrator' }}]\r\n  Entegrator;\r\n  @UI:{lineItem:[{position:300}],\r\n  identification:[{position:300}]}\r\n  ApiAdress;\r\n  @UI:{lineItem:[{position:310}],\r\n  identification:[{position:310}]}\r\n  ApiUser;\r\n  @UI:{lineItem:[{position:320}],\r\n  identification:[{position:320}]}\r\n  ApiPass;\r\n  @UI:{lineItem:[{position:330}],\r\n  identification:[{position:330}]}\r\n  ApiDestination;\r\n  @UI:{lineItem:[{position:340}],\r\n  identification:[{position:340}]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_chart_of_accounts', element: 'ChartOfAcc' }}]\r\n  ChartOfAcc;\r\n  @UI:{lineItem:[{position:350}],\r\n  identification:[{position:350}]}\r\n  SendDataToOtherSystem;\r\n  @UI:{lineItem:[{position:360}],\r\n  identification:[{position:360}]}\r\n  GetDatafromOtherSystem;\r\n  @UI:{lineItem:[{position:370}],\r\n  identification:[{position:370}]}\r\n  Sm59Dest;\r\n  @UI:{lineItem:[{position:380}],\r\n  identification:[{position:380}]}\r\n  NoPart;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer : #CORE\r\n@Search.searchable:true\r\n@UI:{\r\nheaderInfo:{\r\ntypeNamePlural:'e-Legder Company Information',\r\ntypeName:'e-Legder Company Information',\r\ntitle:{type:#STANDARD,label:'e-Legder Company Information',value:'CompanyName1'}\r\n}\r\n}\r\nannotate view ZETR_DDL_P_LEDGER_COMPANY_INFO with\r\n{\r\n  @UI.facet: [ { id:              'Comapny',\r\n                 purpose:         #STANDARD,\r\n                 type:            #COLLECTION,\r\n                 label:           'Company Information',\r\n                 position:        10 },\r\n               { id:              'Fieldgroup1-ID',\r\n                 type:            #FIELDGROUP_REFERENCE,\r\n                 label:           'Main Data',\r\n                 parentId:        'Comapny',\r\n                 targetQualifier: 'Fieldgroup1',\r\n                 position:         10 },\r\n               { id:              'Fieldgroup2-ID',\r\n                 type:            #FIELDGROUP_REFERENCE,\r\n                 label:           'Address Data',\r\n                 parentId:        'Comapny',\r\n                 targetQualifier: 'Fieldgroup2',\r\n                 position:         20 },\r\n               { id:              'Fieldgroup3-ID',\r\n                 type:            #FIELDGROUP_REFERENCE,\r\n                 label:           'Communication Data',\r\n                 parentId:        'Comapny',\r\n                 targetQualifier: 'Fieldgroup3',\r\n                 position:         30 } ]\r\n\r\n  @UI:{ lineItem:[{ position:10, importance:#HIGH }],\r\n        identification:[{ position:10 }],\r\n        selectionField:[{ position:10 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 10 }]}\r\n  @Search.defaultSearchElement:true\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeVH', element: 'CompanyCode' }}]\r\n  CompanyCode;\r\n  @UI:{ lineItem:[{ position:20 }],\r\n        identification:[{ position:20 }],\r\n        selectionField:[{ position:20 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 20 }]}\r\n  CompanyName1;\r\n  @UI:{ identification:[{ position:30 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 30 }]}\r\n  CompanyName2;\r\n  @UI:{ identification:[{ position:40 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 40 }]}\r\n  NaceCode;\r\n  @UI:{ lineItem:[{ position:50 }],\r\n        identification:[{ position:50 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 50 }]}\r\n  TaxID;\r\n  @UI:{ lineItem:[{ position:60 }],\r\n        identification:[{ position:60 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 60 }]}\r\n  TaxOffice;\r\n  @UI:{ identification:[{ position:70 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup2',  position: 70 }]}\r\n  Adress1;\r\n  @UI:{ identification:[{ position:80 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup2',  position: 80 }]}\r\n  Adress2;\r\n  @UI:{ identification:[{ position:90 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup2',  position: 90 }]}\r\n  HouseNum;\r\n  @UI:{ identification:[{ position:100 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup2',  position: 100 }]}\r\n  PostalCode;\r\n  @UI:{ identification:[{ position:110 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup2',  position: 110 }]}\r\n  City;\r\n  @UI:{ identification:[{ position:120 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup2',  position: 120 }]}\r\n  CountryU;\r\n  @UI:{ identification:[{ position:130 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup3',  position: 130 }]}\r\n  TelNumber;\r\n  @UI:{ identification:[{ position:140 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup3',  position: 140 }]}\r\n  FaxNumber;\r\n  @UI:{ identification:[{ position:150 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup3',  position: 150 }]}\r\n  Email;\r\n  @UI:{ identification:[{ position:160 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup3',  position: 160 }]}\r\n  Web;\r\n  @UI:{ identification:[{ position:170 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 170 }]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_legal', element: 'Legal' }}]\r\n  Legal;\r\n  @UI:{ identification:[{ position:180 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 180 }]}\r\n  Creator;\r\n//  @UI:{ identification:[{ position:190 }],\r\n//        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 190 }]}\r\n//  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_branch_type', element: 'BranchType' }}]\r\n  @UI.hidden: true\r\n  BranchType;\r\n  @UI:{ identification:[{ position:210 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 210 }]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_Ledger', element: 'Ledger' }}]      \r\n  Ledger;\r\n  @UI:{ identification:[{ position:215 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 215 }]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ChartOfAccountsStdVH', element: 'ChartOfAccounts' }}]\r\n  ChartOfAcc;  \r\n  @UI:{ identification:[{ position:220 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 220 }]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_AccountingDocumentType', element: 'AccountingDocumentType' }}]\r\n  OpenningDocType;\r\n  @UI:{ identification:[{ position:230 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 230 }]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_AccountingDocumentType', element: 'AccountingDocumentType' }}]\r\n  ClosingDocType;\r\n  @UI:{ identification:[{ position:240 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 240 }]}\r\n  LedgerStartDate;\r\n  @UI:{ identification:[{ position:250 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 250 }]}\r\n  LedgerEndDate;\r\n  @UI:{ identification:[{ position:260 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 260 }]}\r\n  LiquidationDate;\r\n  @UI:{ identification:[{ position:270 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 270 }]}\r\n  MaxItem;\r\n  @UI:{ identification:[{ position:280 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 280 }]}\r\n  MaxCursor;\r\n  @UI:{ identification:[{ position:290 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 290 }]}\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'zetr_ddl_vh_integrator', element: 'Integrator' }}]\r\n  Entegrator;\r\n  @UI:{ identification:[{ position:300 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 300 }]}\r\n  ApiAdress;\r\n  @UI:{ identification:[{ position:310 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 310 }]}\r\n  ApiUser;\r\n  @UI:{ identification:[{ position:320 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 320 }]}\r\n  ApiPass;\r\n  @UI:{ identification:[{ position:330 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 330 }]}\r\n  ApiDestination;\r\n  @UI:{ identification:[{ position:350 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 350 }]}\r\n  SendDataToOtherSystem;\r\n  @UI:{ identification:[{ position:360 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 360 }]}\r\n  GetDatafromOtherSystem;\r\n//  @UI:{ identification:[{ position:370 }],\r\n//        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 370 }]}\r\n  @UI.hidden: true\r\n  Sm59Dest;\r\n  @UI:{ identification:[{ position:380 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 380 }]}\r\n  NoPart;\r\n  @UI:{ identification:[{ position:390 }],\r\n        fieldGroup:[{ qualifier: 'Fieldgroup1',  position: 390 }]}\r\n  Days45;  \r\n\r\n}"
    }
   ]
  },
@@ -87,168 +87,224 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"ADRESS1",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"70"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"ADRESS1",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"ADRESS1",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"70"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"ADRESS2",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"80"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"ADRESS2",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"ADRESS2",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"80"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIADRESS",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"300"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIADRESS",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"APIADRESS",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"300"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIDESTINATION",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"330"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIDESTINATION",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"APIDESTINATION",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"330"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIPASS",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"320"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIPASS",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"APIPASS",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"320"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIUSER",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"310"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"APIUSER",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"APIUSER",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"310"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"BRANCHTYPE",
-    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "NAME":"UI.HIDDEN",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'BranchType'"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"BRANCHTYPE",
-    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"'zetr_ddl_vh_branch_type'"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"BRANCHTYPE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"190"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"BRANCHTYPE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"190"
+    "VALUE":"true"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CHARTOFACC",
     "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'ChartOfAcc'"
+    "VALUE":"'ChartOfAccounts'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CHARTOFACC",
     "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'zetr_ddl_vh_chart_of_accounts'"
+    "VALUE":"'I_ChartOfAccountsStdVH'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CHARTOFACC",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"215"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CHARTOFACC",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CHARTOFACC",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"340"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"CHARTOFACC",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"340"
+    "VALUE":"215"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CITY",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"110"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CITY",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CITY",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"110"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CLOSINGDOCTYPE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'AccountingDocumentType'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CLOSINGDOCTYPE",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_AccountingDocumentType'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CLOSINGDOCTYPE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"230"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"CLOSINGDOCTYPE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CLOSINGDOCTYPE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"230"
    },
@@ -278,14 +334,14 @@
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.ID",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'Informations'"
+    "VALUE":"'Comapny'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'e-Legder Company Information'"
+    "VALUE":"'Company Information'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -306,7 +362,147 @@
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.TYPE",
     "ELEMENT_TYPE":"S",
-    "VALUE":"#IDENTIFICATION_REFERENCE"
+    "VALUE":"#COLLECTION"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.ID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1-ID'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Main Data'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.PARENTID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Comapny'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"10"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.TARGETQUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.TYPE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#FIELDGROUP_REFERENCE"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.ID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2-ID'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Address Data'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.PARENTID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Comapny'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"20"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.TARGETQUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.TYPE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#FIELDGROUP_REFERENCE"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.ID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3-ID'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Communication Data'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.PARENTID",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Comapny'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"30"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.TARGETQUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.TYPE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#FIELDGROUP_REFERENCE"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"10"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -339,6 +535,20 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"COMPANYNAME1",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"20"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYNAME1",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYNAME1",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"20"
@@ -360,23 +570,37 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"COMPANYNAME2",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"30"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYNAME2",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"COMPANYNAME2",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"30"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"COMPANYNAME2",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"COUNTRYU",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"30"
+    "VALUE":"120"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"COMPANYNAME2",
-    "NAME":"UI.SELECTIONFIELD$1$.POSITION",
+    "ELEMENT":"COUNTRYU",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
     "ELEMENT_TYPE":"S",
-    "VALUE":"30"
+    "VALUE":"'Fieldgroup2'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -387,10 +611,17 @@
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"COUNTRYU",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"CREATOR",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"120"
+    "VALUE":"180"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"CREATOR",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -401,36 +632,43 @@
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"CREATOR",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"DAYS45",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"180"
+    "VALUE":"390"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"DAYS45",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"DAYS45",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"200"
-   },
-   {
-    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"DAYS45",
-    "NAME":"UI.LINEITEM$1$.POSITION",
-    "ELEMENT_TYPE":"S",
-    "VALUE":"200"
+    "VALUE":"390"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"EMAIL",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"150"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"EMAIL",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"EMAIL",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"150"
    },
@@ -451,98 +689,161 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"ENTEGRATOR",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"290"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"ENTEGRATOR",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"ENTEGRATOR",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"290"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"FAXNUMBER",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"140"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"FAXNUMBER",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"FAXNUMBER",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"140"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"GETDATAFROMOTHERSYSTEM",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"360"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"GETDATAFROMOTHERSYSTEM",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"GETDATAFROMOTHERSYSTEM",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"360"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"HOUSENUM",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"90"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"HOUSENUM",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"HOUSENUM",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"90"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEDGER",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Ledger'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LEDGER",
+    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'I_Ledger'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LEDGER",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"210"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEDGER",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LEDGER",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"210"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEDGERENDDATE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"250"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEDGERENDDATE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LEDGERENDDATE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"250"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEDGERSTARTDATE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"240"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEDGERSTARTDATE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LEDGERSTARTDATE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"240"
    },
@@ -563,84 +864,126 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEGAL",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"170"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LEGAL",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LEGAL",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"170"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LIQUIDATIONDATE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"260"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"LIQUIDATIONDATE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"LIQUIDATIONDATE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"260"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"MAXCURSOR",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"280"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"MAXCURSOR",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"MAXCURSOR",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"280"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"MAXITEM",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"270"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"MAXITEM",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"MAXITEM",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"270"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"NACECODE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"40"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"NACECODE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"NACECODE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"40"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"NOPART",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"380"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"NOPART",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"NOPART",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"380"
    },
@@ -661,16 +1004,37 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"OPENNINGDOCTYPE",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"220"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"OPENNINGDOCTYPE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"OPENNINGDOCTYPE",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"220"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"POSTALCODE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"100"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"POSTALCODE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup2'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -681,10 +1045,17 @@
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"POSTALCODE",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"SENDDATATOOTHERSYSTEM",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"1000"
+    "VALUE":"350"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"SENDDATATOOTHERSYSTEM",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -695,24 +1066,24 @@
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"SENDDATATOOTHERSYSTEM",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"SM59DEST",
+    "NAME":"UI.HIDDEN",
     "ELEMENT_TYPE":"S",
-    "VALUE":"350"
+    "VALUE":"true"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"SM59DEST",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT":"TAXID",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"370"
+    "VALUE":"50"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
-    "ELEMENT":"SM59DEST",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT":"TAXID",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
     "ELEMENT_TYPE":"S",
-    "VALUE":"370"
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -727,6 +1098,20 @@
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"50"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"TAXOFFICE",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"60"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"TAXOFFICE",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup1'"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
@@ -745,28 +1130,42 @@
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"TELNUMBER",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"130"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"TELNUMBER",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"TELNUMBER",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"130"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"WEB",
-    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"160"
    },
    {
     "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
     "ELEMENT":"WEB",
-    "NAME":"UI.LINEITEM$1$.POSITION",
+    "NAME":"UI.FIELDGROUP$1$.QUALIFIER",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fieldgroup3'"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "ELEMENT":"WEB",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"160"
    }
@@ -802,7 +1201,77 @@
     "DDLANGUAGE":"E",
     "ELEMENT":"COMPANYCODE",
     "NAME":"UI.FACET$1$.LABEL",
-    "TEXT":"e-Legder Company Information"
+    "TEXT":"Company Information"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.LABEL",
+    "TEXT":"Main Data"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.LABEL",
+    "TEXT":"Address Data"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.LABEL",
+    "TEXT":"Communication Data"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.LABEL",
+    "TEXT":"e-Defter Şirket Bilgileri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"e-Defter Şirket Bilgileri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"e-Defter Şirket Bilgileri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"Şirket Bilgileri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$2$.LABEL",
+    "TEXT":"Ana Veri"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$3$.LABEL",
+    "TEXT":"Adres Verisi"
+   },
+   {
+    "DDLXNAME":"ZETR_DDL_E_LEDGER_COMPANY_INFO",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$4$.LABEL",
+    "TEXT":"İletişim Verisi"
    }
   ]
  },
@@ -815,9 +1284,10 @@
     "EXTENDED_ARTIFACT":"ZETR_DDL_P_LEDGER_COMPANY_INFO",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"055B4DF6A2A01EEF91A7EB5B74B1A0F3",
-    "RT_HASH":"6C616496855F7152FD4F96100F08E84CBB1ABE90",
-    "GEN_VERSION":"0"
+    "DT_UUID":"CF477070255A1EEF9B8DEB6F0DA8C194",
+    "RT_HASH":"59DFD1B71E373B06D09CC814813E972B03DC4564",
+    "GEN_VERSION":"0",
+    "TYPE":"0"
    }
   ]
  },

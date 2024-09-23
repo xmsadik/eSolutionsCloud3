@@ -1,0 +1,1 @@
+CLASS zbp_etr_ddl_i_ledger_incor_doc DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zetr_ddl_i_ledger_incor_docty.

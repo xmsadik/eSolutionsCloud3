@@ -114,6 +114,13 @@
     "TYPE":"P",
     "LENGTH":8,
     "DECIMALS":0
+   },
+   {
+    "NAME":"FORBID_DEACTIVATE_APPS",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
    }
   ],
   "properties":

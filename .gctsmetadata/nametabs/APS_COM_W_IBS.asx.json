@@ -184,6 +184,13 @@
     "TYPE":"P",
     "LENGTH":8,
     "DECIMALS":0
+   },
+   {
+    "NAME":"INA1_SERVICE_ID",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":40,
+    "DECIMALS":-1
    }
   ],
   "properties":

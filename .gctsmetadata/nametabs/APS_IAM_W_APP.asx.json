@@ -114,6 +114,27 @@
     "TYPE":"P",
     "LENGTH":8,
     "DECIMALS":0
+   },
+   {
+    "NAME":"EXCLUDE_START_AUTH",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
+   },
+   {
+    "NAME":"FORBID_USE_WITH_SUCCESSOR",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
+   },
+   {
+    "NAME":"NO_DIRECT_ASSIGNMENT",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":1,
+    "DECIMALS":-1
    }
   ],
   "properties":

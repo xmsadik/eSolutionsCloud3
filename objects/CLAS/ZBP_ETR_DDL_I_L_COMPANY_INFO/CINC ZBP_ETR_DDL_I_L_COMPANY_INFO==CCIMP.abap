@@ -1,5 +1,4 @@
-CLASS lhc_zetr_ddl_i_ledger_company_ DEFINITION INHERITING FROM cl_abap_behavior_handler.
-
+CLASS lhc_ZETR_DDL_I_LEDGER_COMPANY_ DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
@@ -7,13 +6,9 @@ CLASS lhc_zetr_ddl_i_ledger_company_ DEFINITION INHERITING FROM cl_abap_behavior
 
 ENDCLASS.
 
-CLASS lhc_zetr_ddl_i_ledger_company_ IMPLEMENTATION.
+CLASS lhc_ZETR_DDL_I_LEDGER_COMPANY_ IMPLEMENTATION.
 
   METHOD get_instance_authorizations.
   ENDMETHOD.
 
 ENDCLASS.
-
-*"* use this source file for the definition and implementation of
-*"* local helper classes, interface definitions and type
-*"* declarations
